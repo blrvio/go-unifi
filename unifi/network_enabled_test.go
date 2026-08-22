@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/filipowm/go-unifi/unifi"
+	"github.com/blrvio/go-unifi/unifi"
 )
 
 // Regression: an absent `enabled` key must unmarshal to true (the controller omits
