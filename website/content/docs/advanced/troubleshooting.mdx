@@ -85,7 +85,7 @@ These are applied automatically on the affected fields, so you normally never se
 like `json: cannot unmarshal string into Go struct field … of type int`, it usually means the controller sent a
 shape a field doesn't yet tolerate — a sign the generated types have drifted from your firmware. Capture the raw
 response (a body-logging `HttpRoundTripperProvider`, see [Interceptors](/docs/advanced/interceptors)) and
-[open an issue](https://github.com/filipowm/go-unifi/issues) with the payload.
+[open an issue](https://github.com/blrvio/go-unifi/issues) with the payload.
 
 <Callout type="warn">
 Don't read `resp.Body` inside an `InterceptResponse` — the body is decoded *after* interceptors run, and draining

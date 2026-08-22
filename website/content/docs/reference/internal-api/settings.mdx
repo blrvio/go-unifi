@@ -27,7 +27,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 )
 
 func main() {
@@ -65,7 +65,7 @@ GetSetting(ctx, site, key)            (*Setting, any, error)
 SetSetting(ctx, site, key, reqBody any) (any, error)
 ```
 
-`GetSetting` returns the bare [`Setting`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Setting)
+`GetSetting` returns the bare [`Setting`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Setting)
 envelope (`ID`, `SiteID`, `Key`) plus the decoded fields as an `any` — which is a `*Setting<X>` pointer
 you type-assert. Pass the matching `Setting<X>Key` constant:
 
@@ -77,7 +77,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 )
 
 func main() {
@@ -109,7 +109,7 @@ response yields [`ErrNotFound`](/docs/reference/errors).
 
 Every kind below has a `Setting<X>` struct, a `Setting<X>Key` constant, and a typed
 `GetSetting<X>` / `UpdateSetting<X>` pair. Field-level detail lives on
-[pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi).
+[pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi).
 
 | `X` (type / method suffix) | `Setting<X>Key` value | Covers |
 | --- | --- | --- |
@@ -171,7 +171,7 @@ same site-scoped methods (use `"default"`).
   <Card title="Errors" href="/docs/reference/errors">
     `ErrNotFound` and the `unexpected key` error from settings.
   </Card>
-  <Card title="unifi on pkg.go.dev" href="https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Setting">
+  <Card title="unifi on pkg.go.dev" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Setting">
     Every `Setting<X>` struct and its fields.
   </Card>
 </Cards>

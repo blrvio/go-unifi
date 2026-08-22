@@ -1,9 +1,9 @@
 ---
 title: From paultyng/go-unifi
-description: Switch from the upstream paultyng/go-unifi to filipowm/go-unifi — only client construction and authentication differ.
+description: Switch from the upstream paultyng/go-unifi to blrvio/go-unifi — only client construction and authentication differ.
 ---
 
-`filipowm/go-unifi` started as a fork of [`paultyng/go-unifi`](https://github.com/paultyng/go-unifi). The
+`blrvio/go-unifi` started as a fork of [`paultyng/go-unifi`](https://github.com/paultyng/go-unifi). The
 **resource methods are the same**, so most of your code keeps working unchanged. What differs is how you
 construct and authenticate the client — and you gain a larger API surface, structured configuration, and
 the Official UniFi OpenAPI on top.
@@ -12,7 +12,7 @@ the Official UniFi OpenAPI on top.
 
 The biggest change is moving from a manually-configured struct to a single `NewClient` constructor.
 
-<Tabs items={['paultyng/go-unifi', 'filipowm/go-unifi (2.0.0)']}>
+<Tabs items={['paultyng/go-unifi', 'blrvio/go-unifi (2.0.0)']}>
 <Tab value="paultyng/go-unifi">
 
 ```go
@@ -38,7 +38,7 @@ if err := client.Login(ctx, username, password); err != nil {
 ```
 
 </Tab>
-<Tab value="filipowm/go-unifi (2.0.0)">
+<Tab value="blrvio/go-unifi (2.0.0)">
 
 ```go
 client, err := unifi.NewClient(&unifi.ClientConfig{
@@ -59,13 +59,13 @@ from UniFi Network controller **9.0.114** and newer.
 
 ## Key differences
 
-| Topic | paultyng/go-unifi | filipowm/go-unifi |
+| Topic | paultyng/go-unifi | blrvio/go-unifi |
 |-------|-------------------|-------------------|
 | **Construction** | Manual struct + setters (`SetBaseURL`, `SetHTTPClient`) | `NewClient(&ClientConfig{...})` |
-| **Client type** | A concrete `struct` | An [interface](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Client) (mockable) |
+| **Client type** | A concrete `struct` | An [interface](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Client) (mockable) |
 | **Authentication** | Username/password via explicit `Login()` | API key only; handled during construction |
 | **TLS config** | Hand-built `http.Client` + `cookiejar` | `SkipVerifySSL` flag, or `HttpTransportCustomizer` / `HttpRoundTripperProvider` |
-| **API errors** | `unifi.APIError` | [`unifi.ServerError`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#ServerError) |
+| **API errors** | `unifi.APIError` | [`unifi.ServerError`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ServerError) |
 | **Extras** | — | Validation modes, request/response interceptors, configurable logging, the Official API |
 
 ## TLS verification
@@ -104,7 +104,7 @@ A genuine HTTP 404 from any endpoint also satisfies `errors.Is(err, unifi.ErrNot
 
 ## What you gain
 
-Beyond the resource methods you already use, `filipowm/go-unifi` adds:
+Beyond the resource methods you already use, `blrvio/go-unifi` adds:
 
 <Cards>
   <Card title="Official API" href="/docs/guides/official-api">
@@ -126,7 +126,7 @@ Beyond the resource methods you already use, `filipowm/go-unifi` adds:
 
 <Steps>
 <Step>
-Replace the import `github.com/paultyng/go-unifi/unifi` with `github.com/filipowm/go-unifi/v2/unifi`.
+Replace the import `github.com/paultyng/go-unifi/unifi` with `github.com/blrvio/go-unifi/v2/unifi`.
 </Step>
 <Step>
 Swap manual struct construction for `NewClient` with a `ClientConfig`. Provide an `APIKey` — username and
@@ -147,6 +147,6 @@ Replace `unifi.APIError` with `unifi.ServerError` in your error handling.
 The rest of your code — the resource methods — should continue to work as before.
 
 <Callout type="info">
-  Already on `filipowm/go-unifi` 1.x and upgrading to 2.0? Use the
+  Already on `blrvio/go-unifi` 1.x and upgrading to 2.0? Use the
   [1.x upgrade guide](/docs/migrating/from-1.x) instead — it covers every 2.0.0 breaking change in detail.
 </Callout>

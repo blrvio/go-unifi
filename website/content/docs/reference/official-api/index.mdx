@@ -7,7 +7,7 @@ The **Official API** is the controller's own [UniFi Network API](https://develop
 (`integration/v1`), reached from any `unifi.Client` via `c.Official()`. It is a separate, fluent
 surface — one accessor per resource group — that addresses sites by `uuid.UUID` rather than the legacy
 site-name string. It lives in package
-[`github.com/filipowm/go-unifi/v2/unifi/official`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/official).
+[`github.com/blrvio/go-unifi/v2/unifi/official`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official).
 
 <Callout type="info">
 The Official surface requires controller **10.1.78** or newer and API-key auth (API keys themselves are
@@ -19,7 +19,7 @@ unreachable, or you opted out with `DisableOfficialAPI`, the call fails fast wit
 
 ## Resource groups
 
-`c.Official()` returns an [`official.Client`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/official#Client),
+`c.Official()` returns an [`official.Client`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official#Client),
 exposing exactly one accessor per resource group. Each accessor returns a small interface (e.g.
 `NetworksClient`) whose methods map 1:1 to Official API operations.
 
@@ -39,7 +39,7 @@ exposing exactly one accessor per resource group. Each accessor returns a small 
 | `Supporting()` | `SupportingClient` | Read-only catalogues: countries, DPI apps/categories, device tags, RADIUS profiles, WANs, VPN servers and tunnels. |
 
 For the full method set and request/response types of each group, browse
-[the `official` package on pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/official),
+[the `official` package on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official),
 or the [endpoint-by-endpoint OpenAPI reference](/docs/reference/official-api/api).
 
 ## The uniform method shape
@@ -67,7 +67,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 )
 
 func main() {
@@ -154,7 +154,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 )
 
 func main() {
@@ -208,7 +208,7 @@ Some groups name their list pair after the noun: `Firewall().ListPoliciesPage` /
   <Card title="Errors" href="/docs/reference/errors">
     `ServerError`, `ErrNotFound`, and the Official-API gate sentinels.
   </Card>
-  <Card title="official on pkg.go.dev" href="https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/official">
+  <Card title="official on pkg.go.dev" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official">
     Every group interface, method signature, and request/response type.
   </Card>
 </Cards>

@@ -7,7 +7,7 @@ description: What go-unifi is, its two API surfaces, the /v2 module, and the con
 manages Ubiquiti's networking gear (gateways, switches, access points). Instead of hand-rolling HTTP requests
 and parsing JSON, you call typed Go methods like `ListNetwork` and get back typed Go structs.
 
-The library powers the [Terraform provider for UniFi](https://github.com/filipowm/terraform-provider-unifi),
+The library powers the [Terraform provider for UniFi](https://github.com/blrvio/terraform-provider-unifi),
 but it stands alone in any Go program that needs to read or change controller state.
 
 ## A few terms
@@ -60,7 +60,7 @@ go-unifi 2.0.0 is a new major version, so its import path carries the `/v2` suff
 [Go module versioning](https://go.dev/doc/modules/version-numbers):
 
 ```text
-github.com/filipowm/go-unifi/v2
+github.com/blrvio/go-unifi/v2
 ```
 
 The `/v2` is part of the path you `go get` and the path you `import`. Code written for go-unifi 1.x keeps

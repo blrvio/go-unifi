@@ -4,7 +4,7 @@ description: Manage UniFi client stations — list, create, block, kick and forg
 ---
 
 In the UniFi data model a **client** (a connected or known station — a laptop, phone, printer) is called a
-**user**, represented by [`unifi.User`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#User). The
+**user**, represented by [`unifi.User`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#User). The
 client exposes REST-style CRUD keyed by the user's `_id`, plus a set of MAC-keyed command actions
 (block / unblock / kick / forget) for acting on live clients.
 
@@ -115,7 +115,7 @@ if err := c.OverrideUserFingerprint(ctx, "default", mac, 0); err != nil {
 
 ## User groups
 
-A [`unifi.UserGroup`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#UserGroup) caps a client's
+A [`unifi.UserGroup`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#UserGroup) caps a client's
 bandwidth. It has the standard CRUD: `ListUserGroup`, `GetUserGroup`, `CreateUserGroup`, `UpdateUserGroup`,
 `DeleteUserGroup`. Rates are in **Kbps**, and `-1` means unlimited.
 
@@ -134,7 +134,7 @@ Assign a client to the group by setting `User.UserGroupID` to `group.ID` and cal
 
 ## RADIUS accounts
 
-A [`unifi.Account`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Account) is a RADIUS user account,
+A [`unifi.Account`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Account) is a RADIUS user account,
 used for VPN, 802.1X and hotspot authentication. It also follows the standard CRUD: `ListAccount`,
 `GetAccount`, `CreateAccount`, `UpdateAccount`, `DeleteAccount`.
 

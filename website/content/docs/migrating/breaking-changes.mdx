@@ -4,7 +4,7 @@ description: The authoritative 2.0.0 changelog — every public-API behavior and
 ---
 
 This is the authoritative changelog of every public-API behavior or signature change introduced in the
-2.0.0 migration (epic [#117](https://github.com/filipowm/go-unifi/issues/117)). It is keyed to 10 breaking
+2.0.0 migration (epic [#117](https://github.com/blrvio/go-unifi/issues/117)). It is keyed to 10 breaking
 changes plus an additive Official surface. Each entry carries a verified status, a migration note, and a
 provenance link.
 
@@ -35,27 +35,27 @@ For a task-oriented, junior-to-senior walkthrough with rationale and grep hints 
 
 ### 0. Module path bumped to `/v2`
 
-**Status: DONE** — `go.mod` declares `module github.com/filipowm/go-unifi/v2`.
+**Status: DONE** — `go.mod` declares `module github.com/blrvio/go-unifi/v2`.
 
-**Import-path change (compile break).** All import paths change from `github.com/filipowm/go-unifi/unifi`
-to `github.com/filipowm/go-unifi/v2/unifi`. Update `go.mod` with `go get github.com/filipowm/go-unifi/v2`
+**Import-path change (compile break).** All import paths change from `github.com/blrvio/go-unifi/unifi`
+to `github.com/blrvio/go-unifi/v2/unifi`. Update `go.mod` with `go get github.com/blrvio/go-unifi/v2`
 and run a global find-and-replace on your import statements.
 
 ```go
 // before
-import "github.com/filipowm/go-unifi/unifi"
+import "github.com/blrvio/go-unifi/unifi"
 // after
-import "github.com/filipowm/go-unifi/v2/unifi"
+import "github.com/blrvio/go-unifi/v2/unifi"
 ```
 
-Migration: `go get github.com/filipowm/go-unifi/v2` then
-`find . -name '*.go' | xargs sed -i 's|filipowm/go-unifi/unifi|filipowm/go-unifi/v2/unifi|g'`.
+Migration: `go get github.com/blrvio/go-unifi/v2` then
+`find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v2/unifi|g'`.
 
 **Provenance:** `go.mod`, module major-version bump convention.
 
 ### 1. API-key authentication only
 
-**Status: DONE** — landed in issue [#125](https://github.com/filipowm/go-unifi/issues/125) (API-key-only auth).
+**Status: DONE** — landed in issue [#125](https://github.com/blrvio/go-unifi/issues/125) (API-key-only auth).
 
 **Behavioral change + signature change (compile break).** Username/password authentication
 (`ClientConfig.User`/`Password`/`RememberMe`) is retired. Every consumer must authenticate with an API key
@@ -217,7 +217,7 @@ authentication.
 
 ### Official API surface (additive)
 
-**Status: DONE** — landed in PR [#119](https://github.com/filipowm/go-unifi/pull/119).
+**Status: DONE** — landed in PR [#119](https://github.com/blrvio/go-unifi/pull/119).
 
 The `Client` interface gains `Internal()` and `Official()` accessors. `Internal()` returns the full
 `InternalClient` (all resource CRUD, identical to calling methods directly on the client). `Official()`
@@ -321,7 +321,7 @@ err := c.Patch(ctx, "/proxy/network/integration/v1/sites/<id>/...", patchBody, &
 
 ### I. `Logger` decoupled from the `Client` interface
 
-**Status: DONE** — landed in issue [#167](https://github.com/filipowm/go-unifi/issues/167).
+**Status: DONE** — landed in issue [#167](https://github.com/blrvio/go-unifi/issues/167).
 
 **Interface change (compile break for custom `Client` implementations and mocks).** The `Client` interface
 no longer **embeds** `Logger`; it now exposes a single accessor `Logger() Logger`. The 10 logging methods

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

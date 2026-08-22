@@ -1,4 +1,4 @@
-module github.com/filipowm/go-unifi/v2
+module github.com/blrvio/go-unifi/v2
 
 go 1.26.0
 

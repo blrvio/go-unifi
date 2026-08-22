@@ -21,7 +21,7 @@ response decoding for you, so you only supply a path and your own request/respon
 
 `reqBody` is marshaled to JSON (pass `nil` for none); `respBody` is decoded from the JSON response (pass `nil`
 to ignore it). Both are `any`, so use anonymous structs or any existing `unifi` type. See the full signatures on
-[pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Client).
+[pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Client).
 
 ## Path resolution
 
@@ -57,7 +57,7 @@ for _, n := range resp.Data {
 ```
 
 Legacy Internal endpoints wrap their payload in a `{ "meta": {...}, "data": [...] }` envelope, so decode into a
-struct with `Meta` and `Data` fields. [`unifi.Meta`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Meta)
+struct with `Meta` and `Data` fields. [`unifi.Meta`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Meta)
 carries the `rc`/`msg` status — and the client already turns an `rc: "error"` envelope into a returned error for
 you, so a successful call means `Data` is populated.
 

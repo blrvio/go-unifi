@@ -3,7 +3,6 @@ name: 🐞Bug report
 about: Create a report to help us improve
 title: '[BUG] '
 labels: "bug"
-assignees: 'filipowm'
 ---
 
 # **🐞 Bug Report**
@@ -56,10 +55,10 @@ assignees: 'filipowm'
 <!-- use all the applicable bulleted list elements for this specific issue,
 and remove all the bulleted list elements that are not relevant for this issue. -->
 
-* OS: <!--[e.g. Ubuntu 5.4.0-26-generic x86_64 / Windows 1904 ...]-->
-* Node version:
-* Npm version:
-* Browser name and version:
+* OS: <!--[e.g. Ubuntu 5.4.0-26-generic x86_64 / Windows / macOS ...]-->
+* Go version: <!--[output of `go version`]-->
+* go-unifi version: <!--[the module version from your go.mod]-->
+* UniFi Controller version: <!--[e.g. 9.5.21]-->
 
 ---
 

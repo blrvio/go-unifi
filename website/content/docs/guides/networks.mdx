@@ -4,7 +4,7 @@ description: Create, read, update and delete UniFi networks (VLANs, LANs, WANs) 
 ---
 
 A **network** in UniFi is a layer-3 segment — a corporate LAN, a guest VLAN, a WAN uplink or a VPN. On the
-Internal API every network is a [`unifi.Network`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Network),
+Internal API every network is a [`unifi.Network`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Network),
 managed through five methods on the client: `ListNetwork`, `GetNetwork`, `CreateNetwork`, `UpdateNetwork` and
 `DeleteNetwork`.
 
@@ -28,7 +28,7 @@ for _, n := range networks {
 `ListNetwork` returns `[]unifi.Network`. The most useful fields are `Name`, `Purpose` (one of `corporate`,
 `guest`, `wan`, `vlan-only`, `vpn-client`, `remote-user-vpn`, `site-vpn`), `IPSubnet`, `VLAN` and the `DHCPD*`
 options. The struct is large because it mirrors the controller's own model — see the
-[full field list on pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Network).
+[full field list on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Network).
 
 To fetch a single network by its `_id`, use `GetNetwork`:
 
@@ -123,11 +123,11 @@ shape and takes the site name first:
 
 | Resource | Methods | What it configures |
 | --- | --- | --- |
-| [`Routing`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#Routing) | `ListRouting`, `GetRouting`, `CreateRouting`, `UpdateRouting`, `DeleteRouting` | Static routes (next-hop, interface, blackhole) |
-| [`DHCPOption`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#DHCPOption) | `ListDHCPOption`, `GetDHCPOption`, `CreateDHCPOption`, `UpdateDHCPOption`, `DeleteDHCPOption` | Custom DHCP option definitions |
-| [`DNSRecord`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#DNSRecord) | `ListDNSRecord`, `GetDNSRecord`, `CreateDNSRecord`, `UpdateDNSRecord`, `DeleteDNSRecord` | Local DNS records (A, AAAA, CNAME, MX, …) |
-| [`DynamicDNS`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#DynamicDNS) | `ListDynamicDNS`, `GetDynamicDNS`, `CreateDynamicDNS`, `UpdateDynamicDNS`, `DeleteDynamicDNS` | Dynamic-DNS update clients |
-| [`PortForward`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#PortForward) | `ListPortForward`, `GetPortForward`, `CreatePortForward`, `UpdatePortForward`, `DeletePortForward` | WAN → LAN port-forward rules |
+| [`Routing`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Routing) | `ListRouting`, `GetRouting`, `CreateRouting`, `UpdateRouting`, `DeleteRouting` | Static routes (next-hop, interface, blackhole) |
+| [`DHCPOption`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#DHCPOption) | `ListDHCPOption`, `GetDHCPOption`, `CreateDHCPOption`, `UpdateDHCPOption`, `DeleteDHCPOption` | Custom DHCP option definitions |
+| [`DNSRecord`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#DNSRecord) | `ListDNSRecord`, `GetDNSRecord`, `CreateDNSRecord`, `UpdateDNSRecord`, `DeleteDNSRecord` | Local DNS records (A, AAAA, CNAME, MX, …) |
+| [`DynamicDNS`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#DynamicDNS) | `ListDynamicDNS`, `GetDynamicDNS`, `CreateDynamicDNS`, `UpdateDynamicDNS`, `DeleteDynamicDNS` | Dynamic-DNS update clients |
+| [`PortForward`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#PortForward) | `ListPortForward`, `GetPortForward`, `CreatePortForward`, `UpdatePortForward`, `DeletePortForward` | WAN → LAN port-forward rules |
 
 A static route, a local DNS record and a port-forward, created together:
 

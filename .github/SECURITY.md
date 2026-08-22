@@ -13,7 +13,7 @@
 **Do not open a public GitHub issue for security vulnerabilities.**
 
 Report vulnerabilities exclusively via
-[GitHub Security Advisories](https://github.com/filipowm/go-unifi/security/advisories/new)
+[GitHub Security Advisories](https://github.com/blrvio/go-unifi/security/advisories/new)
 (the "Report a vulnerability" button in the Security tab of this repository).
 This keeps details private until a fix is available (coordinated disclosure).
 

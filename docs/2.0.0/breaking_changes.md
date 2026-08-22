@@ -1,7 +1,7 @@
 # go-unifi 2.0.0 — API breaking changes
 
 This document is the authoritative changelog of every public-API behavior or signature change introduced
-during the 2.0.0 migration (epic [#117](https://github.com/filipowm/go-unifi/issues/117)). It is keyed to
+during the 2.0.0 migration (epic [#117](https://github.com/blrvio/go-unifi/issues/117)). It is keyed to
 10 breaking changes plus an additive Official surface. Each entry carries a verified **DONE/PENDING**
 status, a migration note, and a provenance link.
 
@@ -34,22 +34,22 @@ with rationale and grep hints for each change.
 
 ### 0. Module path bumped to `/v2`
 
-**Status: DONE** — `go.mod` declares `module github.com/filipowm/go-unifi/v2`.
+**Status: DONE** — `go.mod` declares `module github.com/blrvio/go-unifi/v2`.
 
 **Import-path change (compile break).** All import paths change from
-`github.com/filipowm/go-unifi/unifi` to `github.com/filipowm/go-unifi/v2/unifi`. Update `go.mod`
-with `go get github.com/filipowm/go-unifi/v2` and run a global find-and-replace on your import
+`github.com/blrvio/go-unifi/unifi` to `github.com/blrvio/go-unifi/v2/unifi`. Update `go.mod`
+with `go get github.com/blrvio/go-unifi/v2` and run a global find-and-replace on your import
 statements.
 
 ```go
 // before
-import "github.com/filipowm/go-unifi/unifi"
+import "github.com/blrvio/go-unifi/unifi"
 // after
-import "github.com/filipowm/go-unifi/v2/unifi"
+import "github.com/blrvio/go-unifi/v2/unifi"
 ```
 
-Migration: `go get github.com/filipowm/go-unifi/v2` then
-`find . -name '*.go' | xargs sed -i 's|filipowm/go-unifi/unifi|filipowm/go-unifi/v2/unifi|g'`.
+Migration: `go get github.com/blrvio/go-unifi/v2` then
+`find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v2/unifi|g'`.
 
 **Provenance:** `go.mod`, module major-version bump convention.
 
@@ -337,7 +337,7 @@ c, err := unifi.NewClient(&unifi.ClientConfig{URL: "...", APIKey: "...", SkipSys
 
 ### I. `Logger` decoupled from the `Client` interface
 
-**Status: DONE** — landed in issue [#167](https://github.com/filipowm/go-unifi/issues/167).
+**Status: DONE** — landed in issue [#167](https://github.com/blrvio/go-unifi/issues/167).
 
 **Interface change (compile break for custom `Client` implementations and mocks).** The `Client` interface no
 longer **embeds** `Logger`; it now exposes a single accessor `Logger() Logger`. The 10 logging methods

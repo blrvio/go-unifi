@@ -40,7 +40,7 @@ func getOne(ctx context.Context, c unifi.Client) {
 ## ServerError: the full HTTP story
 
 Every non-2xx response from the controller is decoded into a
-[`*unifi.ServerError`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#ServerError). Reach it with
+[`*unifi.ServerError`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ServerError). Reach it with
 `errors.As`:
 
 ```go
@@ -71,7 +71,7 @@ func inspect(ctx context.Context, c unifi.Client) {
 
 `ServerError` carries the request context (`StatusCode`, `RequestMethod`, `RequestURL`), the controller's own
 `ErrorCode` and `Message`, and a `Details` slice of per-field
-[`ServerErrorDetails`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#ServerErrorDetails) (each with a
+[`ServerErrorDetails`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ServerErrorDetails) (each with a
 message and a `ValidationError` field/pattern). Its `Error()` method formats all of that into a single readable
 line, so logging the error directly is already informative.
 
@@ -85,7 +85,7 @@ non-JSON gateway pages still produce a fully-populated `ServerError`, never a ba
 ## ValidationError: failing before the request leaves
 
 By default the client validates request structs locally (in **soft** mode it logs; in **hard** mode it rejects).
-A rejected struct surfaces as a [`*unifi.ValidationError`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#ValidationError),
+A rejected struct surfaces as a [`*unifi.ValidationError`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ValidationError),
 whose `Messages` map names each offending field:
 
 ```go

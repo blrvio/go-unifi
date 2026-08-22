@@ -12,7 +12,7 @@ The Internal API surfaces this through three client methods and a package of sta
 ## Is a feature enabled?
 
 `IsFeatureEnabled` is the shortcut: it returns a single `bool`. Feature names are **case-insensitive**, and the
-[`features`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/features) package gives you constants so you
+[`features`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/features) package gives you constants so you
 never hard-code a string.
 
 ```go
@@ -20,8 +20,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
-	"github.com/filipowm/go-unifi/v2/unifi/features"
+	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi/features"
 )
 
 func zoneFirewall(ctx context.Context, c unifi.Client) error {
@@ -46,7 +46,7 @@ every other Internal API method.
 There is a subtle distinction worth understanding:
 
 - A feature the controller has **never heard of** (too old, wrong product) yields `unifi.ErrNotFound`.
-- A feature the controller **knows about** comes back as a [`DescribedFeature`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#DescribedFeature)
+- A feature the controller **knows about** comes back as a [`DescribedFeature`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#DescribedFeature)
   whose `FeatureExists` field reports whether it is actually present/enabled.
 
 `GetFeature` gives you that struct so you can tell the two apart:

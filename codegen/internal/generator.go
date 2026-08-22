@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/filipowm/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v2/codegen/shared"
 	"github.com/iancoleman/strcase"
 )
 

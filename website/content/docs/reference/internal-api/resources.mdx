@@ -6,7 +6,7 @@ description: A curated map of the Internal (legacy) API resource methods — gro
 The Internal (legacy) API exposes every resource as plain methods on the client (also reachable via
 [`c.Internal()`](/docs/guides/choosing-a-surface)). They follow a strict naming convention, so this page
 maps the **resources** rather than transcribing hundreds of generated struct fields — for those, browse
-[the `unifi` package on pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi).
+[the `unifi` package on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi).
 
 ## The convention
 
@@ -35,7 +35,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi"
 )
 
 func main() {
@@ -145,8 +145,8 @@ func main() {
 <Callout type="info">
 This map is curated for orientation. The exact field set of each resource struct — and any rarely used
 helper — is authoritative on
-[pkg.go.dev](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi). The full method list also lives
-on the [`InternalClient` interface](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi#InternalClient).
+[pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi). The full method list also lives
+on the [`InternalClient` interface](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#InternalClient).
 </Callout>
 
 ## See also

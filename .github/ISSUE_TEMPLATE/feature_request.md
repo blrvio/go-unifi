@@ -3,7 +3,6 @@ name: "🚀 Feature Request"
 about: "Suggest an idea or possible new feature for this project."
 title: ""
 labels: "feature"
-assignees: "filipowm"
 
 ---
 

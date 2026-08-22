@@ -35,8 +35,8 @@ this one is your hands-on guide.
 
 Mechanical checklist — tick each off in order:
 
-- [ ] Update the import path to `/v2`: `github.com/filipowm/go-unifi/v2/unifi`
-- [ ] Update `go get`: `go get github.com/filipowm/go-unifi/v2`
+- [ ] Update the import path to `/v2`: `github.com/blrvio/go-unifi/v2/unifi`
+- [ ] Update `go get`: `go get github.com/blrvio/go-unifi/v2`
 - [ ] Replace `ClientConfig.User`/`Password`/`RememberMe` with `APIKey:`
 - [ ] Remove any calls to `.Login()`, `.LoginContext()`, `.Logout()`, `.LogoutContext()`
 - [ ] Rename `VerifySSL: false` → `SkipVerifySSL: true` (and double-check the logic flip — verify is now ON by default)

@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"sync"
 
-	"github.com/filipowm/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v2/codegen/shared"
 )
 
 // capturedRecord is one log entry recorded by captureHandler, reduced to the

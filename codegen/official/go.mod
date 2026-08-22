@@ -1,4 +1,4 @@
-module github.com/filipowm/go-unifi/codegen/official
+module github.com/blrvio/go-unifi/codegen/official
 
 go 1.26.0
 

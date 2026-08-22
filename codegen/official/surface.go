@@ -9,7 +9,7 @@ import (
 
 // modulePath is the generator's import path, used in the DO-NOT-EDIT banner so
 // the official surface files match the models file's header form.
-const modulePath = "github.com/filipowm/go-unifi/codegen/official"
+const modulePath = "github.com/blrvio/go-unifi/codegen/official"
 
 // doerMethods maps an HTTP verb to the official.Doer method that performs it.
 var doerMethods = map[string]string{

@@ -18,11 +18,11 @@ export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';
 
 export const gitConfig = {
-  user: 'filipowm',
+  user: 'blrvio',
   repo: 'go-unifi',
   branch: 'main',
 };
 
-export const goModule = 'github.com/filipowm/go-unifi/v2';
+export const goModule = 'github.com/blrvio/go-unifi/v2';
 export const pkgGoDev = `https://pkg.go.dev/${goModule}`;
 export const repoUrl = `https://github.com/${gitConfig.user}/${gitConfig.repo}`;

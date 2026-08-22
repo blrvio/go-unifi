@@ -7,7 +7,7 @@ There are two ways you can arrive at go-unifi 2.0.0. Pick the guide that matches
 
 <Cards>
   <Card title="Upgrading from go-unifi 1.x" href="/docs/migrating/from-1.x">
-    You already use `filipowm/go-unifi` and want to move to 2.0. A task-oriented walkthrough of every
+    You already use `blrvio/go-unifi` and want to move to 2.0. A task-oriented walkthrough of every
     breaking change, with grep hints and before/after code.
   </Card>
   <Card title="Switching from paultyng/go-unifi" href="/docs/migrating/from-paultyng">
@@ -23,7 +23,7 @@ The headline changes, all covered in detail by the [1.x upgrade guide](/docs/mig
 - **API-key authentication only.** Username/password login was removed. You authenticate with an
   [API key](/docs/getting-started/authentication) on a UniFi OS console running **UniFi Network 9.0.114** or
   newer (a Network Application version, distinct from the UniFi OS version).
-- **Module path is now `/v2`.** Import `github.com/filipowm/go-unifi/v2/unifi`.
+- **Module path is now `/v2`.** Import `github.com/blrvio/go-unifi/v2/unifi`.
 - **TLS verification is on by default.** The old `VerifySSL` field became
   [`SkipVerifySSL`](/docs/reference/configuration-types) — renamed *and* inverted.
 - **A second API surface.** `c.Official()` exposes the official UniFi OpenAPI (`integration/v1`)

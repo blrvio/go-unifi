@@ -1,35 +1,39 @@
 # Changelog
 
 All notable changes to this project are documented in this file. Entries are derived from
-[GitHub Releases](https://github.com/filipowm/go-unifi/releases) notes, generated from conventional commits;
+[GitHub Releases](https://github.com/blrvio/go-unifi/releases) notes, generated from conventional commits;
 internal and maintenance changes are not listed.
 
-## [v2.3.0](https://github.com/filipowm/go-unifi/releases/tag/v2.3.0) (2026-07-01)
+> `blrvio/go-unifi` is a fork of [filipowm/go-unifi](https://github.com/filipowm/go-unifi)
+> (itself forked from [paultyng/go-unifi](https://github.com/paultyng/go-unifi)). Version entries below
+> predating the fork document the upstream release history that this project builds on.
+
+## [v2.3.0](https://github.com/blrvio/go-unifi/releases/tag/v2.3.0) (2026-07-01)
 
 ### ✨ New Features
 
 * feat: bump UnifiVersion to 10.4.57 and update related code generation
 
-## [v2.2.0](https://github.com/filipowm/go-unifi/releases/tag/v2.2.0) (2026-07-01)
+## [v2.2.0](https://github.com/blrvio/go-unifi/releases/tag/v2.2.0) (2026-07-01)
 
 ### ✨ New Features
 
 * feat: bump UnifiVersion to 10.3.58 and update related code generation
 
-## [v2.1.0](https://github.com/filipowm/go-unifi/releases/tag/v2.1.0) (2026-07-01)
+## [v2.1.0](https://github.com/blrvio/go-unifi/releases/tag/v2.1.0) (2026-07-01)
 
 ### ✨ New Features
 
 * feat(codegen): enhance snapshot resolution and version handling
 * feat(switching): bump version to 10.2.97, add SwitchingClient and related models for API integration
 
-## [v2.0.1](https://github.com/filipowm/go-unifi/releases/tag/v2.0.1) (2026-06-27)
+## [v2.0.1](https://github.com/blrvio/go-unifi/releases/tag/v2.0.1) (2026-06-27)
 
 ### 🔧 Bug Fixes
 
 * fix(network): default absent `enabled` to true so import doesn't disable networks (#177)
 
-## [v2.0.0](https://github.com/filipowm/go-unifi/releases/tag/v2.0.0) (2026-06-13)
+## [v2.0.0](https://github.com/blrvio/go-unifi/releases/tag/v2.0.0) (2026-06-13)
 
 ### 🚨 Breaking Changes
 
@@ -87,7 +91,7 @@ internal and maintenance changes are not listed.
 * fix(validation): wire CustomValidators through ClientConfig so exported API is actually usable
 * fix: escape % in codegen QuerySuffix and surface root cause in empty ValidationError
 
-## [v1.11.1](https://github.com/filipowm/go-unifi/releases/tag/v1.11.1) (2026-06-11)
+## [v1.11.1](https://github.com/blrvio/go-unifi/releases/tag/v1.11.1) (2026-06-11)
 
 ### ✨ New Features
 
@@ -97,13 +101,13 @@ internal and maintenance changes are not listed.
 
 * fix(device): make QOSProfile a pointer so omitempty drops empty qos_profile (#149)
 
-## [v1.11.0](https://github.com/filipowm/go-unifi/releases/tag/v1.11.0) (2026-06-05)
+## [v1.11.0](https://github.com/blrvio/go-unifi/releases/tag/v1.11.0) (2026-06-05)
 
 ### ✨ New Features
 
 * feat: update to the controller version to 9.5.21
 
-## [v1.10.0](https://github.com/filipowm/go-unifi/releases/tag/v1.10.0) (2026-06-05)
+## [v1.10.0](https://github.com/blrvio/go-unifi/releases/tag/v1.10.0) (2026-06-05)
 
 ### ✨ New Features
 
@@ -111,13 +115,13 @@ internal and maintenance changes are not listed.
 * feat(content-filtering): add ContentFiltering resource with CRUD operations
 * feat: update to the controller version to 9.4.19
 
-## [v1.9.1](https://github.com/filipowm/go-unifi/releases/tag/v1.9.1) (2026-06-04)
+## [v1.9.1](https://github.com/blrvio/go-unifi/releases/tag/v1.9.1) (2026-06-04)
 
 ### 🔧 Bug Fixes
 
 * fix: omitEmpty for FirewallRule/WLAN/PortProfile reference fields (#111)
 
-## [v1.9.0](https://github.com/filipowm/go-unifi/releases/tag/v1.9.0) (2026-06-04)
+## [v1.9.0](https://github.com/blrvio/go-unifi/releases/tag/v1.9.0) (2026-06-04)
 
 ### ✨ New Features
 
@@ -137,13 +141,13 @@ internal and maintenance changes are not listed.
 * #84 Support Validation on Array Types (#88)
 * Fix issues 76, 77, and IPSec network lifetime
 
-## [v1.8.1](https://github.com/filipowm/go-unifi/releases/tag/v1.8.1) (2025-04-02)
+## [v1.8.1](https://github.com/blrvio/go-unifi/releases/tag/v1.8.1) (2025-04-02)
 
 ### 🔧 Bug Fixes
 
 * fix: updated FirewallZonePolicy.json to handle port list and ranges (#68)
 
-## [v1.8.0](https://github.com/filipowm/go-unifi/releases/tag/v1.8.0) (2025-03-21)
+## [v1.8.0](https://github.com/blrvio/go-unifi/releases/tag/v1.8.0) (2025-03-21)
 
 ### ✨ New Features
 
@@ -153,13 +157,13 @@ internal and maintenance changes are not listed.
 
 * fix: do not omit empty portal_customized_bg_image_filename and portal_customized_logo_filename (#59)
 
-## [v1.7.1](https://github.com/filipowm/go-unifi/releases/tag/v1.7.1) (2025-03-20)
+## [v1.7.1](https://github.com/blrvio/go-unifi/releases/tag/v1.7.1) (2025-03-20)
 
 ### 🔧 Bug Fixes
 
 * fix: perform client-side filtering on GET firewall zone, because API for getting single zone by ID does not exist (#58)
 
-## [v1.7.0](https://github.com/filipowm/go-unifi/releases/tag/v1.7.0) (2025-03-20)
+## [v1.7.0](https://github.com/blrvio/go-unifi/releases/tag/v1.7.0) (2025-03-20)
 
 ### ✨ New Features
 
@@ -169,62 +173,62 @@ internal and maintenance changes are not listed.
 
 * fix: remove match_mac from firewall zone destination which is not supported (#57)
 
-## [v1.6.2](https://github.com/filipowm/go-unifi/releases/tag/v1.6.2) (2025-03-17)
+## [v1.6.2](https://github.com/blrvio/go-unifi/releases/tag/v1.6.2) (2025-03-17)
 
 ### 🔧 Bug Fixes
 
 * fix: adjust firewall zone policy resource date attributes (#54)
 
-## [v1.6.1](https://github.com/filipowm/go-unifi/releases/tag/v1.6.1) (2025-03-17)
+## [v1.6.1](https://github.com/blrvio/go-unifi/releases/tag/v1.6.1) (2025-03-17)
 
 ### 🔧 Bug Fixes
 
 * fix: adjust guest access settings (#53)
 
-## [v1.6.0](https://github.com/filipowm/go-unifi/releases/tag/v1.6.0) (2025-03-16)
+## [v1.6.0](https://github.com/blrvio/go-unifi/releases/tag/v1.6.0) (2025-03-16)
 
 ### ✨ New Features
 
 * feat: support Remember Me for prolonging session validity on user/pass authentication (#52)
 
-## [v1.5.4](https://github.com/filipowm/go-unifi/releases/tag/v1.5.4) (2025-03-16)
+## [v1.5.4](https://github.com/blrvio/go-unifi/releases/tag/v1.5.4) (2025-03-16)
 
 ### 🔧 Bug Fixes
 
 * fix: use omitEmpty only on hotspot for SettingIps (#51)
 
-## [v1.5.3](https://github.com/filipowm/go-unifi/releases/tag/v1.5.3) (2025-03-14)
+## [v1.5.3](https://github.com/blrvio/go-unifi/releases/tag/v1.5.3) (2025-03-14)
 
 ### 🔧 Bug Fixes
 
 * fix: allow empty fields in SettingMgmt (#50)
 
-## [v1.5.2](https://github.com/filipowm/go-unifi/releases/tag/v1.5.2) (2025-03-11)
+## [v1.5.2](https://github.com/blrvio/go-unifi/releases/tag/v1.5.2) (2025-03-11)
 
 ### 🔧 Bug Fixes
 
 * fix: revert allowed empty fields for NTP servers
 
-## [v1.5.1](https://github.com/filipowm/go-unifi/releases/tag/v1.5.1) (2025-03-05)
+## [v1.5.1](https://github.com/blrvio/go-unifi/releases/tag/v1.5.1) (2025-03-05)
 
 ### 🔧 Bug Fixes
 
 * fix: allow more empty fields on rsyslogd, NTP, IPS and USG settings (#45)
 
-## [v1.5.0](https://github.com/filipowm/go-unifi/releases/tag/v1.5.0) (2025-03-03)
+## [v1.5.0](https://github.com/blrvio/go-unifi/releases/tag/v1.5.0) (2025-03-03)
 
 ### ✨ New Features
 
 * feat: add support for uploading Hotspot Captive Portal files (like background image, logo) (#42)
 * feat: support checking supported and enabled controller features (#41)
 
-## [v1.4.1](https://github.com/filipowm/go-unifi/releases/tag/v1.4.1) (2025-03-02)
+## [v1.4.1](https://github.com/blrvio/go-unifi/releases/tag/v1.4.1) (2025-03-02)
 
 ### 🔧 Bug Fixes
 
 * fix: add missing ip_group_id to firewall zone policy to support firewall groups of address-group type (ipv4) (#39)
 
-## [v1.4.0](https://github.com/filipowm/go-unifi/releases/tag/v1.4.0) (2025-02-23)
+## [v1.4.0](https://github.com/blrvio/go-unifi/releases/tag/v1.4.0) (2025-02-23)
 
 ### ✨ New Features
 
@@ -234,33 +238,33 @@ internal and maintenance changes are not listed.
 
 * fix: explicitly set Setting key when updating a settings (#37)
 
-## [v1.3.1](https://github.com/filipowm/go-unifi/releases/tag/v1.3.1) (2025-02-21)
+## [v1.3.1](https://github.com/blrvio/go-unifi/releases/tag/v1.3.1) (2025-02-21)
 
 ### 🔧 Bug Fixes
 
 * fix: add missing field mapping for settings (#35)
 * fix: passing setting response body as pointer to Post method (#34)
 
-## [v1.3.0](https://github.com/filipowm/go-unifi/releases/tag/v1.3.0) (2025-02-20)
+## [v1.3.0](https://github.com/blrvio/go-unifi/releases/tag/v1.3.0) (2025-02-20)
 
 ### ✨ New Features
 
 * feat: add Version method to client to provide system version information (#32)
 * feat: support Zone-Based Firewalls (#33)
 
-## [v1.2.0](https://github.com/filipowm/go-unifi/releases/tag/v1.2.0) (2025-02-19)
+## [v1.2.0](https://github.com/blrvio/go-unifi/releases/tag/v1.2.0) (2025-02-19)
 
 ### ✨ New Features
 
 * feat: allow creating own http.RoundTripper for http.Client with `HttpRoundTripperProvider` when customizing pre-configured http.Transport with `HttpTransportCustomizer` is not sufficient  (#31)
 
-## [v1.1.0](https://github.com/filipowm/go-unifi/releases/tag/v1.1.0) (2025-02-19)
+## [v1.1.0](https://github.com/blrvio/go-unifi/releases/tag/v1.1.0) (2025-02-19)
 
 ### ✨ New Features
 
 * feat: rename HttpCustomizer to HttpTransportCustomizer and make it return http.Transport that is later used (#30)
 
-## [v1.0.0](https://github.com/filipowm/go-unifi/releases/tag/v1.0.0) (2025-02-18)
+## [v1.0.0](https://github.com/blrvio/go-unifi/releases/tag/v1.0.0) (2025-02-18)
 
 ### ✨ New Features
 
@@ -277,13 +281,13 @@ internal and maintenance changes are not listed.
 * feat: use Client interface instead of client struct when interacting with UniFi SDK (#21)
 * feat: use sysinfo API for getting system information with fallback to old API (#10)
 
-## [v0.0.4](https://github.com/filipowm/go-unifi/releases/tag/v0.0.4) (2025-02-21)
+## [v0.0.4](https://github.com/blrvio/go-unifi/releases/tag/v0.0.4) (2025-02-21)
 
 ### Other
 
 * downgrade go version
 
-## [v0.0.2](https://github.com/filipowm/go-unifi/releases/tag/v0.0.2) (2025-02-09)
+## [v0.0.2](https://github.com/blrvio/go-unifi/releases/tag/v0.0.2) (2025-02-09)
 
 ### ✨ New Features
 
@@ -294,6 +298,6 @@ internal and maintenance changes are not listed.
 
 * fix: renamed generator template to use ErrNotFound instead of NotFoundError
 
-## [v0.0.1](https://github.com/filipowm/go-unifi/releases/tag/v0.0.1) (2025-02-07)
+## [v0.0.1](https://github.com/blrvio/go-unifi/releases/tag/v0.0.1) (2025-02-07)
 
 _Initial release, forked from [paultyng/go-unifi](https://github.com/paultyng/go-unifi)._

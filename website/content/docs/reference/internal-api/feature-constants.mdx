@@ -3,7 +3,7 @@ title: Feature constants
 description: The features package — string constants naming UniFi controller feature flags, for use with GetFeature / IsFeatureEnabled / ListFeatures.
 ---
 
-The [`features`](https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/features) package is a small
+The [`features`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/features) package is a small
 set of string constants naming the controller's feature flags. They exist so you don't hand-type the
 raw `SCREAMING_SNAKE_CASE` names when probing capabilities.
 
@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/filipowm/go-unifi/v2/unifi"
-	"github.com/filipowm/go-unifi/v2/unifi/features"
+	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v2/unifi/features"
 )
 
 func main() {
@@ -126,7 +126,7 @@ is up to the controller; always probe with `IsFeatureEnabled` / `GetFeature` rat
   <Card title="Resources" href="/docs/reference/internal-api/resources">
     `GetFeature`, `IsFeatureEnabled`, and `ListFeatures` in context.
   </Card>
-  <Card title="features on pkg.go.dev" href="https://pkg.go.dev/github.com/filipowm/go-unifi/v2/unifi/features">
+  <Card title="features on pkg.go.dev" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/features">
     The authoritative, always-current constant list.
   </Card>
 </Cards>
