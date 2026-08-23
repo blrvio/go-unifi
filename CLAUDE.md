@@ -3,7 +3,7 @@
 Go client library for the UniFi Network controller API. Most resource types are **code-generated** from the UniFi controller's own API definitions; a thin
 hand-written layer wraps them with a usable client.
 
-Maintained by [Black Ravine](https://blackravine.com) (GitHub org `blrvio`); module path `github.com/blrvio/go-unifi/v2`.
+Maintained by [Black Ravine](https://blackravine.com) (GitHub org `blrvio`); module path `github.com/blrvio/go-unifi/v10`.
 This is a fork of [filipowm/go-unifi](https://github.com/filipowm/go-unifi), itself a fork of
 [paultyng/go-unifi](https://github.com/paultyng/go-unifi) — noted for the record; all branding targets Black Ravine.
 

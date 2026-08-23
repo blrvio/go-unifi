@@ -5,7 +5,7 @@ package unifi
 
 import (
 	"context"
-	"github.com/blrvio/go-unifi/v2/unifi/official"
+	"github.com/blrvio/go-unifi/v10/unifi/official"
 	"io"
 	"sync"
 )

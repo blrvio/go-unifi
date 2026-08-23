@@ -28,7 +28,7 @@ request in the `X-Api-Key` header.
 ## Using the key
 
 Pass the key as `APIKey` when you build the client. That is the only credential field on
-[`ClientConfig`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ClientConfig):
+[`ClientConfig`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#ClientConfig):
 
 ```go
 c, err := unifi.NewClient(&unifi.ClientConfig{
@@ -61,7 +61,7 @@ versions — they track separately from the console's UniFi OS version.
 
 "Classic" (non-UniFi-OS) controllers can't issue API keys, so they aren't supported. When the client detects
 one at construction time, `NewClient` returns
-[`unifi.ErrOldStyleUnsupported`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ErrOldStyleUnsupported).
+[`unifi.ErrOldStyleUnsupported`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#ErrOldStyleUnsupported).
 Match it with `errors.Is`:
 
 ```go

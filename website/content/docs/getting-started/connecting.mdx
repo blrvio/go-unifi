@@ -4,7 +4,7 @@ description: Build the client — the controller URL, TLS for self-signed certs,
 ---
 
 You connect to a controller by building a `unifi.Client` from a
-[`*unifi.ClientConfig`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ClientConfig). Only `URL` and
+[`*unifi.ClientConfig`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#ClientConfig). Only `URL` and
 `APIKey` are required; the rest tune TLS, timeouts, and startup behavior. This page walks through the options
 you reach for most often.
 
@@ -63,7 +63,7 @@ is enough — you won't risk a nil-panic on your first call.
 />
 
 For the exhaustive list (interceptors, custom transports, validation modes, loggers), see
-[`ClientConfig` on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ClientConfig).
+[`ClientConfig` on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#ClientConfig).
 
 ## Self-signed certificates
 

@@ -264,6 +264,156 @@ func (e DevicePendingAdoptionState) Valid() bool {
 	}
 }
 
+// Defines values for FilterablePropertyTypeAllowedFunctions.
+const (
+	FilterablePropertyTypeAllowedFunctionsCONTAINS        FilterablePropertyTypeAllowedFunctions = "CONTAINS"
+	FilterablePropertyTypeAllowedFunctionsCONTAINSALL     FilterablePropertyTypeAllowedFunctions = "CONTAINS_ALL"
+	FilterablePropertyTypeAllowedFunctionsCONTAINSANY     FilterablePropertyTypeAllowedFunctions = "CONTAINS_ANY"
+	FilterablePropertyTypeAllowedFunctionsCONTAINSEXACTLY FilterablePropertyTypeAllowedFunctions = "CONTAINS_EXACTLY"
+	FilterablePropertyTypeAllowedFunctionsEQ              FilterablePropertyTypeAllowedFunctions = "EQ"
+	FilterablePropertyTypeAllowedFunctionsGE              FilterablePropertyTypeAllowedFunctions = "GE"
+	FilterablePropertyTypeAllowedFunctionsGT              FilterablePropertyTypeAllowedFunctions = "GT"
+	FilterablePropertyTypeAllowedFunctionsIN              FilterablePropertyTypeAllowedFunctions = "IN"
+	FilterablePropertyTypeAllowedFunctionsISEMPTY         FilterablePropertyTypeAllowedFunctions = "IS_EMPTY"
+	FilterablePropertyTypeAllowedFunctionsISNOTNULL       FilterablePropertyTypeAllowedFunctions = "IS_NOT_NULL"
+	FilterablePropertyTypeAllowedFunctionsISNULL          FilterablePropertyTypeAllowedFunctions = "IS_NULL"
+	FilterablePropertyTypeAllowedFunctionsLE              FilterablePropertyTypeAllowedFunctions = "LE"
+	FilterablePropertyTypeAllowedFunctionsLIKE            FilterablePropertyTypeAllowedFunctions = "LIKE"
+	FilterablePropertyTypeAllowedFunctionsLT              FilterablePropertyTypeAllowedFunctions = "LT"
+	FilterablePropertyTypeAllowedFunctionsNE              FilterablePropertyTypeAllowedFunctions = "NE"
+	FilterablePropertyTypeAllowedFunctionsNOTIN           FilterablePropertyTypeAllowedFunctions = "NOT_IN"
+)
+
+// Valid indicates whether the value is a known member of the FilterablePropertyTypeAllowedFunctions enum.
+func (e FilterablePropertyTypeAllowedFunctions) Valid() bool {
+	switch e {
+	case FilterablePropertyTypeAllowedFunctionsCONTAINS:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsCONTAINSALL:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsCONTAINSANY:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsCONTAINSEXACTLY:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsEQ:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsGE:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsGT:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsIN:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsISEMPTY:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsISNOTNULL:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsISNULL:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsLE:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsLIKE:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsLT:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsNE:
+		return true
+	case FilterablePropertyTypeAllowedFunctionsNOTIN:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FilterablePropertyTypeSupportedFunctions.
+const (
+	FilterablePropertyTypeSupportedFunctionsCONTAINS        FilterablePropertyTypeSupportedFunctions = "CONTAINS"
+	FilterablePropertyTypeSupportedFunctionsCONTAINSALL     FilterablePropertyTypeSupportedFunctions = "CONTAINS_ALL"
+	FilterablePropertyTypeSupportedFunctionsCONTAINSANY     FilterablePropertyTypeSupportedFunctions = "CONTAINS_ANY"
+	FilterablePropertyTypeSupportedFunctionsCONTAINSEXACTLY FilterablePropertyTypeSupportedFunctions = "CONTAINS_EXACTLY"
+	FilterablePropertyTypeSupportedFunctionsEQ              FilterablePropertyTypeSupportedFunctions = "EQ"
+	FilterablePropertyTypeSupportedFunctionsGE              FilterablePropertyTypeSupportedFunctions = "GE"
+	FilterablePropertyTypeSupportedFunctionsGT              FilterablePropertyTypeSupportedFunctions = "GT"
+	FilterablePropertyTypeSupportedFunctionsIN              FilterablePropertyTypeSupportedFunctions = "IN"
+	FilterablePropertyTypeSupportedFunctionsISEMPTY         FilterablePropertyTypeSupportedFunctions = "IS_EMPTY"
+	FilterablePropertyTypeSupportedFunctionsISNOTNULL       FilterablePropertyTypeSupportedFunctions = "IS_NOT_NULL"
+	FilterablePropertyTypeSupportedFunctionsISNULL          FilterablePropertyTypeSupportedFunctions = "IS_NULL"
+	FilterablePropertyTypeSupportedFunctionsLE              FilterablePropertyTypeSupportedFunctions = "LE"
+	FilterablePropertyTypeSupportedFunctionsLIKE            FilterablePropertyTypeSupportedFunctions = "LIKE"
+	FilterablePropertyTypeSupportedFunctionsLT              FilterablePropertyTypeSupportedFunctions = "LT"
+	FilterablePropertyTypeSupportedFunctionsNE              FilterablePropertyTypeSupportedFunctions = "NE"
+	FilterablePropertyTypeSupportedFunctionsNOTIN           FilterablePropertyTypeSupportedFunctions = "NOT_IN"
+)
+
+// Valid indicates whether the value is a known member of the FilterablePropertyTypeSupportedFunctions enum.
+func (e FilterablePropertyTypeSupportedFunctions) Valid() bool {
+	switch e {
+	case FilterablePropertyTypeSupportedFunctionsCONTAINS:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsCONTAINSALL:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsCONTAINSANY:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsCONTAINSEXACTLY:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsEQ:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsGE:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsGT:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsIN:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsISEMPTY:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsISNOTNULL:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsISNULL:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsLE:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsLIKE:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsLT:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsNE:
+		return true
+	case FilterablePropertyTypeSupportedFunctionsNOTIN:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for FilterablePropertyTypeValueType.
+const (
+	BOOLEAN   FilterablePropertyTypeValueType = "BOOLEAN"
+	DECIMAL   FilterablePropertyTypeValueType = "DECIMAL"
+	INTEGER   FilterablePropertyTypeValueType = "INTEGER"
+	STRING    FilterablePropertyTypeValueType = "STRING"
+	TIMESTAMP FilterablePropertyTypeValueType = "TIMESTAMP"
+	UUID      FilterablePropertyTypeValueType = "UUID"
+)
+
+// Valid indicates whether the value is a known member of the FilterablePropertyTypeValueType enum.
+func (e FilterablePropertyTypeValueType) Valid() bool {
+	switch e {
+	case BOOLEAN:
+		return true
+	case DECIMAL:
+		return true
+	case INTEGER:
+		return true
+	case STRING:
+		return true
+	case TIMESTAMP:
+		return true
+	case UUID:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for FirewallPolicyConnectionStateFilter.
 const (
 	ESTABLISHED FirewallPolicyConnectionStateFilter = "ESTABLISHED"
@@ -2723,6 +2873,7 @@ const (
 	PRINTERS                WifiMdnsProxyPredefinedServiceName = "PRINTERS"
 	ROKU                    WifiMdnsProxyPredefinedServiceName = "ROKU"
 	SCANNERS                WifiMdnsProxyPredefinedServiceName = "SCANNERS"
+	SHELLY                  WifiMdnsProxyPredefinedServiceName = "SHELLY"
 	SONOS                   WifiMdnsProxyPredefinedServiceName = "SONOS"
 	SPOTIFYCONNECT          WifiMdnsProxyPredefinedServiceName = "SPOTIFY_CONNECT"
 	SSHSERVERS              WifiMdnsProxyPredefinedServiceName = "SSH_SERVERS"
@@ -2769,6 +2920,8 @@ func (e WifiMdnsProxyPredefinedServiceName) Valid() bool {
 	case ROKU:
 		return true
 	case SCANNERS:
+		return true
+	case SHELLY:
 		return true
 	case SONOS:
 		return true
@@ -3651,7 +3804,48 @@ type EntityMetadata struct {
 }
 
 // FilterExpression is a generated model for the UniFi Official API.
-type FilterExpression = interface{}
+type FilterExpression struct {
+	Entity *FilterableEntity `json:"entity,omitempty"`
+}
+
+// FilterPath is a generated model for the UniFi Official API.
+type FilterPath struct {
+	Depth  *int32      `json:"depth,omitempty"`
+	Name   *string     `json:"name,omitempty"`
+	Names  *[]string   `json:"names,omitempty"`
+	Parent interface{} `json:"parent,omitempty"`
+}
+
+// FilterableEntity is a generated model for the UniFi Official API.
+type FilterableEntity struct {
+	Name           *string                        `json:"name,omitempty"`
+	NestedEntities *map[string]interface{}        `json:"nestedEntities,omitempty"`
+	Path           *FilterPath                    `json:"path,omitempty"`
+	Properties     *map[string]FilterableProperty `json:"properties,omitempty"`
+}
+
+// FilterableProperty is a generated model for the UniFi Official API.
+type FilterableProperty struct {
+	Name *string                 `json:"name,omitempty"`
+	Path *FilterPath             `json:"path,omitempty"`
+	Type *FilterablePropertyType `json:"type,omitempty"`
+}
+
+// FilterablePropertyType is a generated model for the UniFi Official API.
+type FilterablePropertyType struct {
+	AllowedFunctions   *[]FilterablePropertyTypeAllowedFunctions   `json:"allowedFunctions,omitempty" validate:"omitempty,dive,oneof=IS_NULL IS_NOT_NULL EQ NE GT GE LT LE LIKE IN NOT_IN IS_EMPTY CONTAINS CONTAINS_ANY CONTAINS_ALL CONTAINS_EXACTLY"`
+	SupportedFunctions *[]FilterablePropertyTypeSupportedFunctions `json:"supportedFunctions,omitempty" validate:"omitempty,dive,oneof=IS_NULL IS_NOT_NULL EQ NE GT GE LT LE LIKE IN NOT_IN IS_EMPTY CONTAINS CONTAINS_ANY CONTAINS_ALL CONTAINS_EXACTLY"`
+	ValueType          *FilterablePropertyTypeValueType            `json:"valueType,omitempty" validate:"omitempty,oneof=STRING INTEGER DECIMAL UUID TIMESTAMP BOOLEAN"`
+}
+
+// FilterablePropertyTypeAllowedFunctions is a generated model for the UniFi Official API.
+type FilterablePropertyTypeAllowedFunctions string
+
+// FilterablePropertyTypeSupportedFunctions is a generated model for the UniFi Official API.
+type FilterablePropertyTypeSupportedFunctions string
+
+// FilterablePropertyTypeValueType is a generated model for the UniFi Official API.
+type FilterablePropertyTypeValueType string
 
 // FirewallPolicy is a generated model for the UniFi Official API.
 type FirewallPolicy struct {
@@ -6296,7 +6490,7 @@ type WifiMdnsProxyCustomService struct {
 
 // WifiMdnsProxyPredefinedService is a generated model for the UniFi Official API.
 type WifiMdnsProxyPredefinedService struct {
-	Name  *WifiMdnsProxyPredefinedServiceName `json:"name,omitempty" validate:"omitempty,oneof=AMAZON_DEVICES ANDROID_TV_REMOTE APPLE_AIR_DROP APPLE_AIR_PLAY APPLE_FILE_SHARING APPLE_ICHAT APPLE_ITUNES AQARA BOSE DNS_SERVICE_DISCOVERY FTP_SERVERS GOOGLE_CHROMECAST HOMEKIT MATTER_NETWORK PHILIPS_HUE PRINTERS ROKU SCANNERS SONOS SPOTIFY_CONNECT SSH_SERVERS TIME_CAPSULE WEB_SERVERS WINDOWS_FILE_SHARING_SAMBA"`
+	Name  *WifiMdnsProxyPredefinedServiceName `json:"name,omitempty" validate:"omitempty,oneof=AMAZON_DEVICES ANDROID_TV_REMOTE APPLE_AIR_DROP APPLE_AIR_PLAY APPLE_FILE_SHARING APPLE_ICHAT APPLE_ITUNES AQARA BOSE DNS_SERVICE_DISCOVERY FTP_SERVERS GOOGLE_CHROMECAST HOMEKIT MATTER_NETWORK PHILIPS_HUE PRINTERS ROKU SCANNERS SHELLY SONOS SPOTIFY_CONNECT SSH_SERVERS TIME_CAPSULE WEB_SERVERS WINDOWS_FILE_SHARING_SAMBA"`
 	Type  string                              `json:"type"`
 	union json.RawMessage
 }

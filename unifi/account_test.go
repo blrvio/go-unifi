@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi"
 	"github.com/tj/assert"
 )
 

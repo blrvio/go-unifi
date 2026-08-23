@@ -42,12 +42,12 @@ var defaultUserAgent = buildUserAgent()
 func buildUserAgent() string {
 	if info, ok := debug.ReadBuildInfo(); ok {
 		for _, dep := range info.Deps {
-			if dep.Path == "github.com/blrvio/go-unifi/v2" {
+			if dep.Path == "github.com/blrvio/go-unifi/v10" {
 				return "go-unifi/" + dep.Version
 			}
 		}
 		// When built as the main module (e.g. during development), use the main module version.
-		if info.Main.Path == "github.com/blrvio/go-unifi/v2" && info.Main.Version != "" && info.Main.Version != "(devel)" {
+		if info.Main.Path == "github.com/blrvio/go-unifi/v10" && info.Main.Version != "" && info.Main.Version != "(devel)" {
 			return "go-unifi/" + info.Main.Version
 		}
 	}

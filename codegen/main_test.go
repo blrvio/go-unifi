@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/blrvio/go-unifi/v2/codegen/internal"
-	"github.com/blrvio/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v10/codegen/internal"
+	"github.com/blrvio/go-unifi/v10/codegen/shared"
 	"github.com/hashicorp/go-version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -18,7 +18,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/blrvio/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v10/codegen/shared"
 	"github.com/iancoleman/strcase"
 	"github.com/ulikunitz/xz"
 	"github.com/xor-gate/ar"

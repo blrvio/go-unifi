@@ -101,14 +101,14 @@ single ruleset in one call — the rule with the lowest `RuleIndex` is evaluated
 <Callout type="info">
 `RuleIndex` for user rules conventionally lives in the `2000`–`2999` and `4000`–`4999` ranges;
 the controller reserves the rest for predefined rules. See the full field set (protocols, ICMP
-types, state matching) on [pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#FirewallRule).
+types, state matching) on [pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#FirewallRule).
 </Callout>
 
 ## Zone-based firewall
 
 Newer controllers (UniFi Network 9+) replace per-ruleset rules with a **zone-based** model:
-networks are grouped into [`FirewallZone`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#FirewallZone)s,
-and a [`FirewallZonePolicy`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#FirewallZonePolicy)
+networks are grouped into [`FirewallZone`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#FirewallZone)s,
+and a [`FirewallZonePolicy`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#FirewallZonePolicy)
 governs traffic from a source zone to a destination zone.
 
 ```go
@@ -173,10 +173,10 @@ Three things worth knowing:
   when the ID is absent, but it costs a full list under the hood.
 - **`ReorderFirewallPolicies` returns the new ordering.** Unlike `ReorderFirewallRules` (which
   returns only an error), it takes a single
-  [`*FirewallPolicyOrderUpdate`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#FirewallPolicyOrderUpdate)
+  [`*FirewallPolicyOrderUpdate`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#FirewallPolicyOrderUpdate)
   for one zone pair and returns the resulting `[]FirewallZonePolicy`.
 - **`ListFirewallZoneMatrix` is read-only.** It is the only method on the zone matrix — there is
-  no create/update/delete. Each [`FirewallZoneMatrixData`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#FirewallZoneMatrixData)
+  no create/update/delete. Each [`FirewallZoneMatrixData`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#FirewallZoneMatrixData)
   entry reports the action and policy count for a zone pair.
 
 ## Content filtering

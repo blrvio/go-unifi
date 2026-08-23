@@ -87,7 +87,7 @@ REPO FACTS / KEY PATHS (relative to the repo root unless absolute):
 - Authoritative API signatures are the go doc dumps: ${DUMPS}/unifi.txt, ${DUMPS}/unifi_official.txt, ${DUMPS}/unifi_features.txt. Grep the dumps and the source; NEVER invent or guess an API — every method/type/field/constant/version you cite must exist.
 
 GO SNIPPET COMPILATION (always use Homebrew Go — the shell go is too old):
-- A scratch Go module is bootstrapped at ${SNIP} (module gudocs, go 1.26.0, replace github.com/blrvio/go-unifi/v2 => the repo root, require github.com/google/uuid v1.6.0).
+- A scratch Go module is bootstrapped at ${SNIP} (module gudocs, go 1.26.0, replace github.com/blrvio/go-unifi/v10 => the repo root, require github.com/google/uuid v1.6.0).
 - Materialize each Go example as a .go file under a per-section subdir ${SNIP}/<scratch>/ and verify with: ${GO} -C ${SNIP} vet -buildvcs=false ./<scratch>/...  (exit 0 = clean). Whole-module check: ${VET_ALL}.
 - NEVER run "go mod tidy" (only the Setup phase does that, with network). The Go shown in MDX must match exactly what compiles.
 
@@ -236,9 +236,9 @@ ROLE: SETUP for a docs update+verify run. Mode: ${mode}. Prepare the shared veri
       module gudocs
       go 1.26.0
       require github.com/google/uuid v1.6.0
-      replace github.com/blrvio/go-unifi/v2 => <REPO_ROOT_ABS>
+      replace github.com/blrvio/go-unifi/v10 => <REPO_ROOT_ABS>
     where <REPO_ROOT_ABS> is the absolute path of the repo root (your current working directory; resolve it with pwd — it should be ${REPO}).
-  - Create a tiny warm-up package ${SNIP}/_bootstrap/bootstrap.go that imports github.com/blrvio/go-unifi/v2/unifi, github.com/blrvio/go-unifi/v2/unifi/official, github.com/blrvio/go-unifi/v2/unifi/features and github.com/google/uuid with a blank reference (e.g. var _ = uuid.Nil), so go mod tidy retains and PRE-DOWNLOADS these deps for the later (offline) per-section snippet compiles.
+  - Create a tiny warm-up package ${SNIP}/_bootstrap/bootstrap.go that imports github.com/blrvio/go-unifi/v10/unifi, github.com/blrvio/go-unifi/v10/unifi/official, github.com/blrvio/go-unifi/v10/unifi/features and github.com/google/uuid with a blank reference (e.g. var _ = uuid.Nil), so go mod tidy retains and PRE-DOWNLOADS these deps for the later (offline) per-section snippet compiles.
   - Run: ${GO} -C ${SNIP} mod tidy   (network IS allowed here, and ONLY here). Confirm it succeeds and uuid + go-unifi/v2 resolve, then sanity-check: ${VET_ALL} should pass on the warm-up package.
   - Leave any existing per-section subdirs (getting, guides, advanced, reference, devmig, crosswalk) in place; later agents recreate their own .go files there.
 
