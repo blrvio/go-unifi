@@ -547,8 +547,7 @@ func buildResourcesFromDownloadedFields(fieldsDir string, customizer CodeCustomi
 		// Guard against a raw query string smuggled into resourcePath, which would
 		// emit malformed id-suffixed URLs (id after the query).
 		if err = resource.validateResourcePath(); err != nil {
-			var sv *strictViolationError
-			if errors.As(err, &sv) {
+			if _, ok := errors.AsType[*strictViolationError](err); ok {
 				return nil, fmt.Errorf("strict mode: %s: %w", fieldsFile.Name(), err)
 			}
 			logger.Warnf("skipping file %s: %s", fieldsFile.Name(), err)
@@ -559,8 +558,7 @@ func buildResourcesFromDownloadedFields(fieldsDir string, customizer CodeCustomi
 		if err != nil {
 			// A strict-mode field-drop/collision must abort the whole generation,
 			// not be quietly skipped like a malformed-JSON file.
-			var sv *strictViolationError
-			if errors.As(err, &sv) {
+			if _, ok := errors.AsType[*strictViolationError](err); ok {
 				return nil, fmt.Errorf("strict mode: %s: %w", fieldsFile.Name(), err)
 			}
 			logger.Warnf("skipping file %s: %s", fieldsFile.Name(), err)

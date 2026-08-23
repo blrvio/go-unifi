@@ -101,8 +101,7 @@ func assertTagParseable(t *testing.T, v *validator.Validate, s any) {
 	t.Helper()
 	require.NotPanics(t, func() {
 		err := v.Struct(s)
-		var inv *validator.InvalidValidationError
-		if errors.As(err, &inv) {
+		if inv, ok := errors.AsType[*validator.InvalidValidationError](err); ok {
 			t.Errorf("validate.Struct returned InvalidValidationError (tag-parse failure): %v", inv)
 		}
 	})

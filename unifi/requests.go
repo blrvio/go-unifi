@@ -183,8 +183,7 @@ func metaEnvelopeError(resp *http.Response, body []byte) error {
 	// Enrich the soft-error *ServerError with the response context so it does not
 	// render with a zero status/empty method+URL. resp.Request can be nil on a
 	// hand-built *http.Response (e.g. unit tests), so guard it.
-	var serverErr *ServerError
-	if errors.As(err, &serverErr) {
+	if serverErr, ok := errors.AsType[*ServerError](err); ok {
 		serverErr.StatusCode = resp.StatusCode
 		if resp.Request != nil {
 			serverErr.RequestMethod = resp.Request.Method

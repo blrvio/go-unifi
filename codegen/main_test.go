@@ -100,8 +100,10 @@ func TestHelpFlag(t *testing.T) {
 
 	out, err := execCli(t.Context(), "-h")
 
-	require.Error(t, err)
-	assert.Contains(t, out, "Usage: codegen [OPTIONS] version")
+	// -h prints usage and exits 0: Go's flag package treats help as success
+	// under ExitOnError (only genuine parse errors exit non-zero — see TestInvalidFlag).
+	require.NoError(t, err)
+	assert.Contains(t, out, "Usage: codegen [OPTIONS] [official-spec-version]")
 }
 
 func TestInvalidFlag(t *testing.T) {

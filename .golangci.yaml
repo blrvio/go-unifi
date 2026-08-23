@@ -21,6 +21,9 @@ linters:
     - 'dupl'
     - 'err113'
     - 'exhaustruct'
+    # v2 ships exhaustruct as 'exhaustruct_v5' under `default: all`; disabling
+    # the old name alone leaves the new one enabled (same split as wsl/wsl_v5).
+    - 'exhaustruct_v5'
     - 'forbidigo'
     - 'funlen'
     - 'gochecknoglobals'
