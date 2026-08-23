@@ -10,7 +10,7 @@ controller requires:
 - `UploadPortalFile` — upload from a file path on disk.
 - `UploadPortalFileFromReader` — upload from any `io.Reader` (in-memory bytes, a network stream, an embedded asset).
 
-Both return a [`*unifi.PortalFile`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#PortalFile) describing
+Both return a [`*unifi.PortalFile`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#PortalFile) describing
 the stored file — its `ID`, `URL`, `Filename`, `FileSize`, and detected `ContentType`.
 
 ## Upload from disk
@@ -22,7 +22,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi"
 )
 
 func main() {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/blrvio/go-unifi/v2/unifi/official"
+	"github.com/blrvio/go-unifi/v10/unifi/official"
 	goversion "github.com/hashicorp/go-version"
 )
 

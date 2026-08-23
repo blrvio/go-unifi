@@ -8,7 +8,7 @@
 ![Supported Internal API Version](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fblrvio%2Fgo-unifi%2Frefs%2Fheads%2Fmain%2F.unifi-version&search=(.*)%3F&logo=ubiquiti&label=Supported%20Internal%20API%20Version&color=yellow)
 ![Supported Official API Version](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fblrvio%2Fgo-unifi%2Frefs%2Fheads%2Fmain%2F.unifi-version-official&search=(.*)%3F&logo=ubiquiti&label=Supported%20Official%20API%20Version&color=blue)
 [![Docs](https://img.shields.io/badge/docs-reference-blue)](https://blrvio.github.io/go-unifi/)
-[![Go Reference](https://pkg.go.dev/badge/github.com/blrvio/go-unifi/v2/unifi.svg)](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi)
+[![Go Reference](https://pkg.go.dev/badge/github.com/blrvio/go-unifi/v10/unifi.svg)](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi)
 ![GitHub branch check runs](https://img.shields.io/github/check-runs/blrvio/go-unifi/main)
 ![GitHub License](https://img.shields.io/github/license/blrvio/go-unifi)
 
@@ -26,7 +26,7 @@ but works standalone in any Go project.
 ## Install
 
 ```bash
-go get github.com/blrvio/go-unifi/v2
+go get github.com/blrvio/go-unifi/v10
 ```
 
 Requires Go 1.26+ and a new-style UniFi OS controller (version **9.0.114** or newer) with **API-key**

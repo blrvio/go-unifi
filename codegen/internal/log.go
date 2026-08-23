@@ -1,7 +1,7 @@
 package internal
 
 import (
-	"github.com/blrvio/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v10/codegen/shared"
 )
 
 // log is the package-global logger used as the default sink when individual

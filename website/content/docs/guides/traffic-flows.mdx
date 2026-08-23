@@ -13,9 +13,9 @@ rule actually matched.
 
 ## Fetch a page of flows
 
-You build a [`*unifi.TrafficFlowsRequest`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlowsRequest),
+You build a [`*unifi.TrafficFlowsRequest`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlowsRequest),
 set whatever filters you want, and read the page out of the
-[`*unifi.TrafficFlowsResponse`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlowsResponse).
+[`*unifi.TrafficFlowsResponse`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlowsResponse).
 
 ```go
 import (
@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi"
 )
 
 func recentBlocks(ctx context.Context, c unifi.Client) error {
@@ -56,10 +56,10 @@ func recentBlocks(ctx context.Context, c unifi.Client) error {
 }
 ```
 
-Each [`TrafficFlow`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlow) carries a `Source` and
-`Destination` ([`TrafficFlowTarget`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlowTarget) —
+Each [`TrafficFlow`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlow) carries a `Source` and
+`Destination` ([`TrafficFlowTarget`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlowTarget) —
 IP, MAC, hostname, client name, network and zone), the matched `Policies`
-([`TrafficFlowPolicy`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlowPolicy)), and byte/packet
+([`TrafficFlowPolicy`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlowPolicy)), and byte/packet
 counters in `TrafficData`.
 
 ## Filtering
@@ -79,7 +79,7 @@ ones:
 | `SearchText` | free-text search |
 | `TimestampFrom` / `TimestampTo` | time window, **Unix milliseconds** |
 
-See the [`TrafficFlowsRequest` reference](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#TrafficFlowsRequest)
+See the [`TrafficFlowsRequest` reference](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#TrafficFlowsRequest)
 for the complete list.
 
 <Callout type="warn">

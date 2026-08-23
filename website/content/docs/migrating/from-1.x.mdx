@@ -16,8 +16,8 @@ your hands-on guide.
 
 A mechanical checklist — tick each off in order:
 
-- [ ] Update the import path to `/v2`: `github.com/blrvio/go-unifi/v2/unifi`
-- [ ] Update `go get`: `go get github.com/blrvio/go-unifi/v2`
+- [ ] Update the import path to `/v2`: `github.com/blrvio/go-unifi/v10/unifi`
+- [ ] Update `go get`: `go get github.com/blrvio/go-unifi/v10`
 - [ ] Replace `ClientConfig.User`/`Password`/`RememberMe` with `APIKey:`
 - [ ] Remove any calls to `.Login()`, `.LoginContext()`, `.Logout()`, `.LogoutContext()`
 - [ ] Rename `VerifySSL: false` → `SkipVerifySSL: true` (and double-check the logic flip — verify is now ON by default)
@@ -31,7 +31,7 @@ A mechanical checklist — tick each off in order:
 ## Module path bumped to `/v2`
 
 Every import path changes from `github.com/blrvio/go-unifi/unifi` to
-`github.com/blrvio/go-unifi/v2/unifi`. This is a Go-modules requirement for a new major version.
+`github.com/blrvio/go-unifi/v10/unifi`. This is a Go-modules requirement for a new major version.
 
 ```go
 // go-unifi 1.x
@@ -40,14 +40,14 @@ import "github.com/blrvio/go-unifi/unifi"
 
 ```go
 // go-unifi 2.0.0
-import "github.com/blrvio/go-unifi/v2/unifi"
+import "github.com/blrvio/go-unifi/v10/unifi"
 ```
 
 Update the module and run a find-and-replace across your tree:
 
 ```bash
-go get github.com/blrvio/go-unifi/v2
-find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v2/unifi|g'
+go get github.com/blrvio/go-unifi/v10
+find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v10/unifi|g'
 ```
 
 ## Authentication & TLS

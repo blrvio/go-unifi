@@ -9,7 +9,7 @@ tests run with no controller, no network, and no waiting.
 
 There are two kinds of mock:
 
-- [`unifi.ClientMock`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#ClientMock) — a
+- [`unifi.ClientMock`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#ClientMock) — a
   [moq](https://github.com/matryer/moq)-generated double for the whole Internal API `Client`. Every method has a
   `…Func` field you stub and a `…Calls()` helper that records invocations.
 - The **Official** per-group doubles in `unifi/official` (`official.ClientMock`, `official.SitesClientMock`,

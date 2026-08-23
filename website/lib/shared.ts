@@ -23,6 +23,6 @@ export const gitConfig = {
   branch: 'main',
 };
 
-export const goModule = 'github.com/blrvio/go-unifi/v2';
+export const goModule = 'github.com/blrvio/go-unifi/v10';
 export const pkgGoDev = `https://pkg.go.dev/${goModule}`;
 export const repoUrl = `https://github.com/${gitConfig.user}/${gitConfig.repo}`;

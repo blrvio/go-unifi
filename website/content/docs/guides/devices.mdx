@@ -4,7 +4,7 @@ description: List, inspect, adopt and forget UniFi devices (APs, switches, gatew
 ---
 
 A **device** is a piece of UniFi hardware managed by the controller — an access point, switch, gateway or
-camera. Each one is a [`unifi.Device`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Device), and the
+camera. Each one is a [`unifi.Device`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#Device), and the
 client exposes the usual CRUD plus two lifecycle actions: `AdoptDevice` and `ForgetDevice`.
 
 The snippets assume a connected client `c` and a `ctx` (see the [Quickstart](/docs/getting-started/quickstart)).
@@ -25,7 +25,7 @@ for _, d := range devices {
 
 `ListDevice` returns `[]unifi.Device`. Handy fields: `Name`, `MAC`, `Model`, `Type`, `IP`, `Adopted` and
 `State`. The struct carries a great deal more (radios, ports, stats); browse the
-[full type on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Device).
+[full type on pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#Device).
 
 ## Fetch one device — by ID or by MAC
 
@@ -96,7 +96,7 @@ adoption has finished. Poll `GetDeviceByMAC` and watch `State` to track progress
 
 ## Device state
 
-`Device.State` is a typed [`unifi.DeviceState`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#DeviceState)
+`Device.State` is a typed [`unifi.DeviceState`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#DeviceState)
 enum with a `String()` method, so it prints a readable label and compares cleanly against the constants:
 
 ```go

@@ -36,8 +36,8 @@ wrapper convention.
 
 ## The Client interface
 
-The generated [`Client`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Client) interface **embeds**
-[`InternalClient`](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#InternalClient) — the interface
+The generated [`Client`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#Client) interface **embeds**
+[`InternalClient`](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#InternalClient) — the interface
 carrying every resource CRUD method — and then adds transport/lifecycle methods (`Get`/`Post`/`Put`/`Patch`/
 `Delete`/`Do`, `BaseURL`, `Version`) plus the two API-surface accessors:
 
@@ -47,8 +47,8 @@ package developers
 import (
 	"context"
 
-	"github.com/blrvio/go-unifi/v2/unifi"
-	"github.com/blrvio/go-unifi/v2/unifi/official"
+	"github.com/blrvio/go-unifi/v10/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi/official"
 )
 
 // exampleSurfaces shows the two API surfaces hanging off one client.
@@ -67,7 +67,7 @@ func exampleSurfaces(ctx context.Context, c unifi.Client) {
 Because the resource methods are promoted through the embedded `InternalClient`, `c.ListNetwork(...)` and
 `c.Internal().ListNetwork(...)` are the same call. `c.Internal()` and `c.Official()` simply name the surface
 you mean. The full reference is on the [client reference page](/docs/reference/client) and on
-[pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi#Client).
+[pkg.go.dev](https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi#Client).
 
 ## The one-way `unifi → official` dependency
 
@@ -84,11 +84,11 @@ cycle. The two packages meet at two small structural seams, both injected by `un
 Official client:
 
 <Cards>
-  <Card title="Doer — the transport seam" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official#Doer">
+  <Card title="Doer — the transport seam" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi/official#Doer">
     A five-method interface (`Get`/`Post`/`Put`/`Patch`/`Delete`). `*unifi.client` satisfies it through its
     public request methods, so the Official wrappers send requests without knowing about the concrete client.
   </Card>
-  <Card title="Gate — the capability seam" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v2/unifi/official#Gate">
+  <Card title="Gate — the capability seam" href="https://pkg.go.dev/github.com/blrvio/go-unifi/v10/unifi/official#Gate">
     A `func(ctx) error` run before every Official call. `unifi` injects a gate that checks opt-out, requires a
     new-style controller with API-key auth, and probes the version floor (10.1.78+) once.
   </Card>

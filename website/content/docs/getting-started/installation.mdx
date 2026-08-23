@@ -19,14 +19,14 @@ first call, continue to the [Quickstart](/docs/getting-started/quickstart).
 ## Add the module
 
 ```bash
-go get github.com/blrvio/go-unifi/v2
+go get github.com/blrvio/go-unifi/v10
 ```
 
 The `/v2` suffix is part of the path — it is how Go addresses major version 2 of the module. Always include
 it; omitting it resolves the legacy 1.x line.
 
 <Callout type="warn">
-  Coming from the original `paultyng/go-unifi`? The import path changed to `github.com/blrvio/go-unifi/v2`.
+  Coming from the original `paultyng/go-unifi`? The import path changed to `github.com/blrvio/go-unifi/v10`.
   See [Migrating from upstream](/docs/migrating/from-paultyng).
 </Callout>
 
@@ -36,15 +36,15 @@ The module is split into three packages. Most programs only ever import the firs
 
 <Cards>
   <Card title="unifi">
-    `github.com/blrvio/go-unifi/v2/unifi` — the client, the configuration, the error sentinels, and every
+    `github.com/blrvio/go-unifi/v10/unifi` — the client, the configuration, the error sentinels, and every
     resource type. This is the package you almost always want.
   </Card>
   <Card title="unifi/official">
-    `github.com/blrvio/go-unifi/v2/unifi/official` — helpers for the [Official API](/docs/guides/official-api)
+    `github.com/blrvio/go-unifi/v10/unifi/official` — helpers for the [Official API](/docs/guides/official-api)
     surface, such as `ListOptions`, `Page[T]`, and `Collect`.
   </Card>
   <Card title="unifi/features">
-    `github.com/blrvio/go-unifi/v2/unifi/features` — named constants for controller feature flags (e.g.
+    `github.com/blrvio/go-unifi/v10/unifi/features` — named constants for controller feature flags (e.g.
     `features.ZoneBasedFirewall`), used with `c.IsFeatureEnabled`.
   </Card>
 </Cards>
@@ -53,7 +53,7 @@ A typical import block looks like this:
 
 ```go
 import (
-	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi"
 )
 ```
 
@@ -68,7 +68,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/blrvio/go-unifi/v2/unifi"
+	"github.com/blrvio/go-unifi/v10/unifi"
 )
 
 func main() {

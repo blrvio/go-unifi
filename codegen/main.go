@@ -13,8 +13,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/blrvio/go-unifi/v2/codegen/internal"
-	"github.com/blrvio/go-unifi/v2/codegen/shared"
+	"github.com/blrvio/go-unifi/v10/codegen/internal"
+	"github.com/blrvio/go-unifi/v10/codegen/shared"
 )
 
 // Logger is an alias for shared.Logger so existing root code (options, tests)

@@ -23,7 +23,7 @@ The headline changes, all covered in detail by the [1.x upgrade guide](/docs/mig
 - **API-key authentication only.** Username/password login was removed. You authenticate with an
   [API key](/docs/getting-started/authentication) on a UniFi OS console running **UniFi Network 9.0.114** or
   newer (a Network Application version, distinct from the UniFi OS version).
-- **Module path is now `/v2`.** Import `github.com/blrvio/go-unifi/v2/unifi`.
+- **Module path is now `/v2`.** Import `github.com/blrvio/go-unifi/v10/unifi`.
 - **TLS verification is on by default.** The old `VerifySSL` field became
   [`SkipVerifySSL`](/docs/reference/configuration-types) — renamed *and* inverted.
 - **A second API surface.** `c.Official()` exposes the official UniFi OpenAPI (`integration/v1`)

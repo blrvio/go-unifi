@@ -55,7 +55,7 @@ export default function HomePage() {
       </div>
 
       <pre className="mt-12 overflow-x-auto rounded-lg border bg-fd-card px-5 py-4 text-left text-sm">
-        <code>{`go get github.com/blrvio/go-unifi/v2`}</code>
+        <code>{`go get github.com/blrvio/go-unifi/v10`}</code>
       </pre>
 
       <p className="mt-6 text-sm text-fd-muted-foreground">

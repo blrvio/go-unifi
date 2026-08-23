@@ -34,22 +34,22 @@ with rationale and grep hints for each change.
 
 ### 0. Module path bumped to `/v2`
 
-**Status: DONE** — `go.mod` declares `module github.com/blrvio/go-unifi/v2`.
+**Status: DONE** — `go.mod` declares `module github.com/blrvio/go-unifi/v10`.
 
 **Import-path change (compile break).** All import paths change from
-`github.com/blrvio/go-unifi/unifi` to `github.com/blrvio/go-unifi/v2/unifi`. Update `go.mod`
-with `go get github.com/blrvio/go-unifi/v2` and run a global find-and-replace on your import
+`github.com/blrvio/go-unifi/unifi` to `github.com/blrvio/go-unifi/v10/unifi`. Update `go.mod`
+with `go get github.com/blrvio/go-unifi/v10` and run a global find-and-replace on your import
 statements.
 
 ```go
 // before
 import "github.com/blrvio/go-unifi/unifi"
 // after
-import "github.com/blrvio/go-unifi/v2/unifi"
+import "github.com/blrvio/go-unifi/v10/unifi"
 ```
 
-Migration: `go get github.com/blrvio/go-unifi/v2` then
-`find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v2/unifi|g'`.
+Migration: `go get github.com/blrvio/go-unifi/v10` then
+`find . -name '*.go' | xargs sed -i 's|blrvio/go-unifi/unifi|blrvio/go-unifi/v10/unifi|g'`.
 
 **Provenance:** `go.mod`, module major-version bump convention.
 
