@@ -592,6 +592,18 @@ customizations:
         DateEnd:
           fieldType: "string"
           customUnmarshalType: ""
+    QOSRule:
+      resourcePath: "qos-rules"
+      fields:
+        Date:
+          fieldType: "string"
+          customUnmarshalType: ""
+        DateStart:
+          fieldType: "string"
+          customUnmarshalType: ""
+        DateEnd:
+          fieldType: "string"
+          customUnmarshalType: ""
     Network:
       fields:
         # `enabled` defaults to true on the controller and is absent from a healthy

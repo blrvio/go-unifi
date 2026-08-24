@@ -512,6 +512,25 @@ type InternalClient interface {
 	// UploadPortalFileFromReader uploads a Hotspot Portal file using io.Reader to the controller.
 	UploadPortalFileFromReader(ctx context.Context, site string, reader io.Reader, filename string) (*PortalFile, error)
 
+	// ==== client methods for QOSRule resource ====
+
+	// CreateQOSRule creates a resource
+	CreateQOSRule(ctx context.Context, site string, q *QOSRule) (*QOSRule, error)
+
+	// DeleteQOSRule deletes a resource
+	DeleteQOSRule(ctx context.Context, site string, id string) error
+
+	// GetQOSRule retrieves a resource
+	GetQOSRule(ctx context.Context, site string, id string) (*QOSRule, error)
+
+	// ListQOSRule lists the resources
+	ListQOSRule(ctx context.Context, site string) ([]QOSRule, error)
+
+	// UpdateQOSRule updates a resource
+	UpdateQOSRule(ctx context.Context, site string, q *QOSRule) (*QOSRule, error)
+
+	// ==== end of client methods for QOSRule resource ====
+
 	// ==== client methods for RADIUSProfile resource ====
 
 	// CreateRADIUSProfile creates a resource

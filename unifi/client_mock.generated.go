@@ -101,6 +101,9 @@ var _ Client = &ClientMock{}
 //			CreatePortProfileFunc: func(ctx context.Context, site string, p *PortProfile) (*PortProfile, error) {
 //				panic("mock out the CreatePortProfile method")
 //			},
+//			CreateQOSRuleFunc: func(ctx context.Context, site string, q *QOSRule) (*QOSRule, error) {
+//				panic("mock out the CreateQOSRule method")
+//			},
 //			CreateRADIUSProfileFunc: func(ctx context.Context, site string, r *RADIUSProfile) (*RADIUSProfile, error) {
 //				panic("mock out the CreateRADIUSProfile method")
 //			},
@@ -212,6 +215,9 @@ var _ Client = &ClientMock{}
 //			DeletePortalFileFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeletePortalFile method")
 //			},
+//			DeleteQOSRuleFunc: func(ctx context.Context, site string, id string) error {
+//				panic("mock out the DeleteQOSRule method")
+//			},
 //			DeleteRADIUSProfileFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteRADIUSProfile method")
 //			},
@@ -284,6 +290,9 @@ var _ Client = &ClientMock{}
 //			GetDeviceByMACFunc: func(ctx context.Context, site string, mac string) (*Device, error) {
 //				panic("mock out the GetDeviceByMAC method")
 //			},
+//			GetDeviceRawFunc: func(ctx context.Context, site string, id string) (DeviceRaw, error) {
+//				panic("mock out the GetDeviceRaw method")
+//			},
 //			GetDynamicDNSFunc: func(ctx context.Context, site string, id string) (*DynamicDNS, error) {
 //				panic("mock out the GetDynamicDNS method")
 //			},
@@ -334,6 +343,9 @@ var _ Client = &ClientMock{}
 //			},
 //			GetPortalFileFunc: func(ctx context.Context, site string, id string) (*PortalFile, error) {
 //				panic("mock out the GetPortalFile method")
+//			},
+//			GetQOSRuleFunc: func(ctx context.Context, site string, id string) (*QOSRule, error) {
+//				panic("mock out the GetQOSRule method")
 //			},
 //			GetRADIUSProfileFunc: func(ctx context.Context, site string, id string) (*RADIUSProfile, error) {
 //				panic("mock out the GetRADIUSProfile method")
@@ -473,6 +485,9 @@ var _ Client = &ClientMock{}
 //			GetSettingUsgFunc: func(ctx context.Context, site string) (*SettingUsg, error) {
 //				panic("mock out the GetSettingUsg method")
 //			},
+//			GetSettingUsgGeoFunc: func(ctx context.Context, site string) (*SettingUsgGeo, error) {
+//				panic("mock out the GetSettingUsgGeo method")
+//			},
 //			GetSettingUswFunc: func(ctx context.Context, site string) (*SettingUsw, error) {
 //				panic("mock out the GetSettingUsw method")
 //			},
@@ -605,6 +620,9 @@ var _ Client = &ClientMock{}
 //			ListPortalFilesFunc: func(ctx context.Context, site string) ([]PortalFile, error) {
 //				panic("mock out the ListPortalFiles method")
 //			},
+//			ListQOSRuleFunc: func(ctx context.Context, site string) ([]QOSRule, error) {
+//				panic("mock out the ListQOSRule method")
+//			},
 //			ListRADIUSProfileFunc: func(ctx context.Context, site string) ([]RADIUSProfile, error) {
 //				panic("mock out the ListRADIUSProfile method")
 //			},
@@ -695,6 +713,9 @@ var _ Client = &ClientMock{}
 //			UpdateDeviceFunc: func(ctx context.Context, site string, d *Device) (*Device, error) {
 //				panic("mock out the UpdateDevice method")
 //			},
+//			UpdateDeviceRawFunc: func(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error) {
+//				panic("mock out the UpdateDeviceRaw method")
+//			},
 //			UpdateDynamicDNSFunc: func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 //				panic("mock out the UpdateDynamicDNS method")
 //			},
@@ -739,6 +760,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdatePortProfileFunc: func(ctx context.Context, site string, p *PortProfile) (*PortProfile, error) {
 //				panic("mock out the UpdatePortProfile method")
+//			},
+//			UpdateQOSRuleFunc: func(ctx context.Context, site string, q *QOSRule) (*QOSRule, error) {
+//				panic("mock out the UpdateQOSRule method")
 //			},
 //			UpdateRADIUSProfileFunc: func(ctx context.Context, site string, r *RADIUSProfile) (*RADIUSProfile, error) {
 //				panic("mock out the UpdateRADIUSProfile method")
@@ -875,6 +899,9 @@ var _ Client = &ClientMock{}
 //			UpdateSettingUsgFunc: func(ctx context.Context, site string, s *SettingUsg) (*SettingUsg, error) {
 //				panic("mock out the UpdateSettingUsg method")
 //			},
+//			UpdateSettingUsgGeoFunc: func(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error) {
+//				panic("mock out the UpdateSettingUsgGeo method")
+//			},
 //			UpdateSettingUswFunc: func(ctx context.Context, site string, s *SettingUsw) (*SettingUsw, error) {
 //				panic("mock out the UpdateSettingUsw method")
 //			},
@@ -1002,6 +1029,9 @@ type ClientMock struct {
 	// CreatePortProfileFunc mocks the CreatePortProfile method.
 	CreatePortProfileFunc func(ctx context.Context, site string, p *PortProfile) (*PortProfile, error)
 
+	// CreateQOSRuleFunc mocks the CreateQOSRule method.
+	CreateQOSRuleFunc func(ctx context.Context, site string, q *QOSRule) (*QOSRule, error)
+
 	// CreateRADIUSProfileFunc mocks the CreateRADIUSProfile method.
 	CreateRADIUSProfileFunc func(ctx context.Context, site string, r *RADIUSProfile) (*RADIUSProfile, error)
 
@@ -1113,6 +1143,9 @@ type ClientMock struct {
 	// DeletePortalFileFunc mocks the DeletePortalFile method.
 	DeletePortalFileFunc func(ctx context.Context, site string, id string) error
 
+	// DeleteQOSRuleFunc mocks the DeleteQOSRule method.
+	DeleteQOSRuleFunc func(ctx context.Context, site string, id string) error
+
 	// DeleteRADIUSProfileFunc mocks the DeleteRADIUSProfile method.
 	DeleteRADIUSProfileFunc func(ctx context.Context, site string, id string) error
 
@@ -1188,9 +1221,6 @@ type ClientMock struct {
 	// GetDeviceRawFunc mocks the GetDeviceRaw method.
 	GetDeviceRawFunc func(ctx context.Context, site string, id string) (DeviceRaw, error)
 
-	// UpdateDeviceRawFunc mocks the UpdateDeviceRaw method.
-	UpdateDeviceRawFunc func(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error)
-
 	// GetDynamicDNSFunc mocks the GetDynamicDNS method.
 	GetDynamicDNSFunc func(ctx context.Context, site string, id string) (*DynamicDNS, error)
 
@@ -1241,6 +1271,9 @@ type ClientMock struct {
 
 	// GetPortalFileFunc mocks the GetPortalFile method.
 	GetPortalFileFunc func(ctx context.Context, site string, id string) (*PortalFile, error)
+
+	// GetQOSRuleFunc mocks the GetQOSRule method.
+	GetQOSRuleFunc func(ctx context.Context, site string, id string) (*QOSRule, error)
 
 	// GetRADIUSProfileFunc mocks the GetRADIUSProfile method.
 	GetRADIUSProfileFunc func(ctx context.Context, site string, id string) (*RADIUSProfile, error)
@@ -1515,6 +1548,9 @@ type ClientMock struct {
 	// ListPortalFilesFunc mocks the ListPortalFiles method.
 	ListPortalFilesFunc func(ctx context.Context, site string) ([]PortalFile, error)
 
+	// ListQOSRuleFunc mocks the ListQOSRule method.
+	ListQOSRuleFunc func(ctx context.Context, site string) ([]QOSRule, error)
+
 	// ListRADIUSProfileFunc mocks the ListRADIUSProfile method.
 	ListRADIUSProfileFunc func(ctx context.Context, site string) ([]RADIUSProfile, error)
 
@@ -1605,6 +1641,9 @@ type ClientMock struct {
 	// UpdateDeviceFunc mocks the UpdateDevice method.
 	UpdateDeviceFunc func(ctx context.Context, site string, d *Device) (*Device, error)
 
+	// UpdateDeviceRawFunc mocks the UpdateDeviceRaw method.
+	UpdateDeviceRawFunc func(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error)
+
 	// UpdateDynamicDNSFunc mocks the UpdateDynamicDNS method.
 	UpdateDynamicDNSFunc func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error)
 
@@ -1649,6 +1688,9 @@ type ClientMock struct {
 
 	// UpdatePortProfileFunc mocks the UpdatePortProfile method.
 	UpdatePortProfileFunc func(ctx context.Context, site string, p *PortProfile) (*PortProfile, error)
+
+	// UpdateQOSRuleFunc mocks the UpdateQOSRule method.
+	UpdateQOSRuleFunc func(ctx context.Context, site string, q *QOSRule) (*QOSRule, error)
 
 	// UpdateRADIUSProfileFunc mocks the UpdateRADIUSProfile method.
 	UpdateRADIUSProfileFunc func(ctx context.Context, site string, r *RADIUSProfile) (*RADIUSProfile, error)
@@ -2066,6 +2108,15 @@ type ClientMock struct {
 			// P is the p argument value.
 			P *PortProfile
 		}
+		// CreateQOSRule holds details about calls to the CreateQOSRule method.
+		CreateQOSRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// Q is the q argument value.
+			Q *QOSRule
+		}
 		// CreateRADIUSProfile holds details about calls to the CreateRADIUSProfile method.
 		CreateRADIUSProfile []struct {
 			// Ctx is the ctx argument value.
@@ -2399,6 +2450,15 @@ type ClientMock struct {
 			// ID is the id argument value.
 			ID string
 		}
+		// DeleteQOSRule holds details about calls to the DeleteQOSRule method.
+		DeleteQOSRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
 		// DeleteRADIUSProfile holds details about calls to the DeleteRADIUSProfile method.
 		DeleteRADIUSProfile []struct {
 			// Ctx is the ctx argument value.
@@ -2628,17 +2688,6 @@ type ClientMock struct {
 			// ID is the id argument value.
 			ID string
 		}
-		// UpdateDeviceRaw holds details about calls to the UpdateDeviceRaw method.
-		UpdateDeviceRaw []struct {
-			// Ctx is the ctx argument value.
-			Ctx context.Context
-			// Site is the site argument value.
-			Site string
-			// ID is the id argument value.
-			ID string
-			// Raw is the raw argument value.
-			Raw DeviceRaw
-		}
 		// GetDynamicDNS holds details about calls to the GetDynamicDNS method.
 		GetDynamicDNS []struct {
 			// Ctx is the ctx argument value.
@@ -2785,6 +2834,15 @@ type ClientMock struct {
 		}
 		// GetPortalFile holds details about calls to the GetPortalFile method.
 		GetPortalFile []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
+		// GetQOSRule holds details about calls to the GetQOSRule method.
+		GetQOSRule []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -3449,6 +3507,13 @@ type ClientMock struct {
 			// Site is the site argument value.
 			Site string
 		}
+		// ListQOSRule holds details about calls to the ListQOSRule method.
+		ListQOSRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// ListRADIUSProfile holds details about calls to the ListRADIUSProfile method.
 		ListRADIUSProfile []struct {
 			// Ctx is the ctx argument value.
@@ -3695,6 +3760,17 @@ type ClientMock struct {
 			// D is the d argument value.
 			D *Device
 		}
+		// UpdateDeviceRaw holds details about calls to the UpdateDeviceRaw method.
+		UpdateDeviceRaw []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+			// Raw is the raw argument value.
+			Raw DeviceRaw
+		}
 		// UpdateDynamicDNS holds details about calls to the UpdateDynamicDNS method.
 		UpdateDynamicDNS []struct {
 			// Ctx is the ctx argument value.
@@ -3829,6 +3905,15 @@ type ClientMock struct {
 			Site string
 			// P is the p argument value.
 			P *PortProfile
+		}
+		// UpdateQOSRule holds details about calls to the UpdateQOSRule method.
+		UpdateQOSRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// Q is the q argument value.
+			Q *QOSRule
 		}
 		// UpdateRADIUSProfile holds details about calls to the UpdateRADIUSProfile method.
 		UpdateRADIUSProfile []struct {
@@ -4381,6 +4466,7 @@ type ClientMock struct {
 	lockCreateNetwork                    sync.RWMutex
 	lockCreatePortForward                sync.RWMutex
 	lockCreatePortProfile                sync.RWMutex
+	lockCreateQOSRule                    sync.RWMutex
 	lockCreateRADIUSProfile              sync.RWMutex
 	lockCreateRouting                    sync.RWMutex
 	lockCreateScheduleTask               sync.RWMutex
@@ -4418,6 +4504,7 @@ type ClientMock struct {
 	lockDeletePortForward                sync.RWMutex
 	lockDeletePortProfile                sync.RWMutex
 	lockDeletePortalFile                 sync.RWMutex
+	lockDeleteQOSRule                    sync.RWMutex
 	lockDeleteRADIUSProfile              sync.RWMutex
 	lockDeleteRouting                    sync.RWMutex
 	lockDeleteScheduleTask               sync.RWMutex
@@ -4443,7 +4530,6 @@ type ClientMock struct {
 	lockGetDevice                        sync.RWMutex
 	lockGetDeviceByMAC                   sync.RWMutex
 	lockGetDeviceRaw                     sync.RWMutex
-	lockUpdateDeviceRaw                  sync.RWMutex
 	lockGetDynamicDNS                    sync.RWMutex
 	lockGetFeature                       sync.RWMutex
 	lockGetFirewallGroup                 sync.RWMutex
@@ -4461,6 +4547,7 @@ type ClientMock struct {
 	lockGetPortForward                   sync.RWMutex
 	lockGetPortProfile                   sync.RWMutex
 	lockGetPortalFile                    sync.RWMutex
+	lockGetQOSRule                       sync.RWMutex
 	lockGetRADIUSProfile                 sync.RWMutex
 	lockGetRouting                       sync.RWMutex
 	lockGetScheduleTask                  sync.RWMutex
@@ -4552,6 +4639,7 @@ type ClientMock struct {
 	lockListPortForward                  sync.RWMutex
 	lockListPortProfile                  sync.RWMutex
 	lockListPortalFiles                  sync.RWMutex
+	lockListQOSRule                      sync.RWMutex
 	lockListRADIUSProfile                sync.RWMutex
 	lockListRouting                      sync.RWMutex
 	lockListScheduleTask                 sync.RWMutex
@@ -4582,6 +4670,7 @@ type ClientMock struct {
 	lockUpdateDNSRecord                  sync.RWMutex
 	lockUpdateDashboard                  sync.RWMutex
 	lockUpdateDevice                     sync.RWMutex
+	lockUpdateDeviceRaw                  sync.RWMutex
 	lockUpdateDynamicDNS                 sync.RWMutex
 	lockUpdateFirewallGroup              sync.RWMutex
 	lockUpdateFirewallRule               sync.RWMutex
@@ -4597,6 +4686,7 @@ type ClientMock struct {
 	lockUpdateNetwork                    sync.RWMutex
 	lockUpdatePortForward                sync.RWMutex
 	lockUpdatePortProfile                sync.RWMutex
+	lockUpdateQOSRule                    sync.RWMutex
 	lockUpdateRADIUSProfile              sync.RWMutex
 	lockUpdateRouting                    sync.RWMutex
 	lockUpdateScheduleTask               sync.RWMutex
@@ -5722,6 +5812,46 @@ func (mock *ClientMock) CreatePortProfileCalls() []struct {
 	mock.lockCreatePortProfile.RLock()
 	calls = mock.calls.CreatePortProfile
 	mock.lockCreatePortProfile.RUnlock()
+	return calls
+}
+
+// CreateQOSRule calls CreateQOSRuleFunc.
+func (mock *ClientMock) CreateQOSRule(ctx context.Context, site string, q *QOSRule) (*QOSRule, error) {
+	if mock.CreateQOSRuleFunc == nil {
+		panic("ClientMock.CreateQOSRuleFunc: method is nil but Client.CreateQOSRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		Q    *QOSRule
+	}{
+		Ctx:  ctx,
+		Site: site,
+		Q:    q,
+	}
+	mock.lockCreateQOSRule.Lock()
+	mock.calls.CreateQOSRule = append(mock.calls.CreateQOSRule, callInfo)
+	mock.lockCreateQOSRule.Unlock()
+	return mock.CreateQOSRuleFunc(ctx, site, q)
+}
+
+// CreateQOSRuleCalls gets all the calls that were made to CreateQOSRule.
+// Check the length with:
+//
+//	len(mockedClient.CreateQOSRuleCalls())
+func (mock *ClientMock) CreateQOSRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	Q    *QOSRule
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		Q    *QOSRule
+	}
+	mock.lockCreateQOSRule.RLock()
+	calls = mock.calls.CreateQOSRule
+	mock.lockCreateQOSRule.RUnlock()
 	return calls
 }
 
@@ -7205,6 +7335,46 @@ func (mock *ClientMock) DeletePortalFileCalls() []struct {
 	return calls
 }
 
+// DeleteQOSRule calls DeleteQOSRuleFunc.
+func (mock *ClientMock) DeleteQOSRule(ctx context.Context, site string, id string) error {
+	if mock.DeleteQOSRuleFunc == nil {
+		panic("ClientMock.DeleteQOSRuleFunc: method is nil but Client.DeleteQOSRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockDeleteQOSRule.Lock()
+	mock.calls.DeleteQOSRule = append(mock.calls.DeleteQOSRule, callInfo)
+	mock.lockDeleteQOSRule.Unlock()
+	return mock.DeleteQOSRuleFunc(ctx, site, id)
+}
+
+// DeleteQOSRuleCalls gets all the calls that were made to DeleteQOSRule.
+// Check the length with:
+//
+//	len(mockedClient.DeleteQOSRuleCalls())
+func (mock *ClientMock) DeleteQOSRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockDeleteQOSRule.RLock()
+	calls = mock.calls.DeleteQOSRule
+	mock.lockDeleteQOSRule.RUnlock()
+	return calls
+}
+
 // DeleteRADIUSProfile calls DeleteRADIUSProfileFunc.
 func (mock *ClientMock) DeleteRADIUSProfile(ctx context.Context, site string, id string) error {
 	if mock.DeleteRADIUSProfileFunc == nil {
@@ -8213,50 +8383,6 @@ func (mock *ClientMock) GetDeviceRawCalls() []struct {
 	return calls
 }
 
-// UpdateDeviceRaw calls UpdateDeviceRawFunc.
-func (mock *ClientMock) UpdateDeviceRaw(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error) {
-	if mock.UpdateDeviceRawFunc == nil {
-		panic("ClientMock.UpdateDeviceRawFunc: method is nil but Client.UpdateDeviceRaw was just called")
-	}
-	callInfo := struct {
-		Ctx  context.Context
-		Site string
-		ID   string
-		Raw  DeviceRaw
-	}{
-		Ctx:  ctx,
-		Site: site,
-		ID:   id,
-		Raw:  raw,
-	}
-	mock.lockUpdateDeviceRaw.Lock()
-	mock.calls.UpdateDeviceRaw = append(mock.calls.UpdateDeviceRaw, callInfo)
-	mock.lockUpdateDeviceRaw.Unlock()
-	return mock.UpdateDeviceRawFunc(ctx, site, id, raw)
-}
-
-// UpdateDeviceRawCalls gets all the calls that were made to UpdateDeviceRaw.
-// Check the length with:
-//
-//	len(mockedClient.UpdateDeviceRawCalls())
-func (mock *ClientMock) UpdateDeviceRawCalls() []struct {
-	Ctx  context.Context
-	Site string
-	ID   string
-	Raw  DeviceRaw
-} {
-	var calls []struct {
-		Ctx  context.Context
-		Site string
-		ID   string
-		Raw  DeviceRaw
-	}
-	mock.lockUpdateDeviceRaw.RLock()
-	calls = mock.calls.UpdateDeviceRaw
-	mock.lockUpdateDeviceRaw.RUnlock()
-	return calls
-}
-
 // GetDynamicDNS calls GetDynamicDNSFunc.
 func (mock *ClientMock) GetDynamicDNS(ctx context.Context, site string, id string) (*DynamicDNS, error) {
 	if mock.GetDynamicDNSFunc == nil {
@@ -8934,6 +9060,46 @@ func (mock *ClientMock) GetPortalFileCalls() []struct {
 	mock.lockGetPortalFile.RLock()
 	calls = mock.calls.GetPortalFile
 	mock.lockGetPortalFile.RUnlock()
+	return calls
+}
+
+// GetQOSRule calls GetQOSRuleFunc.
+func (mock *ClientMock) GetQOSRule(ctx context.Context, site string, id string) (*QOSRule, error) {
+	if mock.GetQOSRuleFunc == nil {
+		panic("ClientMock.GetQOSRuleFunc: method is nil but Client.GetQOSRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockGetQOSRule.Lock()
+	mock.calls.GetQOSRule = append(mock.calls.GetQOSRule, callInfo)
+	mock.lockGetQOSRule.Unlock()
+	return mock.GetQOSRuleFunc(ctx, site, id)
+}
+
+// GetQOSRuleCalls gets all the calls that were made to GetQOSRule.
+// Check the length with:
+//
+//	len(mockedClient.GetQOSRuleCalls())
+func (mock *ClientMock) GetQOSRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockGetQOSRule.RLock()
+	calls = mock.calls.GetQOSRule
+	mock.lockGetQOSRule.RUnlock()
 	return calls
 }
 
@@ -10591,24 +10757,6 @@ func (mock *ClientMock) GetSettingUsg(ctx context.Context, site string) (*Settin
 	return mock.GetSettingUsgFunc(ctx, site)
 }
 
-// GetSettingUsgGeo calls GetSettingUsgGeoFunc.
-func (mock *ClientMock) GetSettingUsgGeo(ctx context.Context, site string) (*SettingUsgGeo, error) {
-	if mock.GetSettingUsgGeoFunc == nil {
-		panic("ClientMock.GetSettingUsgGeoFunc: method is nil but Client.GetSettingUsgGeo was just called")
-	}
-	callInfo := struct {
-		Ctx  context.Context
-		Site string
-	}{
-		Ctx:  ctx,
-		Site: site,
-	}
-	mock.lockGetSettingUsgGeo.Lock()
-	mock.calls.GetSettingUsgGeo = append(mock.calls.GetSettingUsgGeo, callInfo)
-	mock.lockGetSettingUsgGeo.Unlock()
-	return mock.GetSettingUsgGeoFunc(ctx, site)
-}
-
 // GetSettingUsgCalls gets all the calls that were made to GetSettingUsg.
 // Check the length with:
 //
@@ -10625,6 +10773,24 @@ func (mock *ClientMock) GetSettingUsgCalls() []struct {
 	calls = mock.calls.GetSettingUsg
 	mock.lockGetSettingUsg.RUnlock()
 	return calls
+}
+
+// GetSettingUsgGeo calls GetSettingUsgGeoFunc.
+func (mock *ClientMock) GetSettingUsgGeo(ctx context.Context, site string) (*SettingUsgGeo, error) {
+	if mock.GetSettingUsgGeoFunc == nil {
+		panic("ClientMock.GetSettingUsgGeoFunc: method is nil but Client.GetSettingUsgGeo was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetSettingUsgGeo.Lock()
+	mock.calls.GetSettingUsgGeo = append(mock.calls.GetSettingUsgGeo, callInfo)
+	mock.lockGetSettingUsgGeo.Unlock()
+	return mock.GetSettingUsgGeoFunc(ctx, site)
 }
 
 // GetSettingUsgGeoCalls gets all the calls that were made to GetSettingUsgGeo.
@@ -12251,6 +12417,42 @@ func (mock *ClientMock) ListPortalFilesCalls() []struct {
 	return calls
 }
 
+// ListQOSRule calls ListQOSRuleFunc.
+func (mock *ClientMock) ListQOSRule(ctx context.Context, site string) ([]QOSRule, error) {
+	if mock.ListQOSRuleFunc == nil {
+		panic("ClientMock.ListQOSRuleFunc: method is nil but Client.ListQOSRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockListQOSRule.Lock()
+	mock.calls.ListQOSRule = append(mock.calls.ListQOSRule, callInfo)
+	mock.lockListQOSRule.Unlock()
+	return mock.ListQOSRuleFunc(ctx, site)
+}
+
+// ListQOSRuleCalls gets all the calls that were made to ListQOSRule.
+// Check the length with:
+//
+//	len(mockedClient.ListQOSRuleCalls())
+func (mock *ClientMock) ListQOSRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockListQOSRule.RLock()
+	calls = mock.calls.ListQOSRule
+	mock.lockListQOSRule.RUnlock()
+	return calls
+}
+
 // ListRADIUSProfile calls ListRADIUSProfileFunc.
 func (mock *ClientMock) ListRADIUSProfile(ctx context.Context, site string) ([]RADIUSProfile, error) {
 	if mock.ListRADIUSProfileFunc == nil {
@@ -13401,6 +13603,50 @@ func (mock *ClientMock) UpdateDeviceCalls() []struct {
 	return calls
 }
 
+// UpdateDeviceRaw calls UpdateDeviceRawFunc.
+func (mock *ClientMock) UpdateDeviceRaw(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error) {
+	if mock.UpdateDeviceRawFunc == nil {
+		panic("ClientMock.UpdateDeviceRawFunc: method is nil but Client.UpdateDeviceRaw was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+		Raw  DeviceRaw
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+		Raw:  raw,
+	}
+	mock.lockUpdateDeviceRaw.Lock()
+	mock.calls.UpdateDeviceRaw = append(mock.calls.UpdateDeviceRaw, callInfo)
+	mock.lockUpdateDeviceRaw.Unlock()
+	return mock.UpdateDeviceRawFunc(ctx, site, id, raw)
+}
+
+// UpdateDeviceRawCalls gets all the calls that were made to UpdateDeviceRaw.
+// Check the length with:
+//
+//	len(mockedClient.UpdateDeviceRawCalls())
+func (mock *ClientMock) UpdateDeviceRawCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+	Raw  DeviceRaw
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+		Raw  DeviceRaw
+	}
+	mock.lockUpdateDeviceRaw.RLock()
+	calls = mock.calls.UpdateDeviceRaw
+	mock.lockUpdateDeviceRaw.RUnlock()
+	return calls
+}
+
 // UpdateDynamicDNS calls UpdateDynamicDNSFunc.
 func (mock *ClientMock) UpdateDynamicDNS(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 	if mock.UpdateDynamicDNSFunc == nil {
@@ -13998,6 +14244,46 @@ func (mock *ClientMock) UpdatePortProfileCalls() []struct {
 	mock.lockUpdatePortProfile.RLock()
 	calls = mock.calls.UpdatePortProfile
 	mock.lockUpdatePortProfile.RUnlock()
+	return calls
+}
+
+// UpdateQOSRule calls UpdateQOSRuleFunc.
+func (mock *ClientMock) UpdateQOSRule(ctx context.Context, site string, q *QOSRule) (*QOSRule, error) {
+	if mock.UpdateQOSRuleFunc == nil {
+		panic("ClientMock.UpdateQOSRuleFunc: method is nil but Client.UpdateQOSRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		Q    *QOSRule
+	}{
+		Ctx:  ctx,
+		Site: site,
+		Q:    q,
+	}
+	mock.lockUpdateQOSRule.Lock()
+	mock.calls.UpdateQOSRule = append(mock.calls.UpdateQOSRule, callInfo)
+	mock.lockUpdateQOSRule.Unlock()
+	return mock.UpdateQOSRuleFunc(ctx, site, q)
+}
+
+// UpdateQOSRuleCalls gets all the calls that were made to UpdateQOSRule.
+// Check the length with:
+//
+//	len(mockedClient.UpdateQOSRuleCalls())
+func (mock *ClientMock) UpdateQOSRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	Q    *QOSRule
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		Q    *QOSRule
+	}
+	mock.lockUpdateQOSRule.RLock()
+	calls = mock.calls.UpdateQOSRule
+	mock.lockUpdateQOSRule.RUnlock()
 	return calls
 }
 
@@ -15781,26 +16067,6 @@ func (mock *ClientMock) UpdateSettingUsg(ctx context.Context, site string, s *Se
 	return mock.UpdateSettingUsgFunc(ctx, site, s)
 }
 
-// UpdateSettingUsgGeo calls UpdateSettingUsgGeoFunc.
-func (mock *ClientMock) UpdateSettingUsgGeo(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error) {
-	if mock.UpdateSettingUsgGeoFunc == nil {
-		panic("ClientMock.UpdateSettingUsgGeoFunc: method is nil but Client.UpdateSettingUsgGeo was just called")
-	}
-	callInfo := struct {
-		Ctx  context.Context
-		Site string
-		S    *SettingUsgGeo
-	}{
-		Ctx:  ctx,
-		Site: site,
-		S:    s,
-	}
-	mock.lockUpdateSettingUsgGeo.Lock()
-	mock.calls.UpdateSettingUsgGeo = append(mock.calls.UpdateSettingUsgGeo, callInfo)
-	mock.lockUpdateSettingUsgGeo.Unlock()
-	return mock.UpdateSettingUsgGeoFunc(ctx, site, s)
-}
-
 // UpdateSettingUsgCalls gets all the calls that were made to UpdateSettingUsg.
 // Check the length with:
 //
@@ -15819,6 +16085,26 @@ func (mock *ClientMock) UpdateSettingUsgCalls() []struct {
 	calls = mock.calls.UpdateSettingUsg
 	mock.lockUpdateSettingUsg.RUnlock()
 	return calls
+}
+
+// UpdateSettingUsgGeo calls UpdateSettingUsgGeoFunc.
+func (mock *ClientMock) UpdateSettingUsgGeo(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error) {
+	if mock.UpdateSettingUsgGeoFunc == nil {
+		panic("ClientMock.UpdateSettingUsgGeoFunc: method is nil but Client.UpdateSettingUsgGeo was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingUsgGeo
+	}{
+		Ctx:  ctx,
+		Site: site,
+		S:    s,
+	}
+	mock.lockUpdateSettingUsgGeo.Lock()
+	mock.calls.UpdateSettingUsgGeo = append(mock.calls.UpdateSettingUsgGeo, callInfo)
+	mock.lockUpdateSettingUsgGeo.Unlock()
+	return mock.UpdateSettingUsgGeoFunc(ctx, site, s)
 }
 
 // UpdateSettingUsgGeoCalls gets all the calls that were made to UpdateSettingUsgGeo.
