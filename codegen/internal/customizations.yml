@@ -145,6 +145,34 @@ customizations:
         returns:
           - "*Device"
           - "error"
+      - name: "GetDeviceRaw"
+        comment: "GetDeviceRaw returns the device's full JSON as a field map, preserving every field the controller returns."
+        resourceName: "Device"
+        params:
+          - name: "ctx"
+            type: "context.Context"
+          - name: "site"
+            type: "string"
+          - name: "id"
+            type: "string"
+        returns:
+          - "DeviceRaw"
+          - "error"
+      - name: "UpdateDeviceRaw"
+        comment: "UpdateDeviceRaw PUTs a raw device object, preserving all fields byte-for-byte, and returns the persisted device."
+        resourceName: "Device"
+        params:
+          - name: "ctx"
+            type: "context.Context"
+          - name: "site"
+            type: "string"
+          - name: "id"
+            type: "string"
+          - name: "raw"
+            type: "DeviceRaw"
+        returns:
+          - "DeviceRaw"
+          - "error"
       - name: "ReorderFirewallRules"
         resourceName: "FirewallRule"
         params:

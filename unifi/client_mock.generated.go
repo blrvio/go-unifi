@@ -1185,6 +1185,12 @@ type ClientMock struct {
 	// GetDeviceByMACFunc mocks the GetDeviceByMAC method.
 	GetDeviceByMACFunc func(ctx context.Context, site string, mac string) (*Device, error)
 
+	// GetDeviceRawFunc mocks the GetDeviceRaw method.
+	GetDeviceRawFunc func(ctx context.Context, site string, id string) (DeviceRaw, error)
+
+	// UpdateDeviceRawFunc mocks the UpdateDeviceRaw method.
+	UpdateDeviceRawFunc func(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error)
+
 	// GetDynamicDNSFunc mocks the GetDynamicDNS method.
 	GetDynamicDNSFunc func(ctx context.Context, site string, id string) (*DynamicDNS, error)
 
@@ -2612,6 +2618,26 @@ type ClientMock struct {
 			Site string
 			// Mac is the mac argument value.
 			Mac string
+		}
+		// GetDeviceRaw holds details about calls to the GetDeviceRaw method.
+		GetDeviceRaw []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
+		// UpdateDeviceRaw holds details about calls to the UpdateDeviceRaw method.
+		UpdateDeviceRaw []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+			// Raw is the raw argument value.
+			Raw DeviceRaw
 		}
 		// GetDynamicDNS holds details about calls to the GetDynamicDNS method.
 		GetDynamicDNS []struct {
@@ -4416,6 +4442,8 @@ type ClientMock struct {
 	lockGetDashboard                     sync.RWMutex
 	lockGetDevice                        sync.RWMutex
 	lockGetDeviceByMAC                   sync.RWMutex
+	lockGetDeviceRaw                     sync.RWMutex
+	lockUpdateDeviceRaw                  sync.RWMutex
 	lockGetDynamicDNS                    sync.RWMutex
 	lockGetFeature                       sync.RWMutex
 	lockGetFirewallGroup                 sync.RWMutex
@@ -8142,6 +8170,90 @@ func (mock *ClientMock) GetDeviceByMACCalls() []struct {
 	mock.lockGetDeviceByMAC.RLock()
 	calls = mock.calls.GetDeviceByMAC
 	mock.lockGetDeviceByMAC.RUnlock()
+	return calls
+}
+
+// GetDeviceRaw calls GetDeviceRawFunc.
+func (mock *ClientMock) GetDeviceRaw(ctx context.Context, site string, id string) (DeviceRaw, error) {
+	if mock.GetDeviceRawFunc == nil {
+		panic("ClientMock.GetDeviceRawFunc: method is nil but Client.GetDeviceRaw was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockGetDeviceRaw.Lock()
+	mock.calls.GetDeviceRaw = append(mock.calls.GetDeviceRaw, callInfo)
+	mock.lockGetDeviceRaw.Unlock()
+	return mock.GetDeviceRawFunc(ctx, site, id)
+}
+
+// GetDeviceRawCalls gets all the calls that were made to GetDeviceRaw.
+// Check the length with:
+//
+//	len(mockedClient.GetDeviceRawCalls())
+func (mock *ClientMock) GetDeviceRawCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockGetDeviceRaw.RLock()
+	calls = mock.calls.GetDeviceRaw
+	mock.lockGetDeviceRaw.RUnlock()
+	return calls
+}
+
+// UpdateDeviceRaw calls UpdateDeviceRawFunc.
+func (mock *ClientMock) UpdateDeviceRaw(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error) {
+	if mock.UpdateDeviceRawFunc == nil {
+		panic("ClientMock.UpdateDeviceRawFunc: method is nil but Client.UpdateDeviceRaw was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+		Raw  DeviceRaw
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+		Raw:  raw,
+	}
+	mock.lockUpdateDeviceRaw.Lock()
+	mock.calls.UpdateDeviceRaw = append(mock.calls.UpdateDeviceRaw, callInfo)
+	mock.lockUpdateDeviceRaw.Unlock()
+	return mock.UpdateDeviceRawFunc(ctx, site, id, raw)
+}
+
+// UpdateDeviceRawCalls gets all the calls that were made to UpdateDeviceRaw.
+// Check the length with:
+//
+//	len(mockedClient.UpdateDeviceRawCalls())
+func (mock *ClientMock) UpdateDeviceRawCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+	Raw  DeviceRaw
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+		Raw  DeviceRaw
+	}
+	mock.lockUpdateDeviceRaw.RLock()
+	calls = mock.calls.UpdateDeviceRaw
+	mock.lockUpdateDeviceRaw.RUnlock()
 	return calls
 }
 

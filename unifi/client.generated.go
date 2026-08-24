@@ -192,11 +192,17 @@ type InternalClient interface {
 
 	GetDeviceByMAC(ctx context.Context, site string, mac string) (*Device, error)
 
+	// GetDeviceRaw returns the device's full JSON as a field map, preserving every field the controller returns.
+	GetDeviceRaw(ctx context.Context, site string, id string) (DeviceRaw, error)
+
 	// ListDevice lists the resources
 	ListDevice(ctx context.Context, site string) ([]Device, error)
 
 	// UpdateDevice updates a resource
 	UpdateDevice(ctx context.Context, site string, d *Device) (*Device, error)
+
+	// UpdateDeviceRaw PUTs a raw device object, preserving all fields byte-for-byte, and returns the persisted device.
+	UpdateDeviceRaw(ctx context.Context, site string, id string, raw DeviceRaw) (DeviceRaw, error)
 
 	// ==== end of client methods for Device resource ====
 
