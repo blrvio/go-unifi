@@ -572,16 +572,29 @@ type DeviceRadioTable struct {
 	AntennaID              int                      `json:"antenna_id,omitempty"`   // -1|[0-9]
 	AssistedRoamingEnabled bool                     `json:"assisted_roaming_enabled,omitempty"`
 	AssistedRoamingRssi    int                      `json:"assisted_roaming_rssi,omitempty"` // ^-([6-7][0-9]|80)$
-	Channel                string                   `json:"channel,omitempty"`               // [0-9]|[1][0-4]|1.5|2.5|3.5|4.5|5.5|6.5|5|16|17|21|25|29|33|34|36|37|38|40|41|42|44|45|46|48|49|52|53|56|57|60|61|64|65|69|73|77|81|85|89|93|97|100|101|104|105|108|109|112|113|117|116|120|121|124|125|128|129|132|133|136|137|140|141|144|145|149|153|157|161|165|169|173|177|181|183|184|185|187|188|189|192|193|196|197|201|205|209|213|217|221|225|229|233|auto
+	BuiltinAntGain         int                      `json:"builtin_ant_gain,omitempty"`
+	BuiltinAntenna         bool                     `json:"builtin_antenna,omitempty"`
+	Channel                string                   `json:"channel,omitempty"` // [0-9]|[1][0-4]|1.5|2.5|3.5|4.5|5.5|6.5|5|16|17|21|25|29|33|34|36|37|38|40|41|42|44|45|46|48|49|52|53|56|57|60|61|64|65|69|73|77|81|85|89|93|97|100|101|104|105|108|109|112|113|117|116|120|121|124|125|128|129|132|133|136|137|140|141|144|145|149|153|157|161|165|169|173|177|181|183|184|185|187|188|189|192|193|196|197|201|205|209|213|217|221|225|229|233|auto
+	CurrentAntennaGain     int                      `json:"current_antenna_gain,omitempty"`
 	Dfs                    bool                     `json:"dfs,omitempty"`
 	HardNoiseFloorEnabled  bool                     `json:"hard_noise_floor_enabled,omitempty"`
+	HasDfs                 bool                     `json:"has_dfs,omitempty"`
+	HasFccdfs              bool                     `json:"has_fccdfs,omitempty"`
+	HasHt160               bool                     `json:"has_ht160,omitempty"`
 	Ht                     int                      `json:"ht,omitempty" validate:"omitempty,oneof=20 40 80 160 240 320 1080 2160 4320"` // 20|40|80|160|240|320|1080|2160|4320
+	Is11Ac                 bool                     `json:"is_11ac,omitempty"`
+	Is11Ax                 bool                     `json:"is_11ax,omitempty"`
 	LoadbalanceEnabled     bool                     `json:"loadbalance_enabled,omitempty"`
+	MaxTxpower             int                      `json:"max_txpower,omitempty"`
 	Maxsta                 int                      `json:"maxsta,omitempty"`   // [1-9]|[1-9][0-9]|1[0-9]{2}|200|^$
 	MinRssi                int                      `json:"min_rssi,omitempty"` // ^-(6[7-9]|[7-8][0-9]|90)$
 	MinRssiEnabled         bool                     `json:"min_rssi_enabled,omitempty"`
+	MinTxpower             int                      `json:"min_txpower,omitempty"`
 	Name                   string                   `json:"name,omitempty"`
+	Nss                    int                      `json:"nss,omitempty"`
 	Radio                  string                   `json:"radio,omitempty" validate:"omitempty,oneof=ng na ad 6e"` // ng|na|ad|6e
+	RadioCaps              int                      `json:"radio_caps,omitempty"`
+	RadioCaps2             int                      `json:"radio_caps2,omitempty"`
 	RadioIDentifiers       []DeviceRadioIDentifiers `json:"radio_identifiers,omitempty"`
 	SensLevel              int                      `json:"sens_level,omitempty"` // ^-([5-8][0-9]|90)$
 	SensLevelEnabled       bool                     `json:"sens_level_enabled,omitempty"`
@@ -598,10 +611,17 @@ func (dst *DeviceRadioTable) UnmarshalJSON(b []byte) error {
 		AntennaGain         emptyStringInt `json:"antenna_gain"`
 		AntennaID           emptyStringInt `json:"antenna_id"`
 		AssistedRoamingRssi emptyStringInt `json:"assisted_roaming_rssi"`
+		BuiltinAntGain      emptyStringInt `json:"builtin_ant_gain"`
 		Channel             numberOrString `json:"channel"`
+		CurrentAntennaGain  emptyStringInt `json:"current_antenna_gain"`
 		Ht                  emptyStringInt `json:"ht"`
+		MaxTxpower          emptyStringInt `json:"max_txpower"`
 		Maxsta              emptyStringInt `json:"maxsta"`
 		MinRssi             emptyStringInt `json:"min_rssi"`
+		MinTxpower          emptyStringInt `json:"min_txpower"`
+		Nss                 emptyStringInt `json:"nss"`
+		RadioCaps           emptyStringInt `json:"radio_caps"`
+		RadioCaps2          emptyStringInt `json:"radio_caps2"`
 		SensLevel           emptyStringInt `json:"sens_level"`
 		TxPower             numberOrString `json:"tx_power"`
 	}{
@@ -615,10 +635,17 @@ func (dst *DeviceRadioTable) UnmarshalJSON(b []byte) error {
 	dst.AntennaGain = int(aux.AntennaGain)
 	dst.AntennaID = int(aux.AntennaID)
 	dst.AssistedRoamingRssi = int(aux.AssistedRoamingRssi)
+	dst.BuiltinAntGain = int(aux.BuiltinAntGain)
 	dst.Channel = string(aux.Channel)
+	dst.CurrentAntennaGain = int(aux.CurrentAntennaGain)
 	dst.Ht = int(aux.Ht)
+	dst.MaxTxpower = int(aux.MaxTxpower)
 	dst.Maxsta = int(aux.Maxsta)
 	dst.MinRssi = int(aux.MinRssi)
+	dst.MinTxpower = int(aux.MinTxpower)
+	dst.Nss = int(aux.Nss)
+	dst.RadioCaps = int(aux.RadioCaps)
+	dst.RadioCaps2 = int(aux.RadioCaps2)
 	dst.SensLevel = int(aux.SensLevel)
 	dst.TxPower = string(aux.TxPower)
 

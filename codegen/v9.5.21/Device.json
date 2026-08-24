@@ -45,7 +45,20 @@
         "loadbalance_enabled": "true|false",
         "maxsta": "[1-9]|[1-9][0-9]|1[0-9]{2}|200|^$",
         "assisted_roaming_enabled": "true|false",
-        "assisted_roaming_rssi": "^-([6-7][0-9]|80)$"
+        "assisted_roaming_rssi": "^-([6-7][0-9]|80)$",
+        "nss": "^-?[0-9]+$",
+        "radio_caps": "^-?[0-9]+$",
+        "radio_caps2": "^-?[0-9]+$",
+        "has_dfs": "true|false",
+        "has_fccdfs": "true|false",
+        "has_ht160": "true|false",
+        "is_11ac": "true|false",
+        "is_11ax": "true|false",
+        "max_txpower": "^-?[0-9]+$",
+        "min_txpower": "^-?[0-9]+$",
+        "builtin_ant_gain": "^-?[0-9]+$",
+        "builtin_antenna": "true|false",
+        "current_antenna_gain": "^-?[0-9]+$"
     }],
     "outlet_overrides": [{
         "index": "[0-9]{1,2}",
