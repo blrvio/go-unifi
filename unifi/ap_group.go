@@ -13,7 +13,18 @@ func (c *client) CreateAPGroup(ctx context.Context, site string, d *APGroup) (*A
 }
 
 func (c *client) GetAPGroup(ctx context.Context, site, id string) (*APGroup, error) {
-	return c.getAPGroup(ctx, site, id)
+	// The v2 apgroups collection has no GET-by-id (it returns HTTP 405), so filter client-side.
+	groups, err := c.listAPGroup(ctx, site)
+	if err != nil {
+		return nil, err
+	}
+
+	for i := range groups {
+		if groups[i].ID == id {
+			return &groups[i], nil
+		}
+	}
+	return nil, ErrNotFound
 }
 
 func (c *client) DeleteAPGroup(ctx context.Context, site, id string) error {
