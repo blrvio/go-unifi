@@ -142,6 +142,7 @@ type Network struct {
 	MACOverride                                   string                          `json:"mac_override" validate:"omitempty,mac"` // (^$|^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$)
 	MACOverrideEnabled                            bool                            `json:"mac_override_enabled"`
 	MdnsEnabled                                   bool                            `json:"mdns_enabled"`
+	MssClamp                                      string                          `json:"mss_clamp,omitempty"`
 	NATOutboundIPAddresses                        []NetworkNATOutboundIPAddresses `json:"nat_outbound_ip_addresses,omitempty"`
 	Name                                          string                          `json:"name,omitempty" validate:"omitempty,gte=1,lte=128"` // .{1,128}
 	NetworkGroup                                  string                          `json:"networkgroup,omitempty"`                            // LAN[2-8]?
@@ -191,6 +192,7 @@ type Network struct {
 	UserGroupID                                   string                          `json:"usergroup_id"`
 	VLAN                                          int                             `json:"vlan,omitempty"` // [2-9]|[1-9][0-9]{1,2}|[1-3][0-9]{3}|400[0-9]|401[0-8]|^$
 	VLANEnabled                                   bool                            `json:"vlan_enabled"`
+	VPNBindingMode                                string                          `json:"vpn_binding_mode,omitempty"`
 	VPNClientConfigurationRemoteIPOverride        string                          `json:"vpn_client_configuration_remote_ip_override,omitempty"`
 	VPNClientConfigurationRemoteIPOverrideEnabled bool                            `json:"vpn_client_configuration_remote_ip_override_enabled"`
 	VPNClientDefaultRoute                         bool                            `json:"vpn_client_default_route"`
@@ -248,8 +250,10 @@ type Network struct {
 	WireguardClientPeerPublicKey                  string                          `json:"wireguard_client_peer_public_key,omitempty"`
 	WireguardClientPresharedKey                   string                          `json:"wireguard_client_preshared_key,omitempty"`
 	WireguardClientPresharedKeyEnabled            bool                            `json:"wireguard_client_preshared_key_enabled"`
-	WireguardInterface                            string                          `json:"wireguard_interface,omitempty"`    // wan[2-9]?
-	WireguardLocalWANIP                           string                          `json:"wireguard_local_wan_ip,omitempty"` // ^any$|^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$
+	WireguardID                                   int                             `json:"wireguard_id,omitempty"`
+	WireguardInterface                            string                          `json:"wireguard_interface,omitempty"`                                                          // wan[2-9]?
+	WireguardInterfaceBindingModeIPVersion        string                          `json:"wireguard_interface_binding_mode_ip_version,omitempty" validate:"omitempty,oneof=v4 v6"` // v4|v6
+	WireguardLocalWANIP                           string                          `json:"wireguard_local_wan_ip,omitempty"`                                                       // ^any$|^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$
 	WireguardPublicKey                            string                          `json:"wireguard_public_key,omitempty"`
 	XAuthKey                                      string                          `json:"x_auth_key,omitempty"`
 	XCaCrt                                        string                          `json:"x_ca_crt,omitempty"`
@@ -307,6 +311,7 @@ func (dst *Network) UnmarshalJSON(b []byte) error {
 		WANSmartqUpRate                emptyStringInt `json:"wan_smartq_up_rate"`
 		WANVLAN                        emptyStringInt `json:"wan_vlan"`
 		WireguardClientPeerPort        emptyStringInt `json:"wireguard_client_peer_port"`
+		WireguardID                    emptyStringInt `json:"wireguard_id"`
 	}{
 		Alias: (*Alias)(dst),
 	}
@@ -350,6 +355,7 @@ func (dst *Network) UnmarshalJSON(b []byte) error {
 	dst.WANSmartqUpRate = int(aux.WANSmartqUpRate)
 	dst.WANVLAN = int(aux.WANVLAN)
 	dst.WireguardClientPeerPort = int(aux.WireguardClientPeerPort)
+	dst.WireguardID = int(aux.WireguardID)
 
 	return nil
 }
