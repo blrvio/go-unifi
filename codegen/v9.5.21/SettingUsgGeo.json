@@ -1,0 +1,8 @@
+{
+  "ip_filtering": {
+    "action": "block|allow",
+    "countries": "^([A-Z]{2})?(,[A-Z]{2}){0,149}$",
+    "enabled": "true|false",
+    "traffic_direction": "^(both|ingress|egress)$"
+  }
+}

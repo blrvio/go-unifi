@@ -1374,6 +1374,9 @@ type ClientMock struct {
 	// GetSettingUsgFunc mocks the GetSettingUsg method.
 	GetSettingUsgFunc func(ctx context.Context, site string) (*SettingUsg, error)
 
+	// GetSettingUsgGeoFunc mocks the GetSettingUsgGeo method.
+	GetSettingUsgGeoFunc func(ctx context.Context, site string) (*SettingUsgGeo, error)
+
 	// GetSettingUswFunc mocks the GetSettingUsw method.
 	GetSettingUswFunc func(ctx context.Context, site string) (*SettingUsw, error)
 
@@ -1775,6 +1778,9 @@ type ClientMock struct {
 
 	// UpdateSettingUsgFunc mocks the UpdateSettingUsg method.
 	UpdateSettingUsgFunc func(ctx context.Context, site string, s *SettingUsg) (*SettingUsg, error)
+
+	// UpdateSettingUsgGeoFunc mocks the UpdateSettingUsgGeo method.
+	UpdateSettingUsgGeoFunc func(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error)
 
 	// UpdateSettingUswFunc mocks the UpdateSettingUsw method.
 	UpdateSettingUswFunc func(ctx context.Context, site string, s *SettingUsw) (*SettingUsw, error)
@@ -3090,6 +3096,13 @@ type ClientMock struct {
 			// Site is the site argument value.
 			Site string
 		}
+		// GetSettingUsgGeo holds details about calls to the GetSettingUsgGeo method.
+		GetSettingUsgGeo []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// GetSettingUsw holds details about calls to the GetSettingUsw method.
 		GetSettingUsw []struct {
 			// Ctx is the ctx argument value.
@@ -4196,6 +4209,15 @@ type ClientMock struct {
 			// S is the s argument value.
 			S *SettingUsg
 		}
+		// UpdateSettingUsgGeo holds details about calls to the UpdateSettingUsgGeo method.
+		UpdateSettingUsgGeo []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// S is the s argument value.
+			S *SettingUsgGeo
+		}
 		// UpdateSettingUsw holds details about calls to the UpdateSettingUsw method.
 		UpdateSettingUsw []struct {
 			// Ctx is the ctx argument value.
@@ -4457,6 +4479,7 @@ type ClientMock struct {
 	lockGetSettingTeleport               sync.RWMutex
 	lockGetSettingTrafficFlow            sync.RWMutex
 	lockGetSettingUsg                    sync.RWMutex
+	lockGetSettingUsgGeo                 sync.RWMutex
 	lockGetSettingUsw                    sync.RWMutex
 	lockGetSite                          sync.RWMutex
 	lockGetSpatialRecord                 sync.RWMutex
@@ -4591,6 +4614,7 @@ type ClientMock struct {
 	lockUpdateSettingTeleport            sync.RWMutex
 	lockUpdateSettingTrafficFlow         sync.RWMutex
 	lockUpdateSettingUsg                 sync.RWMutex
+	lockUpdateSettingUsgGeo              sync.RWMutex
 	lockUpdateSettingUsw                 sync.RWMutex
 	lockUpdateSite                       sync.RWMutex
 	lockUpdateSpatialRecord              sync.RWMutex
@@ -10455,6 +10479,24 @@ func (mock *ClientMock) GetSettingUsg(ctx context.Context, site string) (*Settin
 	return mock.GetSettingUsgFunc(ctx, site)
 }
 
+// GetSettingUsgGeo calls GetSettingUsgGeoFunc.
+func (mock *ClientMock) GetSettingUsgGeo(ctx context.Context, site string) (*SettingUsgGeo, error) {
+	if mock.GetSettingUsgGeoFunc == nil {
+		panic("ClientMock.GetSettingUsgGeoFunc: method is nil but Client.GetSettingUsgGeo was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetSettingUsgGeo.Lock()
+	mock.calls.GetSettingUsgGeo = append(mock.calls.GetSettingUsgGeo, callInfo)
+	mock.lockGetSettingUsgGeo.Unlock()
+	return mock.GetSettingUsgGeoFunc(ctx, site)
+}
+
 // GetSettingUsgCalls gets all the calls that were made to GetSettingUsg.
 // Check the length with:
 //
@@ -10470,6 +10512,24 @@ func (mock *ClientMock) GetSettingUsgCalls() []struct {
 	mock.lockGetSettingUsg.RLock()
 	calls = mock.calls.GetSettingUsg
 	mock.lockGetSettingUsg.RUnlock()
+	return calls
+}
+
+// GetSettingUsgGeoCalls gets all the calls that were made to GetSettingUsgGeo.
+// Check the length with:
+//
+//	len(mockedClient.GetSettingUsgGeoCalls())
+func (mock *ClientMock) GetSettingUsgGeoCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockGetSettingUsgGeo.RLock()
+	calls = mock.calls.GetSettingUsgGeo
+	mock.lockGetSettingUsgGeo.RUnlock()
 	return calls
 }
 
@@ -15609,6 +15669,26 @@ func (mock *ClientMock) UpdateSettingUsg(ctx context.Context, site string, s *Se
 	return mock.UpdateSettingUsgFunc(ctx, site, s)
 }
 
+// UpdateSettingUsgGeo calls UpdateSettingUsgGeoFunc.
+func (mock *ClientMock) UpdateSettingUsgGeo(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error) {
+	if mock.UpdateSettingUsgGeoFunc == nil {
+		panic("ClientMock.UpdateSettingUsgGeoFunc: method is nil but Client.UpdateSettingUsgGeo was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingUsgGeo
+	}{
+		Ctx:  ctx,
+		Site: site,
+		S:    s,
+	}
+	mock.lockUpdateSettingUsgGeo.Lock()
+	mock.calls.UpdateSettingUsgGeo = append(mock.calls.UpdateSettingUsgGeo, callInfo)
+	mock.lockUpdateSettingUsgGeo.Unlock()
+	return mock.UpdateSettingUsgGeoFunc(ctx, site, s)
+}
+
 // UpdateSettingUsgCalls gets all the calls that were made to UpdateSettingUsg.
 // Check the length with:
 //
@@ -15626,6 +15706,26 @@ func (mock *ClientMock) UpdateSettingUsgCalls() []struct {
 	mock.lockUpdateSettingUsg.RLock()
 	calls = mock.calls.UpdateSettingUsg
 	mock.lockUpdateSettingUsg.RUnlock()
+	return calls
+}
+
+// UpdateSettingUsgGeoCalls gets all the calls that were made to UpdateSettingUsgGeo.
+// Check the length with:
+//
+//	len(mockedClient.UpdateSettingUsgGeoCalls())
+func (mock *ClientMock) UpdateSettingUsgGeoCalls() []struct {
+	Ctx  context.Context
+	Site string
+	S    *SettingUsgGeo
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingUsgGeo
+	}
+	mock.lockUpdateSettingUsgGeo.RLock()
+	calls = mock.calls.UpdateSettingUsgGeo
+	mock.lockUpdateSettingUsgGeo.RUnlock()
 	return calls
 }
 

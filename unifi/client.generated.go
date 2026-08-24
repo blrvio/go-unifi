@@ -985,6 +985,16 @@ type InternalClient interface {
 	// UpdateSettingUsg updates a resource
 	UpdateSettingUsg(ctx context.Context, site string, s *SettingUsg) (*SettingUsg, error)
 
+	// ==== client methods for SettingUsgGeo resource ====
+
+	// GetSettingUsgGeo retrieves the settings for a resource
+	GetSettingUsgGeo(ctx context.Context, site string) (*SettingUsgGeo, error)
+
+	// UpdateSettingUsgGeo updates a resource
+	UpdateSettingUsgGeo(ctx context.Context, site string, s *SettingUsgGeo) (*SettingUsgGeo, error)
+
+	// ==== end of client methods for SettingUsgGeo resource ====
+
 	// ==== end of client methods for SettingUsg resource ====
 
 	// ==== client methods for SettingUsw resource ====
