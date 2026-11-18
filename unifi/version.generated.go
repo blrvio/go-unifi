@@ -4,4 +4,4 @@ package unifi
 
 const LegacyUnifiVersion = "9.5.21"
 
-const UnifiVersion = "10.5.67"
+const UnifiVersion = "10.6.109"
