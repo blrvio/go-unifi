@@ -2700,6 +2700,27 @@ func (e StandardWifiBroadcastOverviewBroadcastingFrequenciesGHz) Valid() bool {
 	}
 }
 
+// Defines values for SwitchStackUnitRole.
+const (
+	ACTIVECONTROLLER SwitchStackUnitRole = "ACTIVE_CONTROLLER"
+	BACKUPCONTROLLER SwitchStackUnitRole = "BACKUP_CONTROLLER"
+	MEMBER           SwitchStackUnitRole = "MEMBER"
+)
+
+// Valid indicates whether the value is a known member of the SwitchStackUnitRole enum.
+func (e SwitchStackUnitRole) Valid() bool {
+	switch e {
+	case ACTIVECONTROLLER:
+		return true
+	case BACKUPCONTROLLER:
+		return true
+	case MEMBER:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WifiBasicDataRateConfiguration24.
 const (
 	WifiBasicDataRateConfiguration24N1000  WifiBasicDataRateConfiguration24 = 1000
@@ -5165,7 +5186,6 @@ type L2tpServerOverview = VPNServerOverview
 // LAGDetails is a generated model for the UniFi Official API.
 type LAGDetails struct {
 	Id       openapi_types.UUID        `json:"id"`
-	Members  []LagMember               `json:"members"`
 	Metadata UserDefinedEntityMetadata `json:"metadata"`
 	Type     string                    `json:"type"`
 	union    json.RawMessage
@@ -5253,7 +5273,13 @@ type LocalClientAccessOverview struct {
 }
 
 // LocalLagGlobal is a generated model for the UniFi Official API.
-type LocalLagGlobal = LAGDetails
+type LocalLagGlobal struct {
+	Id       openapi_types.UUID        `json:"id"`
+	Members  *[]LagMember              `json:"members,omitempty"`
+	Metadata UserDefinedEntityMetadata `json:"metadata"`
+	Type     string                    `json:"type"`
+	union    json.RawMessage
+}
 
 // LocalLagLocal is a generated model for the UniFi Official API.
 type LocalLagLocal struct {
@@ -5375,7 +5401,7 @@ type McLagDomainDtoPage struct {
 type McLagGlobal struct {
 	Id            openapi_types.UUID        `json:"id"`
 	McLagDomainId *openapi_types.UUID       `json:"mcLagDomainId,omitempty"`
-	Members       []LagMember               `json:"members"`
+	Members       *[]LagMember              `json:"members,omitempty"`
 	Metadata      UserDefinedEntityMetadata `json:"metadata"`
 	Type          string                    `json:"type"`
 	union         json.RawMessage
@@ -5933,11 +5959,12 @@ type SwitchManagedNetworkOverview struct {
 
 // SwitchStack is a generated model for the UniFi Official API.
 type SwitchStack struct {
+	DeviceId *openapi_types.UUID       `json:"deviceId,omitempty"`
 	Id       openapi_types.UUID        `json:"id"`
 	Lags     []SwitchStackLagLocal     `json:"lags"`
-	Members  []SwitchStackMember       `json:"members" validate:"omitempty,min=2"`
 	Metadata UserDefinedEntityMetadata `json:"metadata"`
 	Name     string                    `json:"name"`
+	Units    []SwitchStackUnit         `json:"units" validate:"omitempty,min=2"`
 }
 
 // SwitchStackDtoPage is a generated model for the UniFi Official API.
@@ -5952,7 +5979,7 @@ type SwitchStackDtoPage struct {
 // SwitchStackLagGlobal is a generated model for the UniFi Official API.
 type SwitchStackLagGlobal struct {
 	Id            openapi_types.UUID        `json:"id"`
-	Members       []LagMember               `json:"members"`
+	Members       *[]SwitchStackLagMember   `json:"members,omitempty"`
 	Metadata      UserDefinedEntityMetadata `json:"metadata"`
 	SwitchStackId *openapi_types.UUID       `json:"switchStackId,omitempty"`
 	Type          string                    `json:"type"`
@@ -5962,14 +5989,27 @@ type SwitchStackLagGlobal struct {
 // SwitchStackLagLocal is a generated model for the UniFi Official API.
 type SwitchStackLagLocal struct {
 	Id       openapi_types.UUID        `json:"id"`
-	Members  []LagMember               `json:"members"`
+	Members  []SwitchStackLagMember    `json:"members"`
 	Metadata UserDefinedEntityMetadata `json:"metadata"`
 }
 
-// SwitchStackMember is a generated model for the UniFi Official API.
-type SwitchStackMember struct {
-	DeviceId openapi_types.UUID `json:"deviceId"`
+// SwitchStackLagMember is a generated model for the UniFi Official API.
+type SwitchStackLagMember struct {
+	PortIdxs       []int32 `json:"portIdxs"`
+	UnitId         int32   `json:"unitId"`
+	UnitMacAddress string  `json:"unitMacAddress"`
 }
+
+// SwitchStackUnit is a generated model for the UniFi Official API.
+type SwitchStackUnit struct {
+	Id         int32                `json:"id"`
+	MacAddress string               `json:"macAddress"`
+	Order      *int32               `json:"order,omitempty"`
+	Role       *SwitchStackUnitRole `json:"role,omitempty" validate:"omitempty,oneof=ACTIVE_CONTROLLER BACKUP_CONTROLLER MEMBER"`
+}
+
+// SwitchStackUnitRole is a generated model for the UniFi Official API.
+type SwitchStackUnitRole string
 
 // SwitchingFeatureOverview is a generated model for the UniFi Official API.
 type SwitchingFeatureOverview struct {
@@ -35807,13 +35847,6 @@ func (t LAGDetails) MarshalJSON() ([]byte, error) {
 		return nil, fmt.Errorf("error marshaling 'id': %w", err)
 	}
 
-	if t.Members != nil {
-		object["members"], err = json.Marshal(t.Members)
-		if err != nil {
-			return nil, fmt.Errorf("error marshaling 'members': %w", err)
-		}
-	}
-
 	object["metadata"], err = json.Marshal(t.Metadata)
 	if err != nil {
 		return nil, fmt.Errorf("error marshaling 'metadata': %w", err)
@@ -35843,13 +35876,6 @@ func (t *LAGDetails) UnmarshalJSON(b []byte) error {
 		err = json.Unmarshal(raw, &t.Id)
 		if err != nil {
 			return fmt.Errorf("error reading 'id': %w", err)
-		}
-	}
-
-	if raw, found := object["members"]; found {
-		err = json.Unmarshal(raw, &t.Members)
-		if err != nil {
-			return fmt.Errorf("error reading 'members': %w", err)
 		}
 	}
 
@@ -36110,6 +36136,202 @@ func (t *LocalClientAccessOverview) UnmarshalJSON(b []byte) error {
 	err = json.Unmarshal(b, &object)
 	if err != nil {
 		return err
+	}
+
+	if raw, found := object["type"]; found {
+		err = json.Unmarshal(raw, &t.Type)
+		if err != nil {
+			return fmt.Errorf("error reading 'type': %w", err)
+		}
+	}
+
+	return err
+}
+
+// AsLocalLagGlobal returns the union data inside the LocalLagGlobal as a LocalLagGlobal
+func (t LocalLagGlobal) AsLocalLagGlobal() (LocalLagGlobal, error) {
+	var body LocalLagGlobal
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLocalLagGlobal overwrites any union data inside the LocalLagGlobal as the provided LocalLagGlobal
+func (t *LocalLagGlobal) FromLocalLagGlobal(v LocalLagGlobal) error {
+	t.Type = "LOCAL"
+
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLocalLagGlobal performs a merge with any union data inside the LocalLagGlobal, using the provided LocalLagGlobal
+func (t *LocalLagGlobal) MergeLocalLagGlobal(v LocalLagGlobal) error {
+	t.Type = "LOCAL"
+
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsMcLagGlobal returns the union data inside the LocalLagGlobal as a McLagGlobal
+func (t LocalLagGlobal) AsMcLagGlobal() (McLagGlobal, error) {
+	var body McLagGlobal
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromMcLagGlobal overwrites any union data inside the LocalLagGlobal as the provided McLagGlobal
+func (t *LocalLagGlobal) FromMcLagGlobal(v McLagGlobal) error {
+	t.Type = "MULTI_CHASSIS"
+
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeMcLagGlobal performs a merge with any union data inside the LocalLagGlobal, using the provided McLagGlobal
+func (t *LocalLagGlobal) MergeMcLagGlobal(v McLagGlobal) error {
+	t.Type = "MULTI_CHASSIS"
+
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsSwitchStackLagGlobal returns the union data inside the LocalLagGlobal as a SwitchStackLagGlobal
+func (t LocalLagGlobal) AsSwitchStackLagGlobal() (SwitchStackLagGlobal, error) {
+	var body SwitchStackLagGlobal
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromSwitchStackLagGlobal overwrites any union data inside the LocalLagGlobal as the provided SwitchStackLagGlobal
+func (t *LocalLagGlobal) FromSwitchStackLagGlobal(v SwitchStackLagGlobal) error {
+	t.Type = "SWITCH_STACK"
+
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeSwitchStackLagGlobal performs a merge with any union data inside the LocalLagGlobal, using the provided SwitchStackLagGlobal
+func (t *LocalLagGlobal) MergeSwitchStackLagGlobal(v SwitchStackLagGlobal) error {
+	t.Type = "SWITCH_STACK"
+
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t LocalLagGlobal) Discriminator() (string, error) {
+	var discriminator struct {
+		Discriminator string `json:"type"`
+	}
+	err := json.Unmarshal(t.union, &discriminator)
+	return discriminator.Discriminator, err
+}
+
+func (t LocalLagGlobal) ValueByDiscriminator() (interface{}, error) {
+	discriminator, err := t.Discriminator()
+	if err != nil {
+		return nil, err
+	}
+	switch discriminator {
+	case "LOCAL":
+		return t.AsLocalLagGlobal()
+	case "MULTI_CHASSIS":
+		return t.AsMcLagGlobal()
+	case "SWITCH_STACK":
+		return t.AsSwitchStackLagGlobal()
+	default:
+		return nil, errors.New("unknown discriminator value: " + discriminator)
+	}
+}
+
+func (t LocalLagGlobal) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	if err != nil {
+		return nil, err
+	}
+	object := make(map[string]json.RawMessage)
+	if t.union != nil {
+		err = json.Unmarshal(b, &object)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	object["id"], err = json.Marshal(t.Id)
+	if err != nil {
+		return nil, fmt.Errorf("error marshaling 'id': %w", err)
+	}
+
+	if t.Members != nil {
+		object["members"], err = json.Marshal(t.Members)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'members': %w", err)
+		}
+	}
+
+	object["metadata"], err = json.Marshal(t.Metadata)
+	if err != nil {
+		return nil, fmt.Errorf("error marshaling 'metadata': %w", err)
+	}
+
+	object["type"], err = json.Marshal(t.Type)
+	if err != nil {
+		return nil, fmt.Errorf("error marshaling 'type': %w", err)
+	}
+
+	b, err = json.Marshal(object)
+	return b, err
+}
+
+func (t *LocalLagGlobal) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	if err != nil {
+		return err
+	}
+	object := make(map[string]json.RawMessage)
+	err = json.Unmarshal(b, &object)
+	if err != nil {
+		return err
+	}
+
+	if raw, found := object["id"]; found {
+		err = json.Unmarshal(raw, &t.Id)
+		if err != nil {
+			return fmt.Errorf("error reading 'id': %w", err)
+		}
+	}
+
+	if raw, found := object["members"]; found {
+		err = json.Unmarshal(raw, &t.Members)
+		if err != nil {
+			return fmt.Errorf("error reading 'members': %w", err)
+		}
+	}
+
+	if raw, found := object["metadata"]; found {
+		err = json.Unmarshal(raw, &t.Metadata)
+		if err != nil {
+			return fmt.Errorf("error reading 'metadata': %w", err)
+		}
 	}
 
 	if raw, found := object["type"]; found {
