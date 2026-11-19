@@ -8,6 +8,12 @@ internal and maintenance changes are not listed.
 > (itself forked from [paultyng/go-unifi](https://github.com/paultyng/go-unifi)). Version entries below
 > predating the fork document the upstream release history that this project builds on.
 
+## [v11.0.99](https://github.com/blrvio/go-unifi/releases/tag/v11.0.99) (2026-11-19)
+
+### 🚨 Breaking Changes
+
+* feat!: update to the controller version 11.0.99
+
 ## [v10.6.109](https://github.com/blrvio/go-unifi/releases/tag/v10.6.109) (2026-11-19)
 
 ### 🚨 Breaking Changes
