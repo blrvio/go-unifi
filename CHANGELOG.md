@@ -8,6 +8,22 @@ internal and maintenance changes are not listed.
 > (itself forked from [paultyng/go-unifi](https://github.com/paultyng/go-unifi)). Version entries below
 > predating the fork document the upstream release history that this project builds on.
 
+## [v10.6.109](https://github.com/blrvio/go-unifi/releases/tag/v10.6.109) (2026-11-19)
+
+### 🚨 Breaking Changes
+
+* feat!: update to the controller version 10.6.109
+
+### ✨ New Features
+
+* feat(device): byte-preserving raw radio_table round-trip
+* feat(network): model wireguard-server fields on networkconf
+* feat(qos_rule): add QOSRule v2 resource (qos-rules collection)
+
+### 🔧 Bug Fixes
+
+* fix(ap_group): read via LIST + client-side filter (v2 GET-by-id is 405)
+
 ## [v2.3.0](https://github.com/blrvio/go-unifi/releases/tag/v2.3.0) (2026-07-01)
 
 ### ✨ New Features
