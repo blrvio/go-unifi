@@ -24,6 +24,33 @@ internal and maintenance changes are not listed.
 
 * fix(ap_group): read via LIST + client-side filter (v2 GET-by-id is 405)
 
+## [v10.5.68](https://github.com/blrvio/go-unifi/releases/tag/v10.5.68) (2026-08-24)
+
+### ✨ New Features
+
+* feat(setting): add usg_geo Region Blocking setting
+
+### 🔧 Bug Fixes
+
+* fix(ci): resolve pre-existing lint and TestHelpFlag failures
+* fix(content_filtering): create via the /create action route
+* fix(device): model UAP6MP 5GHz radio_table capability fields
+* fix(port_profile): re-fetch on empty update echo
+
+## [v10.5.67](https://github.com/blrvio/go-unifi/releases/tag/v10.5.67) (2026-08-23)
+
+### 🚨 Breaking Changes
+
+* feat!: anchor SDK versioning to UniFi controller, migrate module to /v10 (#1)
+
+### 🔧 Bug Fixes
+
+* fix(main): change flag error handling to exit on error
+
+### Other
+
+* Update documentation references to reflect the new repository path for go-unifi
+
 ## [v2.3.0](https://github.com/blrvio/go-unifi/releases/tag/v2.3.0) (2026-07-01)
 
 ### ✨ New Features
