@@ -531,6 +531,28 @@ customizations:
         DateEnd:
           fieldType: "string"
           customUnmarshalType: ""
+    FirewallAppBlock:
+      # CyberSecure "Simple App Blocking". The collection has no GET-by-id (HTTP 405);
+      # firewall_app_block.go reads via LIST + client-side filter.
+      resourcePath: "firewall-app-blocks"
+      fields:
+        AppCategoryIDs:
+          omitEmpty: false
+        AppIDs:
+          omitEmpty: false
+        ClientMACs:
+          omitEmpty: false
+        NetworkIDs:
+          omitEmpty: false
+        Date:
+          fieldType: "string"
+          customUnmarshalType: ""
+        DateStart:
+          fieldType: "string"
+          customUnmarshalType: ""
+        DateEnd:
+          fieldType: "string"
+          customUnmarshalType: ""
     DNSRecord:
       resourcePath: "static-dns"
     DescribedFeature:

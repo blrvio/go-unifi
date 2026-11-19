@@ -225,6 +225,25 @@ type InternalClient interface {
 
 	// ==== end of client methods for DynamicDNS resource ====
 
+	// ==== client methods for FirewallAppBlock resource ====
+
+	// CreateFirewallAppBlock creates a resource
+	CreateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
+
+	// DeleteFirewallAppBlock deletes a resource
+	DeleteFirewallAppBlock(ctx context.Context, site string, id string) error
+
+	// GetFirewallAppBlock retrieves a resource
+	GetFirewallAppBlock(ctx context.Context, site string, id string) (*FirewallAppBlock, error)
+
+	// ListFirewallAppBlock lists the resources
+	ListFirewallAppBlock(ctx context.Context, site string) ([]FirewallAppBlock, error)
+
+	// UpdateFirewallAppBlock updates a resource
+	UpdateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
+
+	// ==== end of client methods for FirewallAppBlock resource ====
+
 	// ==== client methods for FirewallGroup resource ====
 
 	// CreateFirewallGroup creates a resource

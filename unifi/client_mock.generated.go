@@ -59,6 +59,9 @@ var _ Client = &ClientMock{}
 //			CreateDynamicDNSFunc: func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 //				panic("mock out the CreateDynamicDNS method")
 //			},
+//			CreateFirewallAppBlockFunc: func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+//				panic("mock out the CreateFirewallAppBlock method")
+//			},
 //			CreateFirewallGroupFunc: func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 //				panic("mock out the CreateFirewallGroup method")
 //			},
@@ -169,6 +172,9 @@ var _ Client = &ClientMock{}
 //			},
 //			DeleteDynamicDNSFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteDynamicDNS method")
+//			},
+//			DeleteFirewallAppBlockFunc: func(ctx context.Context, site string, id string) error {
+//				panic("mock out the DeleteFirewallAppBlock method")
 //			},
 //			DeleteFirewallGroupFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteFirewallGroup method")
@@ -298,6 +304,9 @@ var _ Client = &ClientMock{}
 //			},
 //			GetFeatureFunc: func(ctx context.Context, site string, name string) (*DescribedFeature, error) {
 //				panic("mock out the GetFeature method")
+//			},
+//			GetFirewallAppBlockFunc: func(ctx context.Context, site string, id string) (*FirewallAppBlock, error) {
+//				panic("mock out the GetFirewallAppBlock method")
 //			},
 //			GetFirewallGroupFunc: func(ctx context.Context, site string, id string) (*FirewallGroup, error) {
 //				panic("mock out the GetFirewallGroup method")
@@ -572,6 +581,9 @@ var _ Client = &ClientMock{}
 //			ListFeaturesFunc: func(ctx context.Context, site string) ([]DescribedFeature, error) {
 //				panic("mock out the ListFeatures method")
 //			},
+//			ListFirewallAppBlockFunc: func(ctx context.Context, site string) ([]FirewallAppBlock, error) {
+//				panic("mock out the ListFirewallAppBlock method")
+//			},
 //			ListFirewallGroupFunc: func(ctx context.Context, site string) ([]FirewallGroup, error) {
 //				panic("mock out the ListFirewallGroup method")
 //			},
@@ -718,6 +730,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdateDynamicDNSFunc: func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 //				panic("mock out the UpdateDynamicDNS method")
+//			},
+//			UpdateFirewallAppBlockFunc: func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+//				panic("mock out the UpdateFirewallAppBlock method")
 //			},
 //			UpdateFirewallGroupFunc: func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 //				panic("mock out the UpdateFirewallGroup method")
@@ -987,6 +1002,9 @@ type ClientMock struct {
 	// CreateDynamicDNSFunc mocks the CreateDynamicDNS method.
 	CreateDynamicDNSFunc func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error)
 
+	// CreateFirewallAppBlockFunc mocks the CreateFirewallAppBlock method.
+	CreateFirewallAppBlockFunc func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
+
 	// CreateFirewallGroupFunc mocks the CreateFirewallGroup method.
 	CreateFirewallGroupFunc func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error)
 
@@ -1097,6 +1115,9 @@ type ClientMock struct {
 
 	// DeleteDynamicDNSFunc mocks the DeleteDynamicDNS method.
 	DeleteDynamicDNSFunc func(ctx context.Context, site string, id string) error
+
+	// DeleteFirewallAppBlockFunc mocks the DeleteFirewallAppBlock method.
+	DeleteFirewallAppBlockFunc func(ctx context.Context, site string, id string) error
 
 	// DeleteFirewallGroupFunc mocks the DeleteFirewallGroup method.
 	DeleteFirewallGroupFunc func(ctx context.Context, site string, id string) error
@@ -1226,6 +1247,9 @@ type ClientMock struct {
 
 	// GetFeatureFunc mocks the GetFeature method.
 	GetFeatureFunc func(ctx context.Context, site string, name string) (*DescribedFeature, error)
+
+	// GetFirewallAppBlockFunc mocks the GetFirewallAppBlock method.
+	GetFirewallAppBlockFunc func(ctx context.Context, site string, id string) (*FirewallAppBlock, error)
 
 	// GetFirewallGroupFunc mocks the GetFirewallGroup method.
 	GetFirewallGroupFunc func(ctx context.Context, site string, id string) (*FirewallGroup, error)
@@ -1500,6 +1524,9 @@ type ClientMock struct {
 	// ListFeaturesFunc mocks the ListFeatures method.
 	ListFeaturesFunc func(ctx context.Context, site string) ([]DescribedFeature, error)
 
+	// ListFirewallAppBlockFunc mocks the ListFirewallAppBlock method.
+	ListFirewallAppBlockFunc func(ctx context.Context, site string) ([]FirewallAppBlock, error)
+
 	// ListFirewallGroupFunc mocks the ListFirewallGroup method.
 	ListFirewallGroupFunc func(ctx context.Context, site string) ([]FirewallGroup, error)
 
@@ -1646,6 +1673,9 @@ type ClientMock struct {
 
 	// UpdateDynamicDNSFunc mocks the UpdateDynamicDNS method.
 	UpdateDynamicDNSFunc func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error)
+
+	// UpdateFirewallAppBlockFunc mocks the UpdateFirewallAppBlock method.
+	UpdateFirewallAppBlockFunc func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
 
 	// UpdateFirewallGroupFunc mocks the UpdateFirewallGroup method.
 	UpdateFirewallGroupFunc func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error)
@@ -1982,6 +2012,15 @@ type ClientMock struct {
 			// D is the d argument value.
 			D *DynamicDNS
 		}
+		// CreateFirewallAppBlock holds details about calls to the CreateFirewallAppBlock method.
+		CreateFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// F is the f argument value.
+			F *FirewallAppBlock
+		}
 		// CreateFirewallGroup holds details about calls to the CreateFirewallGroup method.
 		CreateFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -2308,6 +2347,15 @@ type ClientMock struct {
 		}
 		// DeleteDynamicDNS holds details about calls to the DeleteDynamicDNS method.
 		DeleteDynamicDNS []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
+		// DeleteFirewallAppBlock holds details about calls to the DeleteFirewallAppBlock method.
+		DeleteFirewallAppBlock []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -2705,6 +2753,15 @@ type ClientMock struct {
 			Site string
 			// Name is the name argument value.
 			Name string
+		}
+		// GetFirewallAppBlock holds details about calls to the GetFirewallAppBlock method.
+		GetFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
 		}
 		// GetFirewallGroup holds details about calls to the GetFirewallGroup method.
 		GetFirewallGroup []struct {
@@ -3395,6 +3452,13 @@ type ClientMock struct {
 			// Site is the site argument value.
 			Site string
 		}
+		// ListFirewallAppBlock holds details about calls to the ListFirewallAppBlock method.
+		ListFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// ListFirewallGroup holds details about calls to the ListFirewallGroup method.
 		ListFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -3779,6 +3843,15 @@ type ClientMock struct {
 			Site string
 			// D is the d argument value.
 			D *DynamicDNS
+		}
+		// UpdateFirewallAppBlock holds details about calls to the UpdateFirewallAppBlock method.
+		UpdateFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// F is the f argument value.
+			F *FirewallAppBlock
 		}
 		// UpdateFirewallGroup holds details about calls to the UpdateFirewallGroup method.
 		UpdateFirewallGroup []struct {
@@ -4452,6 +4525,7 @@ type ClientMock struct {
 	lockCreateDashboard                  sync.RWMutex
 	lockCreateDevice                     sync.RWMutex
 	lockCreateDynamicDNS                 sync.RWMutex
+	lockCreateFirewallAppBlock           sync.RWMutex
 	lockCreateFirewallGroup              sync.RWMutex
 	lockCreateFirewallRule               sync.RWMutex
 	lockCreateFirewallZone               sync.RWMutex
@@ -4489,6 +4563,7 @@ type ClientMock struct {
 	lockDeleteDashboard                  sync.RWMutex
 	lockDeleteDevice                     sync.RWMutex
 	lockDeleteDynamicDNS                 sync.RWMutex
+	lockDeleteFirewallAppBlock           sync.RWMutex
 	lockDeleteFirewallGroup              sync.RWMutex
 	lockDeleteFirewallRule               sync.RWMutex
 	lockDeleteFirewallZone               sync.RWMutex
@@ -4532,6 +4607,7 @@ type ClientMock struct {
 	lockGetDeviceRaw                     sync.RWMutex
 	lockGetDynamicDNS                    sync.RWMutex
 	lockGetFeature                       sync.RWMutex
+	lockGetFirewallAppBlock              sync.RWMutex
 	lockGetFirewallGroup                 sync.RWMutex
 	lockGetFirewallRule                  sync.RWMutex
 	lockGetFirewallZone                  sync.RWMutex
@@ -4623,6 +4699,7 @@ type ClientMock struct {
 	lockListDevice                       sync.RWMutex
 	lockListDynamicDNS                   sync.RWMutex
 	lockListFeatures                     sync.RWMutex
+	lockListFirewallAppBlock             sync.RWMutex
 	lockListFirewallGroup                sync.RWMutex
 	lockListFirewallRule                 sync.RWMutex
 	lockListFirewallZone                 sync.RWMutex
@@ -4672,6 +4749,7 @@ type ClientMock struct {
 	lockUpdateDevice                     sync.RWMutex
 	lockUpdateDeviceRaw                  sync.RWMutex
 	lockUpdateDynamicDNS                 sync.RWMutex
+	lockUpdateFirewallAppBlock           sync.RWMutex
 	lockUpdateFirewallGroup              sync.RWMutex
 	lockUpdateFirewallRule               sync.RWMutex
 	lockUpdateFirewallZone               sync.RWMutex
@@ -5252,6 +5330,46 @@ func (mock *ClientMock) CreateDynamicDNSCalls() []struct {
 	mock.lockCreateDynamicDNS.RLock()
 	calls = mock.calls.CreateDynamicDNS
 	mock.lockCreateDynamicDNS.RUnlock()
+	return calls
+}
+
+// CreateFirewallAppBlock calls CreateFirewallAppBlockFunc.
+func (mock *ClientMock) CreateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+	if mock.CreateFirewallAppBlockFunc == nil {
+		panic("ClientMock.CreateFirewallAppBlockFunc: method is nil but Client.CreateFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}{
+		Ctx:  ctx,
+		Site: site,
+		F:    f,
+	}
+	mock.lockCreateFirewallAppBlock.Lock()
+	mock.calls.CreateFirewallAppBlock = append(mock.calls.CreateFirewallAppBlock, callInfo)
+	mock.lockCreateFirewallAppBlock.Unlock()
+	return mock.CreateFirewallAppBlockFunc(ctx, site, f)
+}
+
+// CreateFirewallAppBlockCalls gets all the calls that were made to CreateFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.CreateFirewallAppBlockCalls())
+func (mock *ClientMock) CreateFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	F    *FirewallAppBlock
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}
+	mock.lockCreateFirewallAppBlock.RLock()
+	calls = mock.calls.CreateFirewallAppBlock
+	mock.lockCreateFirewallAppBlock.RUnlock()
 	return calls
 }
 
@@ -6732,6 +6850,46 @@ func (mock *ClientMock) DeleteDynamicDNSCalls() []struct {
 	mock.lockDeleteDynamicDNS.RLock()
 	calls = mock.calls.DeleteDynamicDNS
 	mock.lockDeleteDynamicDNS.RUnlock()
+	return calls
+}
+
+// DeleteFirewallAppBlock calls DeleteFirewallAppBlockFunc.
+func (mock *ClientMock) DeleteFirewallAppBlock(ctx context.Context, site string, id string) error {
+	if mock.DeleteFirewallAppBlockFunc == nil {
+		panic("ClientMock.DeleteFirewallAppBlockFunc: method is nil but Client.DeleteFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockDeleteFirewallAppBlock.Lock()
+	mock.calls.DeleteFirewallAppBlock = append(mock.calls.DeleteFirewallAppBlock, callInfo)
+	mock.lockDeleteFirewallAppBlock.Unlock()
+	return mock.DeleteFirewallAppBlockFunc(ctx, site, id)
+}
+
+// DeleteFirewallAppBlockCalls gets all the calls that were made to DeleteFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.DeleteFirewallAppBlockCalls())
+func (mock *ClientMock) DeleteFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockDeleteFirewallAppBlock.RLock()
+	calls = mock.calls.DeleteFirewallAppBlock
+	mock.lockDeleteFirewallAppBlock.RUnlock()
 	return calls
 }
 
@@ -8460,6 +8618,46 @@ func (mock *ClientMock) GetFeatureCalls() []struct {
 	mock.lockGetFeature.RLock()
 	calls = mock.calls.GetFeature
 	mock.lockGetFeature.RUnlock()
+	return calls
+}
+
+// GetFirewallAppBlock calls GetFirewallAppBlockFunc.
+func (mock *ClientMock) GetFirewallAppBlock(ctx context.Context, site string, id string) (*FirewallAppBlock, error) {
+	if mock.GetFirewallAppBlockFunc == nil {
+		panic("ClientMock.GetFirewallAppBlockFunc: method is nil but Client.GetFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockGetFirewallAppBlock.Lock()
+	mock.calls.GetFirewallAppBlock = append(mock.calls.GetFirewallAppBlock, callInfo)
+	mock.lockGetFirewallAppBlock.Unlock()
+	return mock.GetFirewallAppBlockFunc(ctx, site, id)
+}
+
+// GetFirewallAppBlockCalls gets all the calls that were made to GetFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.GetFirewallAppBlockCalls())
+func (mock *ClientMock) GetFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockGetFirewallAppBlock.RLock()
+	calls = mock.calls.GetFirewallAppBlock
+	mock.lockGetFirewallAppBlock.RUnlock()
 	return calls
 }
 
@@ -11841,6 +12039,42 @@ func (mock *ClientMock) ListFeaturesCalls() []struct {
 	return calls
 }
 
+// ListFirewallAppBlock calls ListFirewallAppBlockFunc.
+func (mock *ClientMock) ListFirewallAppBlock(ctx context.Context, site string) ([]FirewallAppBlock, error) {
+	if mock.ListFirewallAppBlockFunc == nil {
+		panic("ClientMock.ListFirewallAppBlockFunc: method is nil but Client.ListFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockListFirewallAppBlock.Lock()
+	mock.calls.ListFirewallAppBlock = append(mock.calls.ListFirewallAppBlock, callInfo)
+	mock.lockListFirewallAppBlock.Unlock()
+	return mock.ListFirewallAppBlockFunc(ctx, site)
+}
+
+// ListFirewallAppBlockCalls gets all the calls that were made to ListFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.ListFirewallAppBlockCalls())
+func (mock *ClientMock) ListFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockListFirewallAppBlock.RLock()
+	calls = mock.calls.ListFirewallAppBlock
+	mock.lockListFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // ListFirewallGroup calls ListFirewallGroupFunc.
 func (mock *ClientMock) ListFirewallGroup(ctx context.Context, site string) ([]FirewallGroup, error) {
 	if mock.ListFirewallGroupFunc == nil {
@@ -13684,6 +13918,46 @@ func (mock *ClientMock) UpdateDynamicDNSCalls() []struct {
 	mock.lockUpdateDynamicDNS.RLock()
 	calls = mock.calls.UpdateDynamicDNS
 	mock.lockUpdateDynamicDNS.RUnlock()
+	return calls
+}
+
+// UpdateFirewallAppBlock calls UpdateFirewallAppBlockFunc.
+func (mock *ClientMock) UpdateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+	if mock.UpdateFirewallAppBlockFunc == nil {
+		panic("ClientMock.UpdateFirewallAppBlockFunc: method is nil but Client.UpdateFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}{
+		Ctx:  ctx,
+		Site: site,
+		F:    f,
+	}
+	mock.lockUpdateFirewallAppBlock.Lock()
+	mock.calls.UpdateFirewallAppBlock = append(mock.calls.UpdateFirewallAppBlock, callInfo)
+	mock.lockUpdateFirewallAppBlock.Unlock()
+	return mock.UpdateFirewallAppBlockFunc(ctx, site, f)
+}
+
+// UpdateFirewallAppBlockCalls gets all the calls that were made to UpdateFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.UpdateFirewallAppBlockCalls())
+func (mock *ClientMock) UpdateFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	F    *FirewallAppBlock
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}
+	mock.lockUpdateFirewallAppBlock.RLock()
+	calls = mock.calls.UpdateFirewallAppBlock
+	mock.lockUpdateFirewallAppBlock.RUnlock()
 	return calls
 }
 
