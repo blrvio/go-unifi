@@ -4,7 +4,7 @@ import (
 	"io"
 	"path/filepath"
 
-	"github.com/blrvio/go-unifi/v10/codegen/shared"
+	"github.com/blrvio/go-unifi/v11/codegen/shared"
 )
 
 // ensurePath delegates to shared.EnsurePath. The local wrapper keeps
