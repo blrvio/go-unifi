@@ -606,6 +606,10 @@ customizations:
           customUnmarshalType: ""
     Network:
       fields:
+        # Official API UUID of this network (11.x). Read-only for us: never send an empty
+        # value on create; on update the read-modify-write echoes the controller's value.
+        ExternalID:
+          omitEmpty: true
         # `enabled` defaults to true on the controller and is absent from a healthy
         # network's config; without this it unmarshals to the bool zero value false,
         # poisoning imported state and disabling the network on the next full-replace
