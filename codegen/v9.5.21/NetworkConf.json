@@ -254,6 +254,7 @@
     "wireguard_id": "^[0-9]+$|^$",
     "vpn_binding_mode": "",
     "mss_clamp": "",
+    "external_id": "",
     "wan_dhcp_cos": "[0-7]|^$",
     "wan_dhcpv6_cos": "[0-7]|^$",
     "wan_ipv6_dns_preference": "auto|manual",

@@ -1,0 +1,35 @@
+{
+  "description": "",
+  "enabled": "true|false",
+  "type": "MASQUERADE|SNAT|DNAT",
+  "ip_version": "IPV4|IPV6",
+  "in_interface": "",
+  "out_interface": "",
+  "protocol": "all|tcp|udp|tcp_udp",
+  "port": "",
+  "ip_address": "",
+  "rule_index": "^[0-9]+$",
+  "setting_preference": "auto|manual",
+  "logging": "true|false",
+  "exclude": "true|false",
+  "pppoe_use_base_interface": "true|false",
+  "is_predefined": "true|false",
+  "source_filter": {
+    "filter_type": "NONE|ADDRESS_AND_PORT|NETWORK_CONF|FIREWALL_GROUPS|IID_AND_PORT",
+    "address": "",
+    "port": "",
+    "invert_address": "true|false",
+    "invert_port": "true|false",
+    "network_conf_id": "",
+    "firewall_group_ids": [""]
+  },
+  "destination_filter": {
+    "filter_type": "NONE|ADDRESS_AND_PORT|NETWORK_CONF|FIREWALL_GROUPS|IID_AND_PORT",
+    "address": "",
+    "port": "",
+    "invert_address": "true|false",
+    "invert_port": "true|false",
+    "network_conf_id": "",
+    "firewall_group_ids": [""]
+  }
+}

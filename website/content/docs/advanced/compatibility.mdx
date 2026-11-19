@@ -17,6 +17,7 @@ floors below (`9.0.114`, `10.1.78`) are Network Application versions, not UniFi 
 
 | `go-unifi` version    | Min UniFi Network    | Internal API version | Official API version |
 |-----------------------|----------------------|----------------------|----------------------|
+| `v11.0.99-1`          | `9.0.114`            | `9.5.21` (frozen)    | `11.0.99`            |
 | `v11.0.99`            | `9.0.114`            | `9.5.21` (frozen)    | `11.0.99`            |
 | `v10.6.109`           | `9.0.114`            | `9.5.21` (frozen)    | `10.6.109`           |
 | `v10.5.67` – `v10.5.68` | `9.0.114`          | `9.5.21` (frozen)    | `10.5.67`            |
@@ -52,6 +53,26 @@ Two plain-text version markers at the repo root record the pinned versions, writ
 - `.unifi-version-official` — the Official OpenAPI (`integration/v1`) spec version (requires controller ≥ `10.1.78`).
 
 ## Compatibility changelog
+
+### 11.0.99-1 / UniFi Network 11.0.99
+
+A fixes-and-additions release on the same controller version. Tags mirror the controller version, so a patch of an
+already-published version is tagged `v11.0.99-N`. In semver that is a **pre-release** and sorts *below*
+`v11.0.99`: `go get …@latest` and minimal version selection keep choosing `v11.0.99`, so require it explicitly:
+`go get github.com/blrvio/go-unifi/v11@v11.0.99-1`.
+
+**Additions** (no breaking changes)
+
+- `Network.ExternalID` — the Official API UUID that 11.x stores on every `networkconf` (`omitempty`, so a create
+  never sends an empty value).
+- `FirewallAppBlock` (v2 `firewall-app-blocks`, CyberSecure "Simple App Blocking") with full CRUD. The
+  collection has no GET-by-id (HTTP 405), so `GetFirewallAppBlock` filters the list.
+- `NatRule` (v2 `nat`, user-defined NAT rules: masquerade, SNAT, DNAT). The predefined per-WAN masquerade rows the
+  UI shows are synthesized from network config and are not returned by this endpoint.
+- `WANLoadBalancing` (v2 `wan/load-balancing/configuration`): the WAN mode (failover-only or load balancing) with
+  per-WAN priority and weight, via `GetWANLoadBalancing` / `UpdateWANLoadBalancing`.
+- `SettingGlobalNetwork` (`global_network` setting: `default_security_posture`).
+
 
 ### 11.0.99 / UniFi Network 11.0.99
 

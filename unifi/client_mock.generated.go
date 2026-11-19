@@ -59,6 +59,9 @@ var _ Client = &ClientMock{}
 //			CreateDynamicDNSFunc: func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 //				panic("mock out the CreateDynamicDNS method")
 //			},
+//			CreateFirewallAppBlockFunc: func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+//				panic("mock out the CreateFirewallAppBlock method")
+//			},
 //			CreateFirewallGroupFunc: func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 //				panic("mock out the CreateFirewallGroup method")
 //			},
@@ -91,6 +94,9 @@ var _ Client = &ClientMock{}
 //			},
 //			CreateMediaFileFunc: func(ctx context.Context, site string, m *MediaFile) (*MediaFile, error) {
 //				panic("mock out the CreateMediaFile method")
+//			},
+//			CreateNatRuleFunc: func(ctx context.Context, site string, n *NatRule) (*NatRule, error) {
+//				panic("mock out the CreateNatRule method")
 //			},
 //			CreateNetworkFunc: func(ctx context.Context, site string, n *Network) (*Network, error) {
 //				panic("mock out the CreateNetwork method")
@@ -170,6 +176,9 @@ var _ Client = &ClientMock{}
 //			DeleteDynamicDNSFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteDynamicDNS method")
 //			},
+//			DeleteFirewallAppBlockFunc: func(ctx context.Context, site string, id string) error {
+//				panic("mock out the DeleteFirewallAppBlock method")
+//			},
 //			DeleteFirewallGroupFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteFirewallGroup method")
 //			},
@@ -202,6 +211,9 @@ var _ Client = &ClientMock{}
 //			},
 //			DeleteMediaFileFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteMediaFile method")
+//			},
+//			DeleteNatRuleFunc: func(ctx context.Context, site string, id string) error {
+//				panic("mock out the DeleteNatRule method")
 //			},
 //			DeleteNetworkFunc: func(ctx context.Context, site string, id string) error {
 //				panic("mock out the DeleteNetwork method")
@@ -299,6 +311,9 @@ var _ Client = &ClientMock{}
 //			GetFeatureFunc: func(ctx context.Context, site string, name string) (*DescribedFeature, error) {
 //				panic("mock out the GetFeature method")
 //			},
+//			GetFirewallAppBlockFunc: func(ctx context.Context, site string, id string) (*FirewallAppBlock, error) {
+//				panic("mock out the GetFirewallAppBlock method")
+//			},
 //			GetFirewallGroupFunc: func(ctx context.Context, site string, id string) (*FirewallGroup, error) {
 //				panic("mock out the GetFirewallGroup method")
 //			},
@@ -331,6 +346,9 @@ var _ Client = &ClientMock{}
 //			},
 //			GetMediaFileFunc: func(ctx context.Context, site string, id string) (*MediaFile, error) {
 //				panic("mock out the GetMediaFile method")
+//			},
+//			GetNatRuleFunc: func(ctx context.Context, site string, id string) (*NatRule, error) {
+//				panic("mock out the GetNatRule method")
 //			},
 //			GetNetworkFunc: func(ctx context.Context, site string, id string) (*Network, error) {
 //				panic("mock out the GetNetwork method")
@@ -397,6 +415,9 @@ var _ Client = &ClientMock{}
 //			},
 //			GetSettingGlobalNatFunc: func(ctx context.Context, site string) (*SettingGlobalNat, error) {
 //				panic("mock out the GetSettingGlobalNat method")
+//			},
+//			GetSettingGlobalNetworkFunc: func(ctx context.Context, site string) (*SettingGlobalNetwork, error) {
+//				panic("mock out the GetSettingGlobalNetwork method")
 //			},
 //			GetSettingGlobalSwitchFunc: func(ctx context.Context, site string) (*SettingGlobalSwitch, error) {
 //				panic("mock out the GetSettingGlobalSwitch method")
@@ -524,6 +545,9 @@ var _ Client = &ClientMock{}
 //			GetVirtualDeviceFunc: func(ctx context.Context, site string, id string) (*VirtualDevice, error) {
 //				panic("mock out the GetVirtualDevice method")
 //			},
+//			GetWANLoadBalancingFunc: func(ctx context.Context, site string) (*WANLoadBalancing, error) {
+//				panic("mock out the GetWANLoadBalancing method")
+//			},
 //			GetWLANFunc: func(ctx context.Context, site string, id string) (*WLAN, error) {
 //				panic("mock out the GetWLAN method")
 //			},
@@ -572,6 +596,9 @@ var _ Client = &ClientMock{}
 //			ListFeaturesFunc: func(ctx context.Context, site string) ([]DescribedFeature, error) {
 //				panic("mock out the ListFeatures method")
 //			},
+//			ListFirewallAppBlockFunc: func(ctx context.Context, site string) ([]FirewallAppBlock, error) {
+//				panic("mock out the ListFirewallAppBlock method")
+//			},
 //			ListFirewallGroupFunc: func(ctx context.Context, site string) ([]FirewallGroup, error) {
 //				panic("mock out the ListFirewallGroup method")
 //			},
@@ -607,6 +634,9 @@ var _ Client = &ClientMock{}
 //			},
 //			ListMediaFileFunc: func(ctx context.Context, site string) ([]MediaFile, error) {
 //				panic("mock out the ListMediaFile method")
+//			},
+//			ListNatRuleFunc: func(ctx context.Context, site string) ([]NatRule, error) {
+//				panic("mock out the ListNatRule method")
 //			},
 //			ListNetworkFunc: func(ctx context.Context, site string) ([]Network, error) {
 //				panic("mock out the ListNetwork method")
@@ -719,6 +749,9 @@ var _ Client = &ClientMock{}
 //			UpdateDynamicDNSFunc: func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error) {
 //				panic("mock out the UpdateDynamicDNS method")
 //			},
+//			UpdateFirewallAppBlockFunc: func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+//				panic("mock out the UpdateFirewallAppBlock method")
+//			},
 //			UpdateFirewallGroupFunc: func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 //				panic("mock out the UpdateFirewallGroup method")
 //			},
@@ -751,6 +784,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdateMediaFileFunc: func(ctx context.Context, site string, m *MediaFile) (*MediaFile, error) {
 //				panic("mock out the UpdateMediaFile method")
+//			},
+//			UpdateNatRuleFunc: func(ctx context.Context, site string, n *NatRule) (*NatRule, error) {
+//				panic("mock out the UpdateNatRule method")
 //			},
 //			UpdateNetworkFunc: func(ctx context.Context, site string, n *Network) (*Network, error) {
 //				panic("mock out the UpdateNetwork method")
@@ -811,6 +847,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdateSettingGlobalNatFunc: func(ctx context.Context, site string, s *SettingGlobalNat) (*SettingGlobalNat, error) {
 //				panic("mock out the UpdateSettingGlobalNat method")
+//			},
+//			UpdateSettingGlobalNetworkFunc: func(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error) {
+//				panic("mock out the UpdateSettingGlobalNetwork method")
 //			},
 //			UpdateSettingGlobalSwitchFunc: func(ctx context.Context, site string, s *SettingGlobalSwitch) (*SettingGlobalSwitch, error) {
 //				panic("mock out the UpdateSettingGlobalSwitch method")
@@ -923,6 +962,9 @@ var _ Client = &ClientMock{}
 //			UpdateVirtualDeviceFunc: func(ctx context.Context, site string, v *VirtualDevice) (*VirtualDevice, error) {
 //				panic("mock out the UpdateVirtualDevice method")
 //			},
+//			UpdateWANLoadBalancingFunc: func(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error) {
+//				panic("mock out the UpdateWANLoadBalancing method")
+//			},
 //			UpdateWLANFunc: func(ctx context.Context, site string, w *WLAN) (*WLAN, error) {
 //				panic("mock out the UpdateWLAN method")
 //			},
@@ -987,6 +1029,9 @@ type ClientMock struct {
 	// CreateDynamicDNSFunc mocks the CreateDynamicDNS method.
 	CreateDynamicDNSFunc func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error)
 
+	// CreateFirewallAppBlockFunc mocks the CreateFirewallAppBlock method.
+	CreateFirewallAppBlockFunc func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
+
 	// CreateFirewallGroupFunc mocks the CreateFirewallGroup method.
 	CreateFirewallGroupFunc func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error)
 
@@ -1019,6 +1064,9 @@ type ClientMock struct {
 
 	// CreateMediaFileFunc mocks the CreateMediaFile method.
 	CreateMediaFileFunc func(ctx context.Context, site string, m *MediaFile) (*MediaFile, error)
+
+	// CreateNatRuleFunc mocks the CreateNatRule method.
+	CreateNatRuleFunc func(ctx context.Context, site string, n *NatRule) (*NatRule, error)
 
 	// CreateNetworkFunc mocks the CreateNetwork method.
 	CreateNetworkFunc func(ctx context.Context, site string, n *Network) (*Network, error)
@@ -1098,6 +1146,9 @@ type ClientMock struct {
 	// DeleteDynamicDNSFunc mocks the DeleteDynamicDNS method.
 	DeleteDynamicDNSFunc func(ctx context.Context, site string, id string) error
 
+	// DeleteFirewallAppBlockFunc mocks the DeleteFirewallAppBlock method.
+	DeleteFirewallAppBlockFunc func(ctx context.Context, site string, id string) error
+
 	// DeleteFirewallGroupFunc mocks the DeleteFirewallGroup method.
 	DeleteFirewallGroupFunc func(ctx context.Context, site string, id string) error
 
@@ -1130,6 +1181,9 @@ type ClientMock struct {
 
 	// DeleteMediaFileFunc mocks the DeleteMediaFile method.
 	DeleteMediaFileFunc func(ctx context.Context, site string, id string) error
+
+	// DeleteNatRuleFunc mocks the DeleteNatRule method.
+	DeleteNatRuleFunc func(ctx context.Context, site string, id string) error
 
 	// DeleteNetworkFunc mocks the DeleteNetwork method.
 	DeleteNetworkFunc func(ctx context.Context, site string, id string) error
@@ -1227,6 +1281,9 @@ type ClientMock struct {
 	// GetFeatureFunc mocks the GetFeature method.
 	GetFeatureFunc func(ctx context.Context, site string, name string) (*DescribedFeature, error)
 
+	// GetFirewallAppBlockFunc mocks the GetFirewallAppBlock method.
+	GetFirewallAppBlockFunc func(ctx context.Context, site string, id string) (*FirewallAppBlock, error)
+
 	// GetFirewallGroupFunc mocks the GetFirewallGroup method.
 	GetFirewallGroupFunc func(ctx context.Context, site string, id string) (*FirewallGroup, error)
 
@@ -1259,6 +1316,9 @@ type ClientMock struct {
 
 	// GetMediaFileFunc mocks the GetMediaFile method.
 	GetMediaFileFunc func(ctx context.Context, site string, id string) (*MediaFile, error)
+
+	// GetNatRuleFunc mocks the GetNatRule method.
+	GetNatRuleFunc func(ctx context.Context, site string, id string) (*NatRule, error)
 
 	// GetNetworkFunc mocks the GetNetwork method.
 	GetNetworkFunc func(ctx context.Context, site string, id string) (*Network, error)
@@ -1325,6 +1385,9 @@ type ClientMock struct {
 
 	// GetSettingGlobalNatFunc mocks the GetSettingGlobalNat method.
 	GetSettingGlobalNatFunc func(ctx context.Context, site string) (*SettingGlobalNat, error)
+
+	// GetSettingGlobalNetworkFunc mocks the GetSettingGlobalNetwork method.
+	GetSettingGlobalNetworkFunc func(ctx context.Context, site string) (*SettingGlobalNetwork, error)
 
 	// GetSettingGlobalSwitchFunc mocks the GetSettingGlobalSwitch method.
 	GetSettingGlobalSwitchFunc func(ctx context.Context, site string) (*SettingGlobalSwitch, error)
@@ -1452,6 +1515,9 @@ type ClientMock struct {
 	// GetVirtualDeviceFunc mocks the GetVirtualDevice method.
 	GetVirtualDeviceFunc func(ctx context.Context, site string, id string) (*VirtualDevice, error)
 
+	// GetWANLoadBalancingFunc mocks the GetWANLoadBalancing method.
+	GetWANLoadBalancingFunc func(ctx context.Context, site string) (*WANLoadBalancing, error)
+
 	// GetWLANFunc mocks the GetWLAN method.
 	GetWLANFunc func(ctx context.Context, site string, id string) (*WLAN, error)
 
@@ -1500,6 +1566,9 @@ type ClientMock struct {
 	// ListFeaturesFunc mocks the ListFeatures method.
 	ListFeaturesFunc func(ctx context.Context, site string) ([]DescribedFeature, error)
 
+	// ListFirewallAppBlockFunc mocks the ListFirewallAppBlock method.
+	ListFirewallAppBlockFunc func(ctx context.Context, site string) ([]FirewallAppBlock, error)
+
 	// ListFirewallGroupFunc mocks the ListFirewallGroup method.
 	ListFirewallGroupFunc func(ctx context.Context, site string) ([]FirewallGroup, error)
 
@@ -1535,6 +1604,9 @@ type ClientMock struct {
 
 	// ListMediaFileFunc mocks the ListMediaFile method.
 	ListMediaFileFunc func(ctx context.Context, site string) ([]MediaFile, error)
+
+	// ListNatRuleFunc mocks the ListNatRule method.
+	ListNatRuleFunc func(ctx context.Context, site string) ([]NatRule, error)
 
 	// ListNetworkFunc mocks the ListNetwork method.
 	ListNetworkFunc func(ctx context.Context, site string) ([]Network, error)
@@ -1647,6 +1719,9 @@ type ClientMock struct {
 	// UpdateDynamicDNSFunc mocks the UpdateDynamicDNS method.
 	UpdateDynamicDNSFunc func(ctx context.Context, site string, d *DynamicDNS) (*DynamicDNS, error)
 
+	// UpdateFirewallAppBlockFunc mocks the UpdateFirewallAppBlock method.
+	UpdateFirewallAppBlockFunc func(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error)
+
 	// UpdateFirewallGroupFunc mocks the UpdateFirewallGroup method.
 	UpdateFirewallGroupFunc func(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error)
 
@@ -1679,6 +1754,9 @@ type ClientMock struct {
 
 	// UpdateMediaFileFunc mocks the UpdateMediaFile method.
 	UpdateMediaFileFunc func(ctx context.Context, site string, m *MediaFile) (*MediaFile, error)
+
+	// UpdateNatRuleFunc mocks the UpdateNatRule method.
+	UpdateNatRuleFunc func(ctx context.Context, site string, n *NatRule) (*NatRule, error)
 
 	// UpdateNetworkFunc mocks the UpdateNetwork method.
 	UpdateNetworkFunc func(ctx context.Context, site string, n *Network) (*Network, error)
@@ -1739,6 +1817,9 @@ type ClientMock struct {
 
 	// UpdateSettingGlobalNatFunc mocks the UpdateSettingGlobalNat method.
 	UpdateSettingGlobalNatFunc func(ctx context.Context, site string, s *SettingGlobalNat) (*SettingGlobalNat, error)
+
+	// UpdateSettingGlobalNetworkFunc mocks the UpdateSettingGlobalNetwork method.
+	UpdateSettingGlobalNetworkFunc func(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error)
 
 	// UpdateSettingGlobalSwitchFunc mocks the UpdateSettingGlobalSwitch method.
 	UpdateSettingGlobalSwitchFunc func(ctx context.Context, site string, s *SettingGlobalSwitch) (*SettingGlobalSwitch, error)
@@ -1850,6 +1931,9 @@ type ClientMock struct {
 
 	// UpdateVirtualDeviceFunc mocks the UpdateVirtualDevice method.
 	UpdateVirtualDeviceFunc func(ctx context.Context, site string, v *VirtualDevice) (*VirtualDevice, error)
+
+	// UpdateWANLoadBalancingFunc mocks the UpdateWANLoadBalancing method.
+	UpdateWANLoadBalancingFunc func(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error)
 
 	// UpdateWLANFunc mocks the UpdateWLAN method.
 	UpdateWLANFunc func(ctx context.Context, site string, w *WLAN) (*WLAN, error)
@@ -1982,6 +2066,15 @@ type ClientMock struct {
 			// D is the d argument value.
 			D *DynamicDNS
 		}
+		// CreateFirewallAppBlock holds details about calls to the CreateFirewallAppBlock method.
+		CreateFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// F is the f argument value.
+			F *FirewallAppBlock
+		}
 		// CreateFirewallGroup holds details about calls to the CreateFirewallGroup method.
 		CreateFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -2080,6 +2173,15 @@ type ClientMock struct {
 			Site string
 			// M is the m argument value.
 			M *MediaFile
+		}
+		// CreateNatRule holds details about calls to the CreateNatRule method.
+		CreateNatRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// N is the n argument value.
+			N *NatRule
 		}
 		// CreateNetwork holds details about calls to the CreateNetwork method.
 		CreateNetwork []struct {
@@ -2315,6 +2417,15 @@ type ClientMock struct {
 			// ID is the id argument value.
 			ID string
 		}
+		// DeleteFirewallAppBlock holds details about calls to the DeleteFirewallAppBlock method.
+		DeleteFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
 		// DeleteFirewallGroup holds details about calls to the DeleteFirewallGroup method.
 		DeleteFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -2407,6 +2518,15 @@ type ClientMock struct {
 		}
 		// DeleteMediaFile holds details about calls to the DeleteMediaFile method.
 		DeleteMediaFile []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
+		// DeleteNatRule holds details about calls to the DeleteNatRule method.
+		DeleteNatRule []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -2706,6 +2826,15 @@ type ClientMock struct {
 			// Name is the name argument value.
 			Name string
 		}
+		// GetFirewallAppBlock holds details about calls to the GetFirewallAppBlock method.
+		GetFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
 		// GetFirewallGroup holds details about calls to the GetFirewallGroup method.
 		GetFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -2798,6 +2927,15 @@ type ClientMock struct {
 		}
 		// GetMediaFile holds details about calls to the GetMediaFile method.
 		GetMediaFile []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// ID is the id argument value.
+			ID string
+		}
+		// GetNatRule holds details about calls to the GetNatRule method.
+		GetNatRule []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -2972,6 +3110,13 @@ type ClientMock struct {
 		}
 		// GetSettingGlobalNat holds details about calls to the GetSettingGlobalNat method.
 		GetSettingGlobalNat []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
+		// GetSettingGlobalNetwork holds details about calls to the GetSettingGlobalNetwork method.
+		GetSettingGlobalNetwork []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -3279,6 +3424,13 @@ type ClientMock struct {
 			// ID is the id argument value.
 			ID string
 		}
+		// GetWANLoadBalancing holds details about calls to the GetWANLoadBalancing method.
+		GetWANLoadBalancing []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// GetWLAN holds details about calls to the GetWLAN method.
 		GetWLAN []struct {
 			// Ctx is the ctx argument value.
@@ -3395,6 +3547,13 @@ type ClientMock struct {
 			// Site is the site argument value.
 			Site string
 		}
+		// ListFirewallAppBlock holds details about calls to the ListFirewallAppBlock method.
+		ListFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// ListFirewallGroup holds details about calls to the ListFirewallGroup method.
 		ListFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -3474,6 +3633,13 @@ type ClientMock struct {
 		}
 		// ListMediaFile holds details about calls to the ListMediaFile method.
 		ListMediaFile []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
+		// ListNatRule holds details about calls to the ListNatRule method.
+		ListNatRule []struct {
 			// Ctx is the ctx argument value.
 			Ctx context.Context
 			// Site is the site argument value.
@@ -3780,6 +3946,15 @@ type ClientMock struct {
 			// D is the d argument value.
 			D *DynamicDNS
 		}
+		// UpdateFirewallAppBlock holds details about calls to the UpdateFirewallAppBlock method.
+		UpdateFirewallAppBlock []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// F is the f argument value.
+			F *FirewallAppBlock
+		}
 		// UpdateFirewallGroup holds details about calls to the UpdateFirewallGroup method.
 		UpdateFirewallGroup []struct {
 			// Ctx is the ctx argument value.
@@ -3878,6 +4053,15 @@ type ClientMock struct {
 			Site string
 			// M is the m argument value.
 			M *MediaFile
+		}
+		// UpdateNatRule holds details about calls to the UpdateNatRule method.
+		UpdateNatRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// N is the n argument value.
+			N *NatRule
 		}
 		// UpdateNetwork holds details about calls to the UpdateNetwork method.
 		UpdateNetwork []struct {
@@ -4058,6 +4242,15 @@ type ClientMock struct {
 			Site string
 			// S is the s argument value.
 			S *SettingGlobalNat
+		}
+		// UpdateSettingGlobalNetwork holds details about calls to the UpdateSettingGlobalNetwork method.
+		UpdateSettingGlobalNetwork []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// S is the s argument value.
+			S *SettingGlobalNetwork
 		}
 		// UpdateSettingGlobalSwitch holds details about calls to the UpdateSettingGlobalSwitch method.
 		UpdateSettingGlobalSwitch []struct {
@@ -4392,6 +4585,15 @@ type ClientMock struct {
 			// V is the v argument value.
 			V *VirtualDevice
 		}
+		// UpdateWANLoadBalancing holds details about calls to the UpdateWANLoadBalancing method.
+		UpdateWANLoadBalancing []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// D is the d argument value.
+			D *WANLoadBalancing
+		}
 		// UpdateWLAN holds details about calls to the UpdateWLAN method.
 		UpdateWLAN []struct {
 			// Ctx is the ctx argument value.
@@ -4452,6 +4654,7 @@ type ClientMock struct {
 	lockCreateDashboard                  sync.RWMutex
 	lockCreateDevice                     sync.RWMutex
 	lockCreateDynamicDNS                 sync.RWMutex
+	lockCreateFirewallAppBlock           sync.RWMutex
 	lockCreateFirewallGroup              sync.RWMutex
 	lockCreateFirewallRule               sync.RWMutex
 	lockCreateFirewallZone               sync.RWMutex
@@ -4463,6 +4666,7 @@ type ClientMock struct {
 	lockCreateHotspotPackage             sync.RWMutex
 	lockCreateMap                        sync.RWMutex
 	lockCreateMediaFile                  sync.RWMutex
+	lockCreateNatRule                    sync.RWMutex
 	lockCreateNetwork                    sync.RWMutex
 	lockCreatePortForward                sync.RWMutex
 	lockCreatePortProfile                sync.RWMutex
@@ -4489,6 +4693,7 @@ type ClientMock struct {
 	lockDeleteDashboard                  sync.RWMutex
 	lockDeleteDevice                     sync.RWMutex
 	lockDeleteDynamicDNS                 sync.RWMutex
+	lockDeleteFirewallAppBlock           sync.RWMutex
 	lockDeleteFirewallGroup              sync.RWMutex
 	lockDeleteFirewallRule               sync.RWMutex
 	lockDeleteFirewallZone               sync.RWMutex
@@ -4500,6 +4705,7 @@ type ClientMock struct {
 	lockDeleteHotspotPackage             sync.RWMutex
 	lockDeleteMap                        sync.RWMutex
 	lockDeleteMediaFile                  sync.RWMutex
+	lockDeleteNatRule                    sync.RWMutex
 	lockDeleteNetwork                    sync.RWMutex
 	lockDeletePortForward                sync.RWMutex
 	lockDeletePortProfile                sync.RWMutex
@@ -4532,6 +4738,7 @@ type ClientMock struct {
 	lockGetDeviceRaw                     sync.RWMutex
 	lockGetDynamicDNS                    sync.RWMutex
 	lockGetFeature                       sync.RWMutex
+	lockGetFirewallAppBlock              sync.RWMutex
 	lockGetFirewallGroup                 sync.RWMutex
 	lockGetFirewallRule                  sync.RWMutex
 	lockGetFirewallZone                  sync.RWMutex
@@ -4543,6 +4750,7 @@ type ClientMock struct {
 	lockGetHotspotPackage                sync.RWMutex
 	lockGetMap                           sync.RWMutex
 	lockGetMediaFile                     sync.RWMutex
+	lockGetNatRule                       sync.RWMutex
 	lockGetNetwork                       sync.RWMutex
 	lockGetPortForward                   sync.RWMutex
 	lockGetPortProfile                   sync.RWMutex
@@ -4565,6 +4773,7 @@ type ClientMock struct {
 	lockGetSettingEvaluationScore        sync.RWMutex
 	lockGetSettingGlobalAp               sync.RWMutex
 	lockGetSettingGlobalNat              sync.RWMutex
+	lockGetSettingGlobalNetwork          sync.RWMutex
 	lockGetSettingGlobalSwitch           sync.RWMutex
 	lockGetSettingGuestAccess            sync.RWMutex
 	lockGetSettingIps                    sync.RWMutex
@@ -4607,6 +4816,7 @@ type ClientMock struct {
 	lockGetUserByMAC                     sync.RWMutex
 	lockGetUserGroup                     sync.RWMutex
 	lockGetVirtualDevice                 sync.RWMutex
+	lockGetWANLoadBalancing              sync.RWMutex
 	lockGetWLAN                          sync.RWMutex
 	lockGetWLANGroup                     sync.RWMutex
 	lockInternal                         sync.RWMutex
@@ -4623,6 +4833,7 @@ type ClientMock struct {
 	lockListDevice                       sync.RWMutex
 	lockListDynamicDNS                   sync.RWMutex
 	lockListFeatures                     sync.RWMutex
+	lockListFirewallAppBlock             sync.RWMutex
 	lockListFirewallGroup                sync.RWMutex
 	lockListFirewallRule                 sync.RWMutex
 	lockListFirewallZone                 sync.RWMutex
@@ -4635,6 +4846,7 @@ type ClientMock struct {
 	lockListHotspotPackage               sync.RWMutex
 	lockListMap                          sync.RWMutex
 	lockListMediaFile                    sync.RWMutex
+	lockListNatRule                      sync.RWMutex
 	lockListNetwork                      sync.RWMutex
 	lockListPortForward                  sync.RWMutex
 	lockListPortProfile                  sync.RWMutex
@@ -4672,6 +4884,7 @@ type ClientMock struct {
 	lockUpdateDevice                     sync.RWMutex
 	lockUpdateDeviceRaw                  sync.RWMutex
 	lockUpdateDynamicDNS                 sync.RWMutex
+	lockUpdateFirewallAppBlock           sync.RWMutex
 	lockUpdateFirewallGroup              sync.RWMutex
 	lockUpdateFirewallRule               sync.RWMutex
 	lockUpdateFirewallZone               sync.RWMutex
@@ -4683,6 +4896,7 @@ type ClientMock struct {
 	lockUpdateHotspotPackage             sync.RWMutex
 	lockUpdateMap                        sync.RWMutex
 	lockUpdateMediaFile                  sync.RWMutex
+	lockUpdateNatRule                    sync.RWMutex
 	lockUpdateNetwork                    sync.RWMutex
 	lockUpdatePortForward                sync.RWMutex
 	lockUpdatePortProfile                sync.RWMutex
@@ -4703,6 +4917,7 @@ type ClientMock struct {
 	lockUpdateSettingEvaluationScore     sync.RWMutex
 	lockUpdateSettingGlobalAp            sync.RWMutex
 	lockUpdateSettingGlobalNat           sync.RWMutex
+	lockUpdateSettingGlobalNetwork       sync.RWMutex
 	lockUpdateSettingGlobalSwitch        sync.RWMutex
 	lockUpdateSettingGuestAccess         sync.RWMutex
 	lockUpdateSettingIps                 sync.RWMutex
@@ -4740,6 +4955,7 @@ type ClientMock struct {
 	lockUpdateUser                       sync.RWMutex
 	lockUpdateUserGroup                  sync.RWMutex
 	lockUpdateVirtualDevice              sync.RWMutex
+	lockUpdateWANLoadBalancing           sync.RWMutex
 	lockUpdateWLAN                       sync.RWMutex
 	lockUpdateWLANGroup                  sync.RWMutex
 	lockUploadPortalFile                 sync.RWMutex
@@ -5255,6 +5471,46 @@ func (mock *ClientMock) CreateDynamicDNSCalls() []struct {
 	return calls
 }
 
+// CreateFirewallAppBlock calls CreateFirewallAppBlockFunc.
+func (mock *ClientMock) CreateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+	if mock.CreateFirewallAppBlockFunc == nil {
+		panic("ClientMock.CreateFirewallAppBlockFunc: method is nil but Client.CreateFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}{
+		Ctx:  ctx,
+		Site: site,
+		F:    f,
+	}
+	mock.lockCreateFirewallAppBlock.Lock()
+	mock.calls.CreateFirewallAppBlock = append(mock.calls.CreateFirewallAppBlock, callInfo)
+	mock.lockCreateFirewallAppBlock.Unlock()
+	return mock.CreateFirewallAppBlockFunc(ctx, site, f)
+}
+
+// CreateFirewallAppBlockCalls gets all the calls that were made to CreateFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.CreateFirewallAppBlockCalls())
+func (mock *ClientMock) CreateFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	F    *FirewallAppBlock
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}
+	mock.lockCreateFirewallAppBlock.RLock()
+	calls = mock.calls.CreateFirewallAppBlock
+	mock.lockCreateFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // CreateFirewallGroup calls CreateFirewallGroupFunc.
 func (mock *ClientMock) CreateFirewallGroup(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 	if mock.CreateFirewallGroupFunc == nil {
@@ -5692,6 +5948,46 @@ func (mock *ClientMock) CreateMediaFileCalls() []struct {
 	mock.lockCreateMediaFile.RLock()
 	calls = mock.calls.CreateMediaFile
 	mock.lockCreateMediaFile.RUnlock()
+	return calls
+}
+
+// CreateNatRule calls CreateNatRuleFunc.
+func (mock *ClientMock) CreateNatRule(ctx context.Context, site string, n *NatRule) (*NatRule, error) {
+	if mock.CreateNatRuleFunc == nil {
+		panic("ClientMock.CreateNatRuleFunc: method is nil but Client.CreateNatRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		N    *NatRule
+	}{
+		Ctx:  ctx,
+		Site: site,
+		N:    n,
+	}
+	mock.lockCreateNatRule.Lock()
+	mock.calls.CreateNatRule = append(mock.calls.CreateNatRule, callInfo)
+	mock.lockCreateNatRule.Unlock()
+	return mock.CreateNatRuleFunc(ctx, site, n)
+}
+
+// CreateNatRuleCalls gets all the calls that were made to CreateNatRule.
+// Check the length with:
+//
+//	len(mockedClient.CreateNatRuleCalls())
+func (mock *ClientMock) CreateNatRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	N    *NatRule
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		N    *NatRule
+	}
+	mock.lockCreateNatRule.RLock()
+	calls = mock.calls.CreateNatRule
+	mock.lockCreateNatRule.RUnlock()
 	return calls
 }
 
@@ -6735,6 +7031,46 @@ func (mock *ClientMock) DeleteDynamicDNSCalls() []struct {
 	return calls
 }
 
+// DeleteFirewallAppBlock calls DeleteFirewallAppBlockFunc.
+func (mock *ClientMock) DeleteFirewallAppBlock(ctx context.Context, site string, id string) error {
+	if mock.DeleteFirewallAppBlockFunc == nil {
+		panic("ClientMock.DeleteFirewallAppBlockFunc: method is nil but Client.DeleteFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockDeleteFirewallAppBlock.Lock()
+	mock.calls.DeleteFirewallAppBlock = append(mock.calls.DeleteFirewallAppBlock, callInfo)
+	mock.lockDeleteFirewallAppBlock.Unlock()
+	return mock.DeleteFirewallAppBlockFunc(ctx, site, id)
+}
+
+// DeleteFirewallAppBlockCalls gets all the calls that were made to DeleteFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.DeleteFirewallAppBlockCalls())
+func (mock *ClientMock) DeleteFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockDeleteFirewallAppBlock.RLock()
+	calls = mock.calls.DeleteFirewallAppBlock
+	mock.lockDeleteFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // DeleteFirewallGroup calls DeleteFirewallGroupFunc.
 func (mock *ClientMock) DeleteFirewallGroup(ctx context.Context, site string, id string) error {
 	if mock.DeleteFirewallGroupFunc == nil {
@@ -7172,6 +7508,46 @@ func (mock *ClientMock) DeleteMediaFileCalls() []struct {
 	mock.lockDeleteMediaFile.RLock()
 	calls = mock.calls.DeleteMediaFile
 	mock.lockDeleteMediaFile.RUnlock()
+	return calls
+}
+
+// DeleteNatRule calls DeleteNatRuleFunc.
+func (mock *ClientMock) DeleteNatRule(ctx context.Context, site string, id string) error {
+	if mock.DeleteNatRuleFunc == nil {
+		panic("ClientMock.DeleteNatRuleFunc: method is nil but Client.DeleteNatRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockDeleteNatRule.Lock()
+	mock.calls.DeleteNatRule = append(mock.calls.DeleteNatRule, callInfo)
+	mock.lockDeleteNatRule.Unlock()
+	return mock.DeleteNatRuleFunc(ctx, site, id)
+}
+
+// DeleteNatRuleCalls gets all the calls that were made to DeleteNatRule.
+// Check the length with:
+//
+//	len(mockedClient.DeleteNatRuleCalls())
+func (mock *ClientMock) DeleteNatRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockDeleteNatRule.RLock()
+	calls = mock.calls.DeleteNatRule
+	mock.lockDeleteNatRule.RUnlock()
 	return calls
 }
 
@@ -8463,6 +8839,46 @@ func (mock *ClientMock) GetFeatureCalls() []struct {
 	return calls
 }
 
+// GetFirewallAppBlock calls GetFirewallAppBlockFunc.
+func (mock *ClientMock) GetFirewallAppBlock(ctx context.Context, site string, id string) (*FirewallAppBlock, error) {
+	if mock.GetFirewallAppBlockFunc == nil {
+		panic("ClientMock.GetFirewallAppBlockFunc: method is nil but Client.GetFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockGetFirewallAppBlock.Lock()
+	mock.calls.GetFirewallAppBlock = append(mock.calls.GetFirewallAppBlock, callInfo)
+	mock.lockGetFirewallAppBlock.Unlock()
+	return mock.GetFirewallAppBlockFunc(ctx, site, id)
+}
+
+// GetFirewallAppBlockCalls gets all the calls that were made to GetFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.GetFirewallAppBlockCalls())
+func (mock *ClientMock) GetFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockGetFirewallAppBlock.RLock()
+	calls = mock.calls.GetFirewallAppBlock
+	mock.lockGetFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // GetFirewallGroup calls GetFirewallGroupFunc.
 func (mock *ClientMock) GetFirewallGroup(ctx context.Context, site string, id string) (*FirewallGroup, error) {
 	if mock.GetFirewallGroupFunc == nil {
@@ -8900,6 +9316,46 @@ func (mock *ClientMock) GetMediaFileCalls() []struct {
 	mock.lockGetMediaFile.RLock()
 	calls = mock.calls.GetMediaFile
 	mock.lockGetMediaFile.RUnlock()
+	return calls
+}
+
+// GetNatRule calls GetNatRuleFunc.
+func (mock *ClientMock) GetNatRule(ctx context.Context, site string, id string) (*NatRule, error) {
+	if mock.GetNatRuleFunc == nil {
+		panic("ClientMock.GetNatRuleFunc: method is nil but Client.GetNatRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}{
+		Ctx:  ctx,
+		Site: site,
+		ID:   id,
+	}
+	mock.lockGetNatRule.Lock()
+	mock.calls.GetNatRule = append(mock.calls.GetNatRule, callInfo)
+	mock.lockGetNatRule.Unlock()
+	return mock.GetNatRuleFunc(ctx, site, id)
+}
+
+// GetNatRuleCalls gets all the calls that were made to GetNatRule.
+// Check the length with:
+//
+//	len(mockedClient.GetNatRuleCalls())
+func (mock *ClientMock) GetNatRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	ID   string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		ID   string
+	}
+	mock.lockGetNatRule.RLock()
+	calls = mock.calls.GetNatRule
+	mock.lockGetNatRule.RUnlock()
 	return calls
 }
 
@@ -9728,6 +10184,42 @@ func (mock *ClientMock) GetSettingGlobalNatCalls() []struct {
 	mock.lockGetSettingGlobalNat.RLock()
 	calls = mock.calls.GetSettingGlobalNat
 	mock.lockGetSettingGlobalNat.RUnlock()
+	return calls
+}
+
+// GetSettingGlobalNetwork calls GetSettingGlobalNetworkFunc.
+func (mock *ClientMock) GetSettingGlobalNetwork(ctx context.Context, site string) (*SettingGlobalNetwork, error) {
+	if mock.GetSettingGlobalNetworkFunc == nil {
+		panic("ClientMock.GetSettingGlobalNetworkFunc: method is nil but Client.GetSettingGlobalNetwork was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetSettingGlobalNetwork.Lock()
+	mock.calls.GetSettingGlobalNetwork = append(mock.calls.GetSettingGlobalNetwork, callInfo)
+	mock.lockGetSettingGlobalNetwork.Unlock()
+	return mock.GetSettingGlobalNetworkFunc(ctx, site)
+}
+
+// GetSettingGlobalNetworkCalls gets all the calls that were made to GetSettingGlobalNetwork.
+// Check the length with:
+//
+//	len(mockedClient.GetSettingGlobalNetworkCalls())
+func (mock *ClientMock) GetSettingGlobalNetworkCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockGetSettingGlobalNetwork.RLock()
+	calls = mock.calls.GetSettingGlobalNetwork
+	mock.lockGetSettingGlobalNetwork.RUnlock()
 	return calls
 }
 
@@ -11258,6 +11750,42 @@ func (mock *ClientMock) GetVirtualDeviceCalls() []struct {
 	return calls
 }
 
+// GetWANLoadBalancing calls GetWANLoadBalancingFunc.
+func (mock *ClientMock) GetWANLoadBalancing(ctx context.Context, site string) (*WANLoadBalancing, error) {
+	if mock.GetWANLoadBalancingFunc == nil {
+		panic("ClientMock.GetWANLoadBalancingFunc: method is nil but Client.GetWANLoadBalancing was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetWANLoadBalancing.Lock()
+	mock.calls.GetWANLoadBalancing = append(mock.calls.GetWANLoadBalancing, callInfo)
+	mock.lockGetWANLoadBalancing.Unlock()
+	return mock.GetWANLoadBalancingFunc(ctx, site)
+}
+
+// GetWANLoadBalancingCalls gets all the calls that were made to GetWANLoadBalancing.
+// Check the length with:
+//
+//	len(mockedClient.GetWANLoadBalancingCalls())
+func (mock *ClientMock) GetWANLoadBalancingCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockGetWANLoadBalancing.RLock()
+	calls = mock.calls.GetWANLoadBalancing
+	mock.lockGetWANLoadBalancing.RUnlock()
+	return calls
+}
+
 // GetWLAN calls GetWLANFunc.
 func (mock *ClientMock) GetWLAN(ctx context.Context, site string, id string) (*WLAN, error) {
 	if mock.GetWLANFunc == nil {
@@ -11841,6 +12369,42 @@ func (mock *ClientMock) ListFeaturesCalls() []struct {
 	return calls
 }
 
+// ListFirewallAppBlock calls ListFirewallAppBlockFunc.
+func (mock *ClientMock) ListFirewallAppBlock(ctx context.Context, site string) ([]FirewallAppBlock, error) {
+	if mock.ListFirewallAppBlockFunc == nil {
+		panic("ClientMock.ListFirewallAppBlockFunc: method is nil but Client.ListFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockListFirewallAppBlock.Lock()
+	mock.calls.ListFirewallAppBlock = append(mock.calls.ListFirewallAppBlock, callInfo)
+	mock.lockListFirewallAppBlock.Unlock()
+	return mock.ListFirewallAppBlockFunc(ctx, site)
+}
+
+// ListFirewallAppBlockCalls gets all the calls that were made to ListFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.ListFirewallAppBlockCalls())
+func (mock *ClientMock) ListFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockListFirewallAppBlock.RLock()
+	calls = mock.calls.ListFirewallAppBlock
+	mock.lockListFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // ListFirewallGroup calls ListFirewallGroupFunc.
 func (mock *ClientMock) ListFirewallGroup(ctx context.Context, site string) ([]FirewallGroup, error) {
 	if mock.ListFirewallGroupFunc == nil {
@@ -12270,6 +12834,42 @@ func (mock *ClientMock) ListMediaFileCalls() []struct {
 	mock.lockListMediaFile.RLock()
 	calls = mock.calls.ListMediaFile
 	mock.lockListMediaFile.RUnlock()
+	return calls
+}
+
+// ListNatRule calls ListNatRuleFunc.
+func (mock *ClientMock) ListNatRule(ctx context.Context, site string) ([]NatRule, error) {
+	if mock.ListNatRuleFunc == nil {
+		panic("ClientMock.ListNatRuleFunc: method is nil but Client.ListNatRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockListNatRule.Lock()
+	mock.calls.ListNatRule = append(mock.calls.ListNatRule, callInfo)
+	mock.lockListNatRule.Unlock()
+	return mock.ListNatRuleFunc(ctx, site)
+}
+
+// ListNatRuleCalls gets all the calls that were made to ListNatRule.
+// Check the length with:
+//
+//	len(mockedClient.ListNatRuleCalls())
+func (mock *ClientMock) ListNatRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockListNatRule.RLock()
+	calls = mock.calls.ListNatRule
+	mock.lockListNatRule.RUnlock()
 	return calls
 }
 
@@ -13687,6 +14287,46 @@ func (mock *ClientMock) UpdateDynamicDNSCalls() []struct {
 	return calls
 }
 
+// UpdateFirewallAppBlock calls UpdateFirewallAppBlockFunc.
+func (mock *ClientMock) UpdateFirewallAppBlock(ctx context.Context, site string, f *FirewallAppBlock) (*FirewallAppBlock, error) {
+	if mock.UpdateFirewallAppBlockFunc == nil {
+		panic("ClientMock.UpdateFirewallAppBlockFunc: method is nil but Client.UpdateFirewallAppBlock was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}{
+		Ctx:  ctx,
+		Site: site,
+		F:    f,
+	}
+	mock.lockUpdateFirewallAppBlock.Lock()
+	mock.calls.UpdateFirewallAppBlock = append(mock.calls.UpdateFirewallAppBlock, callInfo)
+	mock.lockUpdateFirewallAppBlock.Unlock()
+	return mock.UpdateFirewallAppBlockFunc(ctx, site, f)
+}
+
+// UpdateFirewallAppBlockCalls gets all the calls that were made to UpdateFirewallAppBlock.
+// Check the length with:
+//
+//	len(mockedClient.UpdateFirewallAppBlockCalls())
+func (mock *ClientMock) UpdateFirewallAppBlockCalls() []struct {
+	Ctx  context.Context
+	Site string
+	F    *FirewallAppBlock
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		F    *FirewallAppBlock
+	}
+	mock.lockUpdateFirewallAppBlock.RLock()
+	calls = mock.calls.UpdateFirewallAppBlock
+	mock.lockUpdateFirewallAppBlock.RUnlock()
+	return calls
+}
+
 // UpdateFirewallGroup calls UpdateFirewallGroupFunc.
 func (mock *ClientMock) UpdateFirewallGroup(ctx context.Context, site string, f *FirewallGroup) (*FirewallGroup, error) {
 	if mock.UpdateFirewallGroupFunc == nil {
@@ -14124,6 +14764,46 @@ func (mock *ClientMock) UpdateMediaFileCalls() []struct {
 	mock.lockUpdateMediaFile.RLock()
 	calls = mock.calls.UpdateMediaFile
 	mock.lockUpdateMediaFile.RUnlock()
+	return calls
+}
+
+// UpdateNatRule calls UpdateNatRuleFunc.
+func (mock *ClientMock) UpdateNatRule(ctx context.Context, site string, n *NatRule) (*NatRule, error) {
+	if mock.UpdateNatRuleFunc == nil {
+		panic("ClientMock.UpdateNatRuleFunc: method is nil but Client.UpdateNatRule was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		N    *NatRule
+	}{
+		Ctx:  ctx,
+		Site: site,
+		N:    n,
+	}
+	mock.lockUpdateNatRule.Lock()
+	mock.calls.UpdateNatRule = append(mock.calls.UpdateNatRule, callInfo)
+	mock.lockUpdateNatRule.Unlock()
+	return mock.UpdateNatRuleFunc(ctx, site, n)
+}
+
+// UpdateNatRuleCalls gets all the calls that were made to UpdateNatRule.
+// Check the length with:
+//
+//	len(mockedClient.UpdateNatRuleCalls())
+func (mock *ClientMock) UpdateNatRuleCalls() []struct {
+	Ctx  context.Context
+	Site string
+	N    *NatRule
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		N    *NatRule
+	}
+	mock.lockUpdateNatRule.RLock()
+	calls = mock.calls.UpdateNatRule
+	mock.lockUpdateNatRule.RUnlock()
 	return calls
 }
 
@@ -14924,6 +15604,46 @@ func (mock *ClientMock) UpdateSettingGlobalNatCalls() []struct {
 	mock.lockUpdateSettingGlobalNat.RLock()
 	calls = mock.calls.UpdateSettingGlobalNat
 	mock.lockUpdateSettingGlobalNat.RUnlock()
+	return calls
+}
+
+// UpdateSettingGlobalNetwork calls UpdateSettingGlobalNetworkFunc.
+func (mock *ClientMock) UpdateSettingGlobalNetwork(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error) {
+	if mock.UpdateSettingGlobalNetworkFunc == nil {
+		panic("ClientMock.UpdateSettingGlobalNetworkFunc: method is nil but Client.UpdateSettingGlobalNetwork was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingGlobalNetwork
+	}{
+		Ctx:  ctx,
+		Site: site,
+		S:    s,
+	}
+	mock.lockUpdateSettingGlobalNetwork.Lock()
+	mock.calls.UpdateSettingGlobalNetwork = append(mock.calls.UpdateSettingGlobalNetwork, callInfo)
+	mock.lockUpdateSettingGlobalNetwork.Unlock()
+	return mock.UpdateSettingGlobalNetworkFunc(ctx, site, s)
+}
+
+// UpdateSettingGlobalNetworkCalls gets all the calls that were made to UpdateSettingGlobalNetwork.
+// Check the length with:
+//
+//	len(mockedClient.UpdateSettingGlobalNetworkCalls())
+func (mock *ClientMock) UpdateSettingGlobalNetworkCalls() []struct {
+	Ctx  context.Context
+	Site string
+	S    *SettingGlobalNetwork
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingGlobalNetwork
+	}
+	mock.lockUpdateSettingGlobalNetwork.RLock()
+	calls = mock.calls.UpdateSettingGlobalNetwork
+	mock.lockUpdateSettingGlobalNetwork.RUnlock()
 	return calls
 }
 
@@ -16404,6 +17124,46 @@ func (mock *ClientMock) UpdateVirtualDeviceCalls() []struct {
 	mock.lockUpdateVirtualDevice.RLock()
 	calls = mock.calls.UpdateVirtualDevice
 	mock.lockUpdateVirtualDevice.RUnlock()
+	return calls
+}
+
+// UpdateWANLoadBalancing calls UpdateWANLoadBalancingFunc.
+func (mock *ClientMock) UpdateWANLoadBalancing(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error) {
+	if mock.UpdateWANLoadBalancingFunc == nil {
+		panic("ClientMock.UpdateWANLoadBalancingFunc: method is nil but Client.UpdateWANLoadBalancing was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		D    *WANLoadBalancing
+	}{
+		Ctx:  ctx,
+		Site: site,
+		D:    d,
+	}
+	mock.lockUpdateWANLoadBalancing.Lock()
+	mock.calls.UpdateWANLoadBalancing = append(mock.calls.UpdateWANLoadBalancing, callInfo)
+	mock.lockUpdateWANLoadBalancing.Unlock()
+	return mock.UpdateWANLoadBalancingFunc(ctx, site, d)
+}
+
+// UpdateWANLoadBalancingCalls gets all the calls that were made to UpdateWANLoadBalancing.
+// Check the length with:
+//
+//	len(mockedClient.UpdateWANLoadBalancingCalls())
+func (mock *ClientMock) UpdateWANLoadBalancingCalls() []struct {
+	Ctx  context.Context
+	Site string
+	D    *WANLoadBalancing
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		D    *WANLoadBalancing
+	}
+	mock.lockUpdateWANLoadBalancing.RLock()
+	calls = mock.calls.UpdateWANLoadBalancing
+	mock.lockUpdateWANLoadBalancing.RUnlock()
 	return calls
 }
 
