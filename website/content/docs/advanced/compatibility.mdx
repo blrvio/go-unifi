@@ -17,6 +17,7 @@ floors below (`9.0.114`, `10.1.78`) are Network Application versions, not UniFi 
 
 | `go-unifi` version    | Min UniFi Network    | Internal API version | Official API version |
 |-----------------------|----------------------|----------------------|----------------------|
+| `v11.0.99`            | `9.0.114`            | `9.5.21` (frozen)    | `11.0.99`            |
 | `v10.6.109`           | `9.0.114`            | `9.5.21` (frozen)    | `10.6.109`           |
 | `v10.5.67` – `v10.5.68` | `9.0.114`          | `9.5.21` (frozen)    | `10.5.67`            |
 | `v2.3.0`              | `9.0.114`            | `9.5.21` (frozen)    | `10.4.57`            |
@@ -51,6 +52,26 @@ Two plain-text version markers at the repo root record the pinned versions, writ
 - `.unifi-version-official` — the Official OpenAPI (`integration/v1`) spec version (requires controller ≥ `10.1.78`).
 
 ## Compatibility changelog
+
+### 11.0.99 / UniFi Network 11.0.99
+
+**Breaking changes**
+
+- **Module path** — `github.com/blrvio/go-unifi/v10` → `github.com/blrvio/go-unifi/v11` (the module major tracks the
+  controller major). Update every import and run `go get github.com/blrvio/go-unifi/v11@v11.0.99`.
+- `official.HIGH` / `official.LOW` / `official.MEDIUM` (`RouterAdvertisementConfigurationPriority`) are now
+  `official.RouterAdvertisementConfigurationPriorityHIGH` / `…LOW` / `…MEDIUM`: the new `WirelessRadioOverviewTxPowerMode`
+  enum reuses those values, so the generator prefixes both.
+
+**Additions**
+
+- Firewall policies: `ReportFlowEnabled` (report matched traffic in Insights → Flows) on `FirewallPolicy`, and as an
+  optional field on the create/update and patch bodies — the controller defaults it to `true` when a PUT omits it.
+- Wireless radios: `WirelessRadioOverview.TxPowerMode` (`AUTO`, `LOW`, `MEDIUM`, `HIGH`, `CUSTOM`, `DISABLED`);
+  `802.11ah` in `WlanStandard`; `0.9` GHz (Wi-Fi HaLow) in both radio `FrequencyGHz` enums.
+
+The `11.0.99` spec snapshot was taken from a console, because the version is not yet in the public release
+resolver; codegen is pinned to it until a public 11.x ≥ 11.0.99 ships.
 
 ### 2.0.0 — breaking changes
 

@@ -1,4 +1,4 @@
-module github.com/blrvio/go-unifi/v10
+module github.com/blrvio/go-unifi/v11
 
 go 1.26.0
 

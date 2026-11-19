@@ -2405,6 +2405,7 @@ func (e IpAclRuleProtocolFilter) Valid() bool {
 
 // Defines values for LatestStatisticsForWirelessRadioFrequencyGHz.
 const (
+	LatestStatisticsForWirelessRadioFrequencyGHzN09 LatestStatisticsForWirelessRadioFrequencyGHz = 0.9
 	LatestStatisticsForWirelessRadioFrequencyGHzN24 LatestStatisticsForWirelessRadioFrequencyGHz = 2.4
 	LatestStatisticsForWirelessRadioFrequencyGHzN5  LatestStatisticsForWirelessRadioFrequencyGHz = 5
 	LatestStatisticsForWirelessRadioFrequencyGHzN6  LatestStatisticsForWirelessRadioFrequencyGHz = 6
@@ -2414,6 +2415,8 @@ const (
 // Valid indicates whether the value is a known member of the LatestStatisticsForWirelessRadioFrequencyGHz enum.
 func (e LatestStatisticsForWirelessRadioFrequencyGHz) Valid() bool {
 	switch e {
+	case LatestStatisticsForWirelessRadioFrequencyGHzN09:
+		return true
 	case LatestStatisticsForWirelessRadioFrequencyGHzN24:
 		return true
 	case LatestStatisticsForWirelessRadioFrequencyGHzN5:
@@ -2618,19 +2621,19 @@ func (e PortPoEOverviewType) Valid() bool {
 
 // Defines values for RouterAdvertisementConfigurationPriority.
 const (
-	HIGH   RouterAdvertisementConfigurationPriority = "HIGH"
-	LOW    RouterAdvertisementConfigurationPriority = "LOW"
-	MEDIUM RouterAdvertisementConfigurationPriority = "MEDIUM"
+	RouterAdvertisementConfigurationPriorityHIGH   RouterAdvertisementConfigurationPriority = "HIGH"
+	RouterAdvertisementConfigurationPriorityLOW    RouterAdvertisementConfigurationPriority = "LOW"
+	RouterAdvertisementConfigurationPriorityMEDIUM RouterAdvertisementConfigurationPriority = "MEDIUM"
 )
 
 // Valid indicates whether the value is a known member of the RouterAdvertisementConfigurationPriority enum.
 func (e RouterAdvertisementConfigurationPriority) Valid() bool {
 	switch e {
-	case HIGH:
+	case RouterAdvertisementConfigurationPriorityHIGH:
 		return true
-	case LOW:
+	case RouterAdvertisementConfigurationPriorityLOW:
 		return true
-	case MEDIUM:
+	case RouterAdvertisementConfigurationPriorityMEDIUM:
 		return true
 	default:
 		return false
@@ -3101,6 +3104,7 @@ func (e WifiWpa3EnterpriseSecurityConfigurationDetailSecurityMode) Valid() bool 
 
 // Defines values for WirelessRadioOverviewFrequencyGHz.
 const (
+	N09 WirelessRadioOverviewFrequencyGHz = 0.9
 	N24 WirelessRadioOverviewFrequencyGHz = 2.4
 	N5  WirelessRadioOverviewFrequencyGHz = 5
 	N6  WirelessRadioOverviewFrequencyGHz = 6
@@ -3110,6 +3114,8 @@ const (
 // Valid indicates whether the value is a known member of the WirelessRadioOverviewFrequencyGHz enum.
 func (e WirelessRadioOverviewFrequencyGHz) Valid() bool {
 	switch e {
+	case N09:
+		return true
 	case N24:
 		return true
 	case N5:
@@ -3123,10 +3129,41 @@ func (e WirelessRadioOverviewFrequencyGHz) Valid() bool {
 	}
 }
 
+// Defines values for WirelessRadioOverviewTxPowerMode.
+const (
+	WirelessRadioOverviewTxPowerModeAUTO     WirelessRadioOverviewTxPowerMode = "AUTO"
+	WirelessRadioOverviewTxPowerModeCUSTOM   WirelessRadioOverviewTxPowerMode = "CUSTOM"
+	WirelessRadioOverviewTxPowerModeDISABLED WirelessRadioOverviewTxPowerMode = "DISABLED"
+	WirelessRadioOverviewTxPowerModeHIGH     WirelessRadioOverviewTxPowerMode = "HIGH"
+	WirelessRadioOverviewTxPowerModeLOW      WirelessRadioOverviewTxPowerMode = "LOW"
+	WirelessRadioOverviewTxPowerModeMEDIUM   WirelessRadioOverviewTxPowerMode = "MEDIUM"
+)
+
+// Valid indicates whether the value is a known member of the WirelessRadioOverviewTxPowerMode enum.
+func (e WirelessRadioOverviewTxPowerMode) Valid() bool {
+	switch e {
+	case WirelessRadioOverviewTxPowerModeAUTO:
+		return true
+	case WirelessRadioOverviewTxPowerModeCUSTOM:
+		return true
+	case WirelessRadioOverviewTxPowerModeDISABLED:
+		return true
+	case WirelessRadioOverviewTxPowerModeHIGH:
+		return true
+	case WirelessRadioOverviewTxPowerModeLOW:
+		return true
+	case WirelessRadioOverviewTxPowerModeMEDIUM:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for WirelessRadioOverviewWlanStandard.
 const (
 	N80211a  WirelessRadioOverviewWlanStandard = "802.11a"
 	N80211ac WirelessRadioOverviewWlanStandard = "802.11ac"
+	N80211ah WirelessRadioOverviewWlanStandard = "802.11ah"
 	N80211ax WirelessRadioOverviewWlanStandard = "802.11ax"
 	N80211b  WirelessRadioOverviewWlanStandard = "802.11b"
 	N80211be WirelessRadioOverviewWlanStandard = "802.11be"
@@ -3140,6 +3177,8 @@ func (e WirelessRadioOverviewWlanStandard) Valid() bool {
 	case N80211a:
 		return true
 	case N80211ac:
+		return true
+	case N80211ah:
 		return true
 	case N80211ax:
 		return true
@@ -3892,6 +3931,9 @@ type FirewallPolicy struct {
 	Metadata       UserOrSystemDefinedOrDerivedEntityMetadata `json:"metadata"`
 	Name           string                                     `json:"name"`
 
+	// ReportFlowEnabled Report traffic matched by this policy in Insights Flows. Always false for the predefined Allow Return Traffic policies and the predefined policies allowing only multicast or IPv6 neighbor discovery traffic, which are never reported.
+	ReportFlowEnabled bool `json:"reportFlowEnabled"`
+
 	// Schedule Defines date and time when the entity is active. If null, the entity is always active.
 	Schedule *FirewallSchedule    `json:"schedule,omitempty"`
 	Source   FirewallPolicySource `json:"source"`
@@ -3952,6 +3994,9 @@ type FirewallPolicyCreateOrUpdate struct {
 	// LoggingEnabled Generate syslog entries when traffic is matched. Such entries are sent to a remote syslog server.
 	LoggingEnabled bool   `json:"loggingEnabled"`
 	Name           string `json:"name"`
+
+	// ReportFlowEnabled Report traffic matched by this policy in Insights Flows. Defaults to true when omitted.
+	ReportFlowEnabled *bool `json:"reportFlowEnabled,omitempty"`
 
 	// Schedule Defines date and time when the entity is active. If null, the entity is always active.
 	Schedule *FirewallSchedule    `json:"schedule,omitempty"`
@@ -5588,6 +5633,9 @@ type PXEConfiguration struct {
 // PatchFirewallPolicy is a generated model for the UniFi Official API.
 type PatchFirewallPolicy struct {
 	LoggingEnabled *bool `json:"loggingEnabled,omitempty"`
+
+	// ReportFlowEnabled Report traffic matched by this policy in Insights Flows. Ignored for the predefined Allow Return Traffic policies and the predefined policies allowing only multicast or IPv6 neighbor discovery traffic, which are never reported.
+	ReportFlowEnabled *bool `json:"reportFlowEnabled,omitempty"`
 }
 
 // PortActionRequest is a generated model for the UniFi Official API.
@@ -6884,11 +6932,15 @@ type WirelessRadioOverview struct {
 	Channel         *int32                            `json:"channel,omitempty"`
 	ChannelWidthMHz int32                             `json:"channelWidthMHz"`
 	FrequencyGHz    WirelessRadioOverviewFrequencyGHz `json:"frequencyGHz"`
-	WlanStandard    WirelessRadioOverviewWlanStandard `json:"wlanStandard" validate:"omitempty,oneof=802.11a 802.11b 802.11g 802.11n 802.11ac 802.11ax 802.11be"`
+	TxPowerMode     WirelessRadioOverviewTxPowerMode  `json:"txPowerMode" validate:"omitempty,oneof=AUTO LOW MEDIUM HIGH CUSTOM DISABLED"`
+	WlanStandard    WirelessRadioOverviewWlanStandard `json:"wlanStandard" validate:"omitempty,oneof=802.11a 802.11b 802.11g 802.11n 802.11ac 802.11ax 802.11be 802.11ah"`
 }
 
 // WirelessRadioOverviewFrequencyGHz is a generated model for the UniFi Official API.
 type WirelessRadioOverviewFrequencyGHz float32
+
+// WirelessRadioOverviewTxPowerMode is a generated model for the UniFi Official API.
+type WirelessRadioOverviewTxPowerMode string
 
 // WirelessRadioOverviewWlanStandard is a generated model for the UniFi Official API.
 type WirelessRadioOverviewWlanStandard string

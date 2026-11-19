@@ -14,7 +14,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/blrvio/go-unifi/v10/codegen/shared"
+	"github.com/blrvio/go-unifi/v11/codegen/shared"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/ulikunitz/xz"
