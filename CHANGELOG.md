@@ -8,6 +8,16 @@ internal and maintenance changes are not listed.
 > (itself forked from [paultyng/go-unifi](https://github.com/paultyng/go-unifi)). Version entries below
 > predating the fork document the upstream release history that this project builds on.
 
+## [v11.0.99-1](https://github.com/blrvio/go-unifi/releases/tag/v11.0.99-1) (2026-11-19)
+
+### ✨ New Features
+
+* feat(firewall): add firewall app block (v2)
+* feat(nat): add user-defined NAT rules (v2)
+* feat(network): model external_id on networkconf
+* feat(setting): add global_network setting
+* feat(wan): add WAN load-balancing configuration (v2)
+
 ## [v11.0.99](https://github.com/blrvio/go-unifi/releases/tag/v11.0.99) (2026-11-19)
 
 ### 🚨 Breaking Changes
