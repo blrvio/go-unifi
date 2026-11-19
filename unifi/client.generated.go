@@ -1197,6 +1197,10 @@ type InternalClient interface {
 
 	// ==== end of client methods for VirtualDevice resource ====
 
+	GetWANLoadBalancing(ctx context.Context, site string) (*WANLoadBalancing, error)
+
+	UpdateWANLoadBalancing(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error)
+
 	// ==== client methods for WLAN resource ====
 
 	// CreateWLAN creates a resource

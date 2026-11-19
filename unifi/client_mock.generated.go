@@ -542,6 +542,9 @@ var _ Client = &ClientMock{}
 //			GetVirtualDeviceFunc: func(ctx context.Context, site string, id string) (*VirtualDevice, error) {
 //				panic("mock out the GetVirtualDevice method")
 //			},
+//			GetWANLoadBalancingFunc: func(ctx context.Context, site string) (*WANLoadBalancing, error) {
+//				panic("mock out the GetWANLoadBalancing method")
+//			},
 //			GetWLANFunc: func(ctx context.Context, site string, id string) (*WLAN, error) {
 //				panic("mock out the GetWLAN method")
 //			},
@@ -952,6 +955,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdateVirtualDeviceFunc: func(ctx context.Context, site string, v *VirtualDevice) (*VirtualDevice, error) {
 //				panic("mock out the UpdateVirtualDevice method")
+//			},
+//			UpdateWANLoadBalancingFunc: func(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error) {
+//				panic("mock out the UpdateWANLoadBalancing method")
 //			},
 //			UpdateWLANFunc: func(ctx context.Context, site string, w *WLAN) (*WLAN, error) {
 //				panic("mock out the UpdateWLAN method")
@@ -1500,6 +1506,9 @@ type ClientMock struct {
 	// GetVirtualDeviceFunc mocks the GetVirtualDevice method.
 	GetVirtualDeviceFunc func(ctx context.Context, site string, id string) (*VirtualDevice, error)
 
+	// GetWANLoadBalancingFunc mocks the GetWANLoadBalancing method.
+	GetWANLoadBalancingFunc func(ctx context.Context, site string) (*WANLoadBalancing, error)
+
 	// GetWLANFunc mocks the GetWLAN method.
 	GetWLANFunc func(ctx context.Context, site string, id string) (*WLAN, error)
 
@@ -1910,6 +1919,9 @@ type ClientMock struct {
 
 	// UpdateVirtualDeviceFunc mocks the UpdateVirtualDevice method.
 	UpdateVirtualDeviceFunc func(ctx context.Context, site string, v *VirtualDevice) (*VirtualDevice, error)
+
+	// UpdateWANLoadBalancingFunc mocks the UpdateWANLoadBalancing method.
+	UpdateWANLoadBalancingFunc func(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error)
 
 	// UpdateWLANFunc mocks the UpdateWLAN method.
 	UpdateWLANFunc func(ctx context.Context, site string, w *WLAN) (*WLAN, error)
@@ -3393,6 +3405,13 @@ type ClientMock struct {
 			// ID is the id argument value.
 			ID string
 		}
+		// GetWANLoadBalancing holds details about calls to the GetWANLoadBalancing method.
+		GetWANLoadBalancing []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// GetWLAN holds details about calls to the GetWLAN method.
 		GetWLAN []struct {
 			// Ctx is the ctx argument value.
@@ -4538,6 +4557,15 @@ type ClientMock struct {
 			// V is the v argument value.
 			V *VirtualDevice
 		}
+		// UpdateWANLoadBalancing holds details about calls to the UpdateWANLoadBalancing method.
+		UpdateWANLoadBalancing []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// D is the d argument value.
+			D *WANLoadBalancing
+		}
 		// UpdateWLAN holds details about calls to the UpdateWLAN method.
 		UpdateWLAN []struct {
 			// Ctx is the ctx argument value.
@@ -4759,6 +4787,7 @@ type ClientMock struct {
 	lockGetUserByMAC                     sync.RWMutex
 	lockGetUserGroup                     sync.RWMutex
 	lockGetVirtualDevice                 sync.RWMutex
+	lockGetWANLoadBalancing              sync.RWMutex
 	lockGetWLAN                          sync.RWMutex
 	lockGetWLANGroup                     sync.RWMutex
 	lockInternal                         sync.RWMutex
@@ -4896,6 +4925,7 @@ type ClientMock struct {
 	lockUpdateUser                       sync.RWMutex
 	lockUpdateUserGroup                  sync.RWMutex
 	lockUpdateVirtualDevice              sync.RWMutex
+	lockUpdateWANLoadBalancing           sync.RWMutex
 	lockUpdateWLAN                       sync.RWMutex
 	lockUpdateWLANGroup                  sync.RWMutex
 	lockUploadPortalFile                 sync.RWMutex
@@ -11654,6 +11684,42 @@ func (mock *ClientMock) GetVirtualDeviceCalls() []struct {
 	return calls
 }
 
+// GetWANLoadBalancing calls GetWANLoadBalancingFunc.
+func (mock *ClientMock) GetWANLoadBalancing(ctx context.Context, site string) (*WANLoadBalancing, error) {
+	if mock.GetWANLoadBalancingFunc == nil {
+		panic("ClientMock.GetWANLoadBalancingFunc: method is nil but Client.GetWANLoadBalancing was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetWANLoadBalancing.Lock()
+	mock.calls.GetWANLoadBalancing = append(mock.calls.GetWANLoadBalancing, callInfo)
+	mock.lockGetWANLoadBalancing.Unlock()
+	return mock.GetWANLoadBalancingFunc(ctx, site)
+}
+
+// GetWANLoadBalancingCalls gets all the calls that were made to GetWANLoadBalancing.
+// Check the length with:
+//
+//	len(mockedClient.GetWANLoadBalancingCalls())
+func (mock *ClientMock) GetWANLoadBalancingCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockGetWANLoadBalancing.RLock()
+	calls = mock.calls.GetWANLoadBalancing
+	mock.lockGetWANLoadBalancing.RUnlock()
+	return calls
+}
+
 // GetWLAN calls GetWLANFunc.
 func (mock *ClientMock) GetWLAN(ctx context.Context, site string, id string) (*WLAN, error) {
 	if mock.GetWLANFunc == nil {
@@ -16952,6 +17018,46 @@ func (mock *ClientMock) UpdateVirtualDeviceCalls() []struct {
 	mock.lockUpdateVirtualDevice.RLock()
 	calls = mock.calls.UpdateVirtualDevice
 	mock.lockUpdateVirtualDevice.RUnlock()
+	return calls
+}
+
+// UpdateWANLoadBalancing calls UpdateWANLoadBalancingFunc.
+func (mock *ClientMock) UpdateWANLoadBalancing(ctx context.Context, site string, d *WANLoadBalancing) (*WANLoadBalancing, error) {
+	if mock.UpdateWANLoadBalancingFunc == nil {
+		panic("ClientMock.UpdateWANLoadBalancingFunc: method is nil but Client.UpdateWANLoadBalancing was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		D    *WANLoadBalancing
+	}{
+		Ctx:  ctx,
+		Site: site,
+		D:    d,
+	}
+	mock.lockUpdateWANLoadBalancing.Lock()
+	mock.calls.UpdateWANLoadBalancing = append(mock.calls.UpdateWANLoadBalancing, callInfo)
+	mock.lockUpdateWANLoadBalancing.Unlock()
+	return mock.UpdateWANLoadBalancingFunc(ctx, site, d)
+}
+
+// UpdateWANLoadBalancingCalls gets all the calls that were made to UpdateWANLoadBalancing.
+// Check the length with:
+//
+//	len(mockedClient.UpdateWANLoadBalancingCalls())
+func (mock *ClientMock) UpdateWANLoadBalancingCalls() []struct {
+	Ctx  context.Context
+	Site string
+	D    *WANLoadBalancing
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		D    *WANLoadBalancing
+	}
+	mock.lockUpdateWANLoadBalancing.RLock()
+	calls = mock.calls.UpdateWANLoadBalancing
+	mock.lockUpdateWANLoadBalancing.RUnlock()
 	return calls
 }
 

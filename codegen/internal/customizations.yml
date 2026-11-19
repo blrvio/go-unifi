@@ -186,6 +186,28 @@ customizations:
             type: "[]FirewallRuleIndexUpdate"
         returns:
           - "error"
+      - name: "GetWANLoadBalancing"
+        resourceName: "WANLoadBalancing"
+        params:
+          - name: "ctx"
+            type: "context.Context"
+          - name: "site"
+            type: "string"
+        returns:
+          - "*WANLoadBalancing"
+          - "error"
+      - name: "UpdateWANLoadBalancing"
+        resourceName: "WANLoadBalancing"
+        params:
+          - name: "ctx"
+            type: "context.Context"
+          - name: "site"
+            type: "string"
+          - name: "d"
+            type: "*WANLoadBalancing"
+        returns:
+          - "*WANLoadBalancing"
+          - "error"
       - name: "ReorderFirewallPolicies"
         resourceName: "FirewallZonePolicy"
         params:
