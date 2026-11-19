@@ -760,6 +760,16 @@ type InternalClient interface {
 
 	// ==== end of client methods for SettingGlobalNat resource ====
 
+	// ==== client methods for SettingGlobalNetwork resource ====
+
+	// GetSettingGlobalNetwork retrieves the settings for a resource
+	GetSettingGlobalNetwork(ctx context.Context, site string) (*SettingGlobalNetwork, error)
+
+	// UpdateSettingGlobalNetwork updates a resource
+	UpdateSettingGlobalNetwork(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error)
+
+	// ==== end of client methods for SettingGlobalNetwork resource ====
+
 	// ==== client methods for SettingGlobalSwitch resource ====
 
 	// GetSettingGlobalSwitch retrieves the settings for a resource

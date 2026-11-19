@@ -416,6 +416,9 @@ var _ Client = &ClientMock{}
 //			GetSettingGlobalNatFunc: func(ctx context.Context, site string) (*SettingGlobalNat, error) {
 //				panic("mock out the GetSettingGlobalNat method")
 //			},
+//			GetSettingGlobalNetworkFunc: func(ctx context.Context, site string) (*SettingGlobalNetwork, error) {
+//				panic("mock out the GetSettingGlobalNetwork method")
+//			},
 //			GetSettingGlobalSwitchFunc: func(ctx context.Context, site string) (*SettingGlobalSwitch, error) {
 //				panic("mock out the GetSettingGlobalSwitch method")
 //			},
@@ -844,6 +847,9 @@ var _ Client = &ClientMock{}
 //			},
 //			UpdateSettingGlobalNatFunc: func(ctx context.Context, site string, s *SettingGlobalNat) (*SettingGlobalNat, error) {
 //				panic("mock out the UpdateSettingGlobalNat method")
+//			},
+//			UpdateSettingGlobalNetworkFunc: func(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error) {
+//				panic("mock out the UpdateSettingGlobalNetwork method")
 //			},
 //			UpdateSettingGlobalSwitchFunc: func(ctx context.Context, site string, s *SettingGlobalSwitch) (*SettingGlobalSwitch, error) {
 //				panic("mock out the UpdateSettingGlobalSwitch method")
@@ -1380,6 +1386,9 @@ type ClientMock struct {
 	// GetSettingGlobalNatFunc mocks the GetSettingGlobalNat method.
 	GetSettingGlobalNatFunc func(ctx context.Context, site string) (*SettingGlobalNat, error)
 
+	// GetSettingGlobalNetworkFunc mocks the GetSettingGlobalNetwork method.
+	GetSettingGlobalNetworkFunc func(ctx context.Context, site string) (*SettingGlobalNetwork, error)
+
 	// GetSettingGlobalSwitchFunc mocks the GetSettingGlobalSwitch method.
 	GetSettingGlobalSwitchFunc func(ctx context.Context, site string) (*SettingGlobalSwitch, error)
 
@@ -1808,6 +1817,9 @@ type ClientMock struct {
 
 	// UpdateSettingGlobalNatFunc mocks the UpdateSettingGlobalNat method.
 	UpdateSettingGlobalNatFunc func(ctx context.Context, site string, s *SettingGlobalNat) (*SettingGlobalNat, error)
+
+	// UpdateSettingGlobalNetworkFunc mocks the UpdateSettingGlobalNetwork method.
+	UpdateSettingGlobalNetworkFunc func(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error)
 
 	// UpdateSettingGlobalSwitchFunc mocks the UpdateSettingGlobalSwitch method.
 	UpdateSettingGlobalSwitchFunc func(ctx context.Context, site string, s *SettingGlobalSwitch) (*SettingGlobalSwitch, error)
@@ -3103,6 +3115,13 @@ type ClientMock struct {
 			// Site is the site argument value.
 			Site string
 		}
+		// GetSettingGlobalNetwork holds details about calls to the GetSettingGlobalNetwork method.
+		GetSettingGlobalNetwork []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+		}
 		// GetSettingGlobalSwitch holds details about calls to the GetSettingGlobalSwitch method.
 		GetSettingGlobalSwitch []struct {
 			// Ctx is the ctx argument value.
@@ -4224,6 +4243,15 @@ type ClientMock struct {
 			// S is the s argument value.
 			S *SettingGlobalNat
 		}
+		// UpdateSettingGlobalNetwork holds details about calls to the UpdateSettingGlobalNetwork method.
+		UpdateSettingGlobalNetwork []struct {
+			// Ctx is the ctx argument value.
+			Ctx context.Context
+			// Site is the site argument value.
+			Site string
+			// S is the s argument value.
+			S *SettingGlobalNetwork
+		}
 		// UpdateSettingGlobalSwitch holds details about calls to the UpdateSettingGlobalSwitch method.
 		UpdateSettingGlobalSwitch []struct {
 			// Ctx is the ctx argument value.
@@ -4745,6 +4773,7 @@ type ClientMock struct {
 	lockGetSettingEvaluationScore        sync.RWMutex
 	lockGetSettingGlobalAp               sync.RWMutex
 	lockGetSettingGlobalNat              sync.RWMutex
+	lockGetSettingGlobalNetwork          sync.RWMutex
 	lockGetSettingGlobalSwitch           sync.RWMutex
 	lockGetSettingGuestAccess            sync.RWMutex
 	lockGetSettingIps                    sync.RWMutex
@@ -4888,6 +4917,7 @@ type ClientMock struct {
 	lockUpdateSettingEvaluationScore     sync.RWMutex
 	lockUpdateSettingGlobalAp            sync.RWMutex
 	lockUpdateSettingGlobalNat           sync.RWMutex
+	lockUpdateSettingGlobalNetwork       sync.RWMutex
 	lockUpdateSettingGlobalSwitch        sync.RWMutex
 	lockUpdateSettingGuestAccess         sync.RWMutex
 	lockUpdateSettingIps                 sync.RWMutex
@@ -10154,6 +10184,42 @@ func (mock *ClientMock) GetSettingGlobalNatCalls() []struct {
 	mock.lockGetSettingGlobalNat.RLock()
 	calls = mock.calls.GetSettingGlobalNat
 	mock.lockGetSettingGlobalNat.RUnlock()
+	return calls
+}
+
+// GetSettingGlobalNetwork calls GetSettingGlobalNetworkFunc.
+func (mock *ClientMock) GetSettingGlobalNetwork(ctx context.Context, site string) (*SettingGlobalNetwork, error) {
+	if mock.GetSettingGlobalNetworkFunc == nil {
+		panic("ClientMock.GetSettingGlobalNetworkFunc: method is nil but Client.GetSettingGlobalNetwork was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+	}{
+		Ctx:  ctx,
+		Site: site,
+	}
+	mock.lockGetSettingGlobalNetwork.Lock()
+	mock.calls.GetSettingGlobalNetwork = append(mock.calls.GetSettingGlobalNetwork, callInfo)
+	mock.lockGetSettingGlobalNetwork.Unlock()
+	return mock.GetSettingGlobalNetworkFunc(ctx, site)
+}
+
+// GetSettingGlobalNetworkCalls gets all the calls that were made to GetSettingGlobalNetwork.
+// Check the length with:
+//
+//	len(mockedClient.GetSettingGlobalNetworkCalls())
+func (mock *ClientMock) GetSettingGlobalNetworkCalls() []struct {
+	Ctx  context.Context
+	Site string
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+	}
+	mock.lockGetSettingGlobalNetwork.RLock()
+	calls = mock.calls.GetSettingGlobalNetwork
+	mock.lockGetSettingGlobalNetwork.RUnlock()
 	return calls
 }
 
@@ -15538,6 +15604,46 @@ func (mock *ClientMock) UpdateSettingGlobalNatCalls() []struct {
 	mock.lockUpdateSettingGlobalNat.RLock()
 	calls = mock.calls.UpdateSettingGlobalNat
 	mock.lockUpdateSettingGlobalNat.RUnlock()
+	return calls
+}
+
+// UpdateSettingGlobalNetwork calls UpdateSettingGlobalNetworkFunc.
+func (mock *ClientMock) UpdateSettingGlobalNetwork(ctx context.Context, site string, s *SettingGlobalNetwork) (*SettingGlobalNetwork, error) {
+	if mock.UpdateSettingGlobalNetworkFunc == nil {
+		panic("ClientMock.UpdateSettingGlobalNetworkFunc: method is nil but Client.UpdateSettingGlobalNetwork was just called")
+	}
+	callInfo := struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingGlobalNetwork
+	}{
+		Ctx:  ctx,
+		Site: site,
+		S:    s,
+	}
+	mock.lockUpdateSettingGlobalNetwork.Lock()
+	mock.calls.UpdateSettingGlobalNetwork = append(mock.calls.UpdateSettingGlobalNetwork, callInfo)
+	mock.lockUpdateSettingGlobalNetwork.Unlock()
+	return mock.UpdateSettingGlobalNetworkFunc(ctx, site, s)
+}
+
+// UpdateSettingGlobalNetworkCalls gets all the calls that were made to UpdateSettingGlobalNetwork.
+// Check the length with:
+//
+//	len(mockedClient.UpdateSettingGlobalNetworkCalls())
+func (mock *ClientMock) UpdateSettingGlobalNetworkCalls() []struct {
+	Ctx  context.Context
+	Site string
+	S    *SettingGlobalNetwork
+} {
+	var calls []struct {
+		Ctx  context.Context
+		Site string
+		S    *SettingGlobalNetwork
+	}
+	mock.lockUpdateSettingGlobalNetwork.RLock()
+	calls = mock.calls.UpdateSettingGlobalNetwork
+	mock.lockUpdateSettingGlobalNetwork.RUnlock()
 	return calls
 }
 
