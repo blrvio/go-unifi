@@ -553,6 +553,16 @@ customizations:
         DateEnd:
           fieldType: "string"
           customUnmarshalType: ""
+    NatRule:
+      # User-defined NAT rules (Policy Table > NAT). Predefined masquerade rows are
+      # synthesized by the UI from network/WAN config and are not served here.
+      resourcePath: "nat"
+      fields:
+        # The UI sends only the keys the filter_type uses.
+        FirewallGroupIDs:
+          omitEmpty: true
+        NetworkConfID:
+          omitEmpty: true
     DNSRecord:
       resourcePath: "static-dns"
     DescribedFeature:

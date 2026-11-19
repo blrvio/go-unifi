@@ -459,6 +459,25 @@ type InternalClient interface {
 
 	// ==== end of client methods for MediaFile resource ====
 
+	// ==== client methods for NatRule resource ====
+
+	// CreateNatRule creates a resource
+	CreateNatRule(ctx context.Context, site string, n *NatRule) (*NatRule, error)
+
+	// DeleteNatRule deletes a resource
+	DeleteNatRule(ctx context.Context, site string, id string) error
+
+	// GetNatRule retrieves a resource
+	GetNatRule(ctx context.Context, site string, id string) (*NatRule, error)
+
+	// ListNatRule lists the resources
+	ListNatRule(ctx context.Context, site string) ([]NatRule, error)
+
+	// UpdateNatRule updates a resource
+	UpdateNatRule(ctx context.Context, site string, n *NatRule) (*NatRule, error)
+
+	// ==== end of client methods for NatRule resource ====
+
 	// ==== client methods for Network resource ====
 
 	// CreateNetwork creates a resource
